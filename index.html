@@ -69,8 +69,13 @@ a{color:inherit;text-decoration:none}
   justify-content:space-between;padding:1.1rem var(--gut);
   transition:background .4s ease,border-color .4s ease,padding .4s ease;
   border-bottom:1px solid transparent}
+.nav::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(10,8,6,.5) 0%,rgba(10,8,6,0) 100%);
+  pointer-events:none;opacity:1;transition:opacity .4s ease}
+.nav.solid::before{opacity:0}
 .nav.solid{background:rgba(20,16,13,.86);backdrop-filter:blur(10px);
   border-bottom-color:var(--ink-3);padding-block:.85rem}
+.brand,.nav-links a,.nav-toggle{text-shadow:0 1px 8px rgba(0,0,0,.5)}
 .brand{font-family:"Fraunces",serif;font-size:1.45rem;letter-spacing:.02em;display:inline-flex;align-items:center}
 .brand-mark{height:34px;width:auto;display:block}
 .foot-mark{height:46px}
@@ -627,6 +632,13 @@ document.getElementById('backBtn').onclick=()=>{
   articleEl.classList.remove('show');homeEl.style.display='';
   document.getElementById('stories').scrollIntoView();
 };
+document.querySelectorAll('.brand').forEach(b=>{
+  b.addEventListener('click',()=>{
+    if(articleEl.classList.contains('show')){
+      articleEl.classList.remove('show');homeEl.style.display='';
+    }
+  });
+});
 
 /* --- newsletter (honest placeholder until you connect a provider) --- */
 document.getElementById('subBtn').onclick=()=>{
