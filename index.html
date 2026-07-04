@@ -235,8 +235,6 @@ a{color:inherit;text-decoration:none}
   padding:.9rem 2rem;font-family:"IBM Plex Mono",monospace;font-size:.76rem;letter-spacing:.14em;
   text-transform:uppercase;transition:background .25s}
 .btn-mail:hover{background:var(--bone)}
-.news-msg{margin-top:1rem;font-family:"IBM Plex Mono",monospace;font-size:.74rem;
-  letter-spacing:.1em;color:var(--ochre);min-height:1.2em}
 
 /* ---------- FOOTER ---------- */
 .foot{padding:clamp(3rem,6vw,5rem) var(--gut) 2.5rem;border-top:1px solid var(--ink-3)}
@@ -293,7 +291,7 @@ a{color:inherit;text-decoration:none}
     <video id="heroVideo" autoplay muted loop playsinline style="display:none"></video>
     <picture>
       <!-- To add a mobile portrait crop: <source media="(max-width: 768px)" srcset="images/hero-home-mobile.jpg"> -->
-      <img id="heroImg" src="images/pelicans-namibia.jpg" alt="" class="protect">
+      <img id="heroImg" src="images/pelicans-namibia.jpg" alt="Great white pelicans in flight over the water, Namibia" class="protect">
     </picture>
   </div>
   <div class="hero-inner reveal">
@@ -332,11 +330,9 @@ a{color:inherit;text-decoration:none}
     <div class="about-portrait reveal"><img src="images/alessandro-grand-canyon.jpg" alt="Alessandro Grieco at the Grand Canyon, at sunset" class="protect"></div>
     <div class="reveal">
       <span class="eyebrow">About</span>
-      <h2>I explore and photograph wild places, and I try to understand — and capture — the wonder they create.</h2>
-      <p>The wonder for nature came first, long before the camera. I grew up in <strong>Apulia</strong>, in the south of Italy, one of the most beautiful corners I know, in a family that taught me to look closely and stay curious about the natural world. I've come to believe that kind of attention is one of the richest experiences a life can hold.</p>
-      <p>The camera came later, as a way to freeze a feeling and carry it home: the animal before it notices you, the light an hour before anyone else is awake, the quiet at the edge of a place most people only pass through. I'm drawn to the patient subjects — wildlife and travel, the places where land meets water, earth meets sky, or the world goes quiet underwater. I started as a diver, and I still go looking for the encounter in the wild: an intimate search for something pristine, more than for the postcard.</p>
-      <p>What I find out there comes with an obligation. These are places under pressure, and to photograph them is also to bear a small witness for them — for the conservation of the habitats we share, and a safer future for the species that live in them.</p>
-      <p>I have a humanistic background, and I live now in <strong>Frankfurt am Main</strong>, Germany.</p>
+      <p>Wonder at the natural world came first, long before the camera. I grew up in <strong>Apulia</strong>, in the south of Italy, one of the most beautiful corners I know, in a family that taught me to look closely and stay curious about it — I've come to believe that kind of attention is one of the richest experiences a life can hold. I have a humanistic background, and years spent in the north of Italy, between the sea of Liguria and the peaks of the Dolomites, only deepened it: two loves, water and mountain, that still shape almost everything I shoot.</p>
+      <p>The camera came later, as a way to freeze a feeling and carry it home: the animal before it notices you, the light an hour before anyone else is awake, the quiet at the edge of a place most people only pass through. I'm drawn to subjects that reward patience and research — wildlife and travel, the places where land meets water, earth meets sky, or the world goes quiet underwater. I started as a diver, and I still go looking for the encounter in the wild: an intimate search for something pristine, more than for the postcard.</p>
+      <p>What I find out there comes with an obligation. These are places under pressure, and to photograph them is also to bear quiet witness for them — for the conservation of the habitats we share, and for a safer future for the species that live in them. It is also, I hope, something to pass on: the wonder itself, and a world still wild enough to hold it, handed down to my son the way mine was handed down to me.</p>
       <p class="label" style="margin-top:1.5rem"><span class="tick">◦</span>Alessandro Grieco</p>
     </div>
   </div>
@@ -346,7 +342,7 @@ a{color:inherit;text-decoration:none}
 <section class="manifesto block" id="prisho">
   <div class="wrap reveal">
     <span class="eyebrow">Why "Prisho"</span>
-    <p>There's a word in the dialect of my region that doesn't quite translate: <em>prisho</em> — or <em>priscio</em> — pronounced ˈprɪʃo. <span>It names a very particular feeling. A mix of happiness and energy in doing what you love. The enthusiasm and the joy together, the excitement of beginning something — or even just of looking forward to it. The butterfly in the belly that pushes you to act. The curiosity that sends you exploring, the ground where a passion takes its strength, the energy to throw yourself into something great. This whole site is about my prisho. Everything here only exists because of it.</span></p>
+    <p>There's a word in the dialect of my region that doesn't quite translate: <em>prisho</em> — or <em>priscio</em> — pronounced ˈprɪʃo. <span>It names a very particular feeling. A mix of happiness and energy in doing what you love. The enthusiasm and the joy together, the excitement of beginning something — or even just of looking forward to it. The butterflies in your stomach that push you to act. The curiosity that sends you exploring, the ground where a passion draws its strength, the energy to throw yourself into something great. This whole site is about my prisho. Everything here only exists because of it.</span></p>
   </div>
 </section>
 
@@ -452,6 +448,10 @@ const SITE = {
       label:'40°N 8°E · Bosa, Sardinia, Italy',
       title:'The vultures of Bosa',
       dek:'On the road to Bosa, a group of griffon vultures cleaning a carcass — a scene I thought belonged to an African plain, not to Italy.' },
+    { id:'mauritius', src:'images/Mauritius/01102022-_DSC6171-ARW_DxO_DeepPRIME.jpg',
+      label:'20°S 57°E · Mauritius, Indian Ocean',
+      title:'The green jewel',
+      dek:'Beyond the postcard beaches, a small island holds some of the rarest animals on earth — brought back, against every odd, from the edge of extinction.' },
   ],
   galleries: {
     Travel: [
@@ -636,8 +636,28 @@ const SITE = {
         {type:'box',kind:'fieldnotes',heading:'Field notes',text:'The reliable area for griffons is the stretch of west coast between Bosa and Alghero, where the road follows the sea cliffs — the Bosa–Alghero coastal road is one of the most beautiful drives in Italy regardless of whether you see a vulture. They are most active around mid-morning, riding the thermals as the land heats up; a carcass on the ground will draw a crowd quickly. Bring a long lens but do not expect to need it as much as you think — they can be remarkably close. Combine the wildlife with the landscape: the granite coast around Bosa and the interior hills are extraordinary, and the light at the end of the day, raking across the dry grass and the granite, is reason enough to be there.'},
       ],
     },
+    mauritius: {
+      label:'20°S 57°E · Mauritius, Indian Ocean',
+      title:'The green jewel',
+      heroSrc:'images/Mauritius/01102022-_DSC6171-ARW_DxO_DeepPRIME.jpg',
+      blocks:[
+        {type:'p',lead:true,text:'Mauritius is one of the gems set into that jewel which is the Indian Ocean. If the Maldives are a sapphire — the rarest and deepest blue — then Mauritius is an emerald: green, layered, more complicated the closer you look. The postcard beaches and the impossible colours of the sea would already be reason enough to come. But push past them, beyond the lagoon, and you find an unexpected richness on almost every axis at once: a landscape of hills and small mountains, breathtaking views over the interior and the reef, forests and waterfalls, extravagant gardens, and a fauna that is entirely its own — much of it found nowhere else on earth.'},
+        {type:'figure',wide:true,src:'images/Mauritius/05102022-DSC00774-Migliorato-NR.jpg',label:'Mauritius · the lagoon and the reef, seen from the interior heights'},
+        {type:'p',text:'That fauna carries a particular weight here, because Mauritius is where the word extinct was, in a sense, invented — this is the island of the dodo, the animal that became the global shorthand for a species wiped out by human arrival. But the island also holds one of the most hopeful conservation stories anywhere. On Île aux Aigrettes, a small islet restored to something like its original state, you get a narrow glimpse into an ancient world — perhaps lost, perhaps still preserved and capable of returning, demonstrating all the resilience of nature. The pink pigeon is the emblem of that resilience: reduced to around ten birds in the wild in the 1990s, and brought back, through sheer stubborn conservation work, to several hundred. To see one on a branch, calm and unbothered, is to look at an animal that statistically should not exist.'},
+        {type:'p',text:'The same small island holds two more survivors most visitors never hear of. The Telfair\\u2019s skink — a heavy-bodied, handsome lizard endemic to Mauritius — was wiped out on the mainland entirely by introduced rats and cats, and clung on only on a few offshore islets before conservationists began reintroducing it. And the Aldabra giant tortoises that amble across Île aux Aigrettes today are not native to Mauritius at all; they were brought in from Aldabra in the Seychelles as ecological stand-ins for the giant tortoises Mauritius lost completely, doing the same slow work of seed dispersal and grazing the original tortoises once did. Nothing here is quite what it first appears — a lizard given back its island, a tortoise standing in for one that no longer exists.'},
+        {type:'figure',src:'images/Mauritius/01102022-DSC09882-Migliorato-NR.jpg',label:'Île aux Aigrettes · an Aldabra giant tortoise, standing in for a species long gone'},
+        {type:'figure',src:'images/Mauritius/01102022-DSC09926-Migliorato-NR.jpg',label:'Île aux Aigrettes · a Telfair\\u2019s skink, once wiped from the mainland entirely'},
+        {type:'p',text:'There are endemic day geckos here too, electric green marked with red and turquoise, and the flying foxes are simply part of the everyday landscape — so thoroughly urbanised that you see them hanging in fruit trees at close range, or crossing the evening sky over the towns, enormous and ordinary at once.'},
+        {type:'figure',src:'images/Mauritius/02102022-DSC00217-Migliorato-NR.jpg',label:'An ornate day gecko, endemic to Mauritius, electric green and turquoise'},
+        {type:'figure',src:'images/Mauritius/06102022-DSC01695-Migliorato-NR.jpg',label:'A Mauritius flying fox, hanging in a flowering tree at close range'},
+        {type:'quote',text:'Push past the postcard, beyond the lagoon, and Mauritius reveals itself: an emerald, green and layered and more complicated the closer you look.'},
+        {type:'p',text:'The sea holds its own inventory. Beyond the reef, in the deep blue, live great cetaceans: resident sperm whales year-round off the west coast, and humpback whales that arrive each austral winter, between roughly June and October, to give birth and nurse their calves in the calm warmth of the western lagoon while the males compete and sing. There are resident pods of spinner and bottlenose dolphins. Mauritius, for these animals, is a nursery and a sanctuary — one the island now protects with some of the strictest marine mammal regulations anywhere, after decades of tour boats getting too close for the animals\\u2019 own good.'},
+        {type:'p',text:'And then there is the other thing that makes Mauritius what it is — which is not natural at all, but human. The island\\u2019s history is a difficult one: colonialism, slavery, indenture, deportation and exploitation, with consequences that reach into the present. And yet out of that painful history came an astonishing cultural richness, which — alongside the natural beauty — is the single most striking thing about the place. Cultures live side by side here that elsewhere keep their distance: Indo-Mauritian, the largest group by far, Hindu and Muslim, descended from the indentured labourers brought from India after the abolition of slavery; Creole, descended from enslaved Africans and Malagasy; Sino-Mauritian; Franco-Mauritian. To walk through the streets of a Mauritian village is to take a small trip around the world in a few steps, and to understand how much strong, distinct cultural identity can coexist — without conflict — in one rich and multicoloured kaleidoscope of folklore, belief, art and habit. It is an extraordinary example of living together.'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'Mauritius is the island where extinction became a symbol: the dodo, flightless and unafraid, was gone within a century of humans arriving. That history makes what is happening now unusually significant. The Mauritian Wildlife Foundation and its partners have pulled several endemic species back from the very edge — the pink pigeon (down to around 10 wild birds in 1990, now several hundred), the Mauritius kestrel (down to 4 known individuals in 1974, one of the rarest birds ever recorded, now in the hundreds), the echo parakeet, and the Telfair\\u2019s skink among them — largely through the painstaking restoration of offshore islets like Île aux Aigrettes and Round Island, clearing invasive predators and replanting native forest. The pressures remain real: less than 2% of the island\\u2019s original native forest survives, invasive species are everywhere, and the coral reefs face the same thermal stress affecting the whole Indian Ocean. But Mauritius is, improbably, one of the places that proves species can be brought back — that extinction is not always the only ending.'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'Île aux Aigrettes, off the southeast coast near Mahébourg, is the essential visit for the endemic wildlife — pink pigeons, giant tortoises, Telfair\\u2019s skinks, day geckos — on guided tours run by the Mauritian Wildlife Foundation, whose fees fund the conservation directly. For the interior, Black River Gorges National Park holds the last native forest and the best hiking, with viewpoints over the whole southwest and a real chance of the Mauritius kestrel or echo parakeet. Whale and dolphin watching runs off the west coast (Tamarin, Black River, Le Morne); swimming with whales has been illegal in Mauritius since 2020, and reputable dolphin operators hold a Tourism Authority certificate and keep their distance. Flying foxes are visible almost anywhere at dusk. And leave time for the villages and markets — the cultural life of the island is not a sidebar to the nature, but its equal.'},
+      ],
+    },
   },
-  newsletterProvider: '', // ← paste your Buttondown/Substack/Mailchimp embed URL here to make it live
   /* Optional: put a short looping video in /images and put its path here to use
      it as the home hero instead of the static photo above. Leave empty string
      to keep using the photo. Keep the clip short, muted, no dialogue needed —
@@ -699,7 +719,7 @@ const storyList=document.getElementById('storyList');
 SITE.stories.forEach((s,i)=>{
   const d=document.createElement('div');d.className='story reveal';d.dataset.id=s.id;
   d.style.transitionDelay=(i*70)+'ms';
-  d.innerHTML=`<div class="story-media"><img src="${imgSrc(s,1200,900)}" alt="" class="protect"></div>
+  d.innerHTML=`<div class="story-media"><img src="${imgSrc(s,1200,900)}" alt="${s.title} — ${s.label}" class="protect" loading="lazy"></div>
     <div class="story-body">
       <span class="label"><span class="tick">◦</span>${s.label}</span>
       <h3>${s.title}</h3><p>${s.dek}</p>
@@ -724,7 +744,7 @@ function renderGrid(cat){
   flat.forEach((g,idx)=>{
     const f=document.createElement('figure');f.classList.add('reveal');
     f.style.transitionDelay=((idx%3)*90)+'ms';
-    f.innerHTML=`<img src="${imgSrc(g,900,Math.round(700+(seedNum(g.ph||g.src||'x')%400)))}" alt="" class="protect">
+    f.innerHTML=`<img src="${imgSrc(g,900,Math.round(700+(seedNum(g.ph||g.src||'x')%400)))}" alt="${g.label||''}" class="protect" loading="lazy">
       <figcaption class="label"><span class="tick">◦</span>${g.label}</figcaption>`;
     f.onclick=()=>openLb(idx,cat);
     gridEl.appendChild(f);
@@ -738,7 +758,7 @@ const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),
       lbCap=document.getElementById('lbCap');let lbList=[],lbI=0;
 function openLb(i,cat){lbList=SITE.galleries[cat];lbI=i;showLb();lb.classList.add('open');
   document.body.style.overflow='hidden';}
-function showLb(){const g=lbList[lbI];lbImg.src=imgSrc(g,1600,1200);
+function showLb(){const g=lbList[lbI];lbImg.src=imgSrc(g,1600,1200);lbImg.alt=g.label||'';
   lbCap.innerHTML=`<span class="tick">◦</span>${g.label}`;}
 function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
 document.getElementById('lbClose').onclick=closeLb;
@@ -749,15 +769,17 @@ document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return
   if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')document.getElementById('lbNext').click();
   if(e.key==='ArrowLeft')document.getElementById('lbPrev').click();});
 
-/* --- article view --- */
+/* --- article view + hash routing --- */
 const articleEl=document.getElementById('article'),homeEl=document.getElementById('home');
-function openArticle(id){
-  const a=(SITE.articles && SITE.articles[id]) || (SITE.articles && Object.values(SITE.articles)[0]);
-  if(!a) return; // no essay written yet for this story
+
+function renderArticle(id){
+  const a = SITE.articles && SITE.articles[id];
+  if(!a) return false;
   document.getElementById('artLabel').innerHTML=`<span class="tick">◦</span>${a.label}`;
   document.getElementById('artTitle').textContent=a.title;
   const heroFull = a.heroSrc ? a.heroSrc : imgSrc({ph:a.heroPh},1800,1100);
-  document.querySelector('.art-hero img').src = heroFull;
+  const heroImg = document.querySelector('.art-hero img');
+  heroImg.src = heroFull; heroImg.alt = a.title + ' \u2014 ' + a.label;
   const artHeroMobile = document.getElementById('artHeroMobileSrc');
   if(a.heroSrcMobile){ artHeroMobile.srcset = a.heroSrcMobile; }
   else { artHeroMobile.removeAttribute('srcset'); }
@@ -766,25 +788,52 @@ function openArticle(id){
     if(bk.type==='p'){const p=document.createElement('p');if(bk.lead)p.className='lead';p.textContent=bk.text;body.appendChild(p);}
     if(bk.type==='quote'){const q=document.createElement('p');q.className='pullquote';q.textContent=bk.text;body.appendChild(q);}
     if(bk.type==='figure'){const f=document.createElement('figure');f.className='art-figure'+(bk.wide?' wide':'');
-      f.innerHTML=`<img src="${imgSrc(bk,1400,1000)}" alt="" class="protect">
+      f.innerHTML=`<img src="${imgSrc(bk,1400,1000)}" alt="${bk.label||''}" class="protect" loading="lazy">
         <figcaption class="label"><span class="tick">◦</span>${bk.label}</figcaption>`;body.appendChild(f);}
     if(bk.type==='box'){const d=document.createElement('aside');d.className='art-box'+(bk.kind?' '+bk.kind:'');
       d.innerHTML=`<span class="label"><span class="tick">◦</span>${bk.heading}</span><p>${bk.text}</p>`;body.appendChild(d);}
   });
   homeEl.style.display='none';articleEl.classList.add('show');
   window.scrollTo(0,0);protectImages();
+  return true;
 }
-document.getElementById('backBtn').onclick=()=>{
+
+function showHome(scrollToStories){
   articleEl.classList.remove('show');homeEl.style.display='';
-  document.getElementById('stories').scrollIntoView();
+  if(scrollToStories){const st=document.getElementById('stories');if(st)st.scrollIntoView();}
+}
+
+function route(){
+  const m = location.hash.match(/^#\/story\/([a-z0-9-]+)$/i);
+  if(m && renderArticle(m[1])) return;
+  showHome(false);
+}
+window.addEventListener('hashchange',route);
+
+function openArticle(id){
+  if(location.hash === '#/story/'+id){ route(); }
+  else { location.hash = '#/story/'+id; }
+}
+
+document.getElementById('backBtn').onclick=()=>{
+  history.pushState(null,'',location.pathname+location.search);
+  showHome(true);
 };
 document.querySelectorAll('.brand').forEach(b=>{
   b.addEventListener('click',()=>{
     if(articleEl.classList.contains('show')){
-      articleEl.classList.remove('show');homeEl.style.display='';
+      history.pushState(null,'',location.pathname+location.search);
+      showHome(false);
     }
   });
 });
+document.querySelectorAll('#navLinks a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',()=>{
+    if(articleEl.classList.contains('show')){ showHome(false); }
+  });
+});
+
+route();
 
 /* --- contact link is a plain mailto --- */
 
@@ -804,7 +853,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 /* --- light image protection (a deterrent, not a lock — see notes) --- */
 function protectImages(){document.querySelectorAll('img.protect, .protect img').forEach(i=>{i.draggable=false;});}
 protectImages();
-document.addEventListener('contextmenu',e=>{if(e.target.closest('.protect'))e.preventDefault();});
+
 
 /* --- footer year --- */
 document.getElementById('copyright').textContent='© '+new Date().getFullYear()+' Prisho · prisho.org';
