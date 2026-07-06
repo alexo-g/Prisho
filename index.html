@@ -75,6 +75,7 @@ a{color:inherit;text-decoration:none}
 .nav.solid::before{opacity:0}
 .nav.solid{background:rgba(20,16,13,.86);backdrop-filter:blur(10px);
   border-bottom-color:var(--ink-3);padding-block:.85rem}
+.nav.menu-open{backdrop-filter:none}
 .brand,.nav-links a,.nav-toggle{text-shadow:0 1px 8px rgba(0,0,0,.5)}
 .brand{font-family:"Fraunces",serif;font-size:1.45rem;letter-spacing:.02em;display:inline-flex;align-items:center}
 .brand-mark{height:34px;width:auto;display:block}
@@ -147,7 +148,7 @@ a{color:inherit;text-decoration:none}
 .story:hover .story-more .arr{transform:translateX(5px)}
 
 /* ---------- PORTFOLIO ---------- */
-.portfolio{background:var(--ink-2)}
+.portfolio{background:var(--ink-2);margin-bottom:-1px}
 .tabs{display:flex;gap:1.6rem;margin-bottom:2rem}
 .tab{background:none;border:0;cursor:pointer;padding:0 0 .4rem;
   font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.16em;
@@ -185,7 +186,7 @@ a{color:inherit;text-decoration:none}
 #article.show{display:block}
 .art-hero{position:relative;min-height:78svh;display:flex;align-items:flex-end;
   padding:0 var(--gut) clamp(2.5rem,6vw,5rem)}
-.art-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.art-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;object-position:var(--hero-pos,50% 50%)}
 .art-hero::after{content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(20,16,13,.3),rgba(20,16,13,.9))}
 .art-hero .wrap{position:relative;z-index:2}
@@ -212,7 +213,7 @@ a{color:inherit;text-decoration:none}
 .art-box.conservation .label{color:var(--ochre)}
 .art-box.fieldnotes{border-left:3px solid var(--teal)}
 .art-box.fieldnotes .label{color:var(--teal)}
-.back{display:inline-flex;align-items:center;gap:.6em;
+.back{display:inline-flex;align-items:center;gap:.6em;cursor:pointer;
   font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.14em;
   text-transform:uppercase;color:var(--ochre);margin-bottom:1rem}
 
@@ -499,11 +500,14 @@ const SITE = {
       heroSrc:'images/jaguar-roar-pantanal.jpg',
       blocks:[
         {type:'p',lead:true,text:'As wildlife lovers, we found here our promised land. The biggest wetland on earth \u2014 more than two hundred thousand square kilometres of rivers, lagoons and flooded forest \u2014 and the realm of its majesty: the jaguar, the king of the Americas.'},
-        {type:'p',text:'You enter the Pantanal along the Transpantaneira, a single dirt road that runs straight into the wetland, bridge after wooden bridge, each one a small theatre of its own. But to drive it is to cross into another world \u2014 a place so dense with life it is genuinely difficult to believe, growing wilder with every bridge you cross. Caimans stacked along the banks like driftwood, storks and herons, capybaras grazing in families, and \u2014 if you are lucky \u2014 a tapir crossing ahead of you, or the giant anteaters, which we saw many times, including the small ones I could not stop photographing. You wake every morning to the parrots; we had two hyacinth macaws, a vast electric blue, crossing the sky in pairs above the lodge. You spend your days here surrounded constantly by dozens of species at once: walking the land on horseback, sliding in a rowing boat down what passes for a river between the trees, always with animals on every side. And all of it on ground that, for months of the year, lies completely underwater.'},
+        {type:'p',text:'You enter the Pantanal along the Transpantaneira, a single dirt road that runs straight into the wetland, bridge after wooden bridge, each one a small theatre of its own. But to drive it is to cross into another world \u2014 a place so dense with life it is genuinely difficult to believe, growing wilder with every bridge you cross. Caimans stacked along the banks like driftwood, storks and herons, capybaras grazing in families, and \u2014 if you are lucky \u2014 a tapir crossing ahead of you, or the giant anteaters, which we saw many times, including the small ones I could not stop photographing. And once, at dusk, right at the edge of the fazenda itself, something rarer than anything the river gave us: a maned wolf, slender and elegant, fox-red and furtive, crossing the open ground far off and gone again before we had properly understood what we were looking at. You wake every morning to the parrots; we had two hyacinth macaws, a vast electric blue, crossing the sky in pairs above the fazenda. You spend your days here surrounded constantly by dozens of species at once: walking the land on horseback, sliding in a rowing boat down what passes for a river between the trees, always with animals on every side. And all of it on ground that, for months of the year, lies completely underwater.'},
         {type:'figure',src:'images/Pantanal/21072019-DSC09666-Migliorato-NR.jpg',label:'Pantanal \u00b7 a giant anteater along the Transpantaneira'},
+        {type:'figure',src:'images/Pantanal/21072019-DSC09755.jpg',label:'A maned wolf, seen once at dusk at the edge of the fazenda'},
         {type:'figure',src:'images/Pantanal/24072019-DSC02714.jpg',label:'Pantanal \u00b7 a pair of hyacinth macaws, electric blue against the canopy'},
         {type:'p',text:'Porto Jofre is the frontier. It sits at the very end of the Transpantaneira \u2014 the edge of civilisation and of humanity, made of a few low wooden houses. Beyond it there is no more road, and no more us: only the kingdom of the jaguar.'},
         {type:'p',text:'You go out onto the water and the river becomes a stage. You drift surrounded by hundreds of caimans lying with their jaws open to the sun, by capybaras, by giant otters \u2014 noisy, restless, endlessly curious. And then the jaguar appears, but never all at once. First the vegetation moves without showing anything, a presence that does not yet declare itself. Then the gaze \u2014 that powerful, level stare from inside the green. And only then the animal itself, emerging in full, with all its force and presence: powerful, elegant, completely sovereign. Over a few days we saw nine of them \u2014 nine \u2014 and every single one stopped something in us. We watched one walk the sand of a riverbank like a stage, slip into the water, and \u2014 curious \u2014 come terribly close to the boats. We were lucky enough to see a courting pair. There is a theatrical royalty to the way a jaguar reveals itself that no photograph fully holds.'},
+        {type:'figure',src:'images/Pantanal/23072019-DSC02113.jpg',label:'Caimans on the riverbank, jaws open to the sun'},
+        {type:'figure',src:'images/Pantanal/23072019-DSC01891-Migliorato-NR.jpg',label:'A jaguar, walking a fallen log like a stage of its own'},
         {type:'quote',text:'First the vegetation moves without showing anything \u2014 a presence that does not yet declare itself. Then the gaze. And only then the animal, in full: powerful, elegant, completely sovereign.'},
         {type:'figure',wide:true,src:'images/pantanal-sunset.jpg',label:'Last light over the wetland, near Porto Jofre'},
         {type:'p',text:'What stays with me is not only the jaguars, though nine sightings is a number I still find hard to believe. It is the accumulation \u2014 the caimans, the giant otters, the hyacinth macaws crossing the sky in pairs, the heat, the smell of the river, the sheer abundance of a place that simply has not been emptied out yet, the way so much of the world has been. A richness of life, and a specificity of fauna and flora, that leave this place carved into memory.'},
@@ -518,13 +522,22 @@ const SITE = {
       heroSrc:'images/monument-valley.jpg',
       blocks:[
         {type:'p',lead:true,text:'We drove it as a ring — out of the Grand Canyon at dawn, down through Monument Valley, into the slot canyons at Page, up onto the cold rim of Bryce, and back down through the fire-coloured dunes of Valley of Fire to the salt and the stars of Death Valley — and the strange thing about a ring is that it has no real beginning. Every place we stopped only confirmed what the place before it had already promised: the silence, the scale, the colour that doesn\'t look real until you are standing inside it.'},
-        {type:'p',text:'Monument Valley is the one everyone already knows, in some way, before they arrive — the two buttes, the Mittens, rising out of the valley floor like something a god left behind and forgot to take back. We got there for the sunrise and stood as the sun came up directly between them, a single white star bursting out of the gap in the rock, and a man on horseback crossed the valley floor far below us, small as a thought, the only human-sized thing in a landscape that otherwise refuses any sense of scale at all.'},
+        {type:'p',text:'Monument Valley is the one everyone already knows, in some way, before they arrive — the two buttes, the Mittens, rising out of the valley floor like something a god left behind and forgot to take back. We got there for the sunrise and stood as the sun came up directly between them, a single white star bursting out of the gap in the rock, and a Navajo guide on horseback crossed the valley floor far below us, small as a thought, the only human-sized thing in a landscape that otherwise refuses any sense of scale at all.'},
+        {type:'figure',src:'images/Monument_Valley/23092018-_DSC0487.jpg',label:'A rider crosses the valley floor below the Mittens, small as a thought'},
         {type:'figure',wide:true,src:'images/Antelope_Canyon/24092018-DSC09202.jpg',label:'Antelope Canyon · a single beam of light finding the canyon floor'},
         {type:'p',text:'Antelope Canyon is the opposite kind of wonder — not vast but intimate, a narrow throat of sandstone carved smooth by a thousand flash floods, the rock itself the colour of fire and lavender and old amber depending on where the light happens to touch it. A single beam fell from a crack far above us and landed on the canyon floor like something solid, and as we watched, sand began sifting down through it — light turned, suddenly and impossibly, into a physical thing you could almost reach out and hold. A little further on, at Horseshoe Bend, the canyon opens wide enough to swallow the whole river: the Colorado bending nearly back on its own course a thousand feet below the rim, and a single figure standing right at the edge of it for no reason except, I think, the same reason all of us were standing there — to feel small in front of something old.'},
+        {type:'figure',src:'images/Horseshoe/24092018-_DSC0899.jpg',label:'Horseshoe Bend · the Colorado bending nearly back on its own course'},
         {type:'quote',text:'At the edge of Horseshoe Bend you don\'t look down so much as feel the drop arrive in your stomach before your eyes have even finished believing it.'},
         {type:'p',text:'Bryce Canyon is gothic where the rest of the desert is operatic — thousands of hoodoos crowded together like a frozen crowd, pink and orange in the low light, with green pine pushing up between them in the one real patch of colour that isn\'t red or gold anywhere on this whole ring. On the edge of one hoodoo a single bristlecone pine has grown sideways out of almost nothing, roots exposed, gripping bare rock, ancient and stubborn and somehow more alive-looking than anything green has any right to be at that altitude. We came back after dark and watched the moon rise white and enormous over the amphitheatre of stone, and it was cold enough that our breath showed — the first real cold of the whole trip.'},
+        {type:'figure',wide:true,src:'images/Bryce_Canyon/25092018-DSC09806.jpg',label:'The amphitheatre at Bryce Canyon, hoodoos crowded to the horizon'},
         {type:'figure',src:'images/Bryce_Canyon/25092018-DSC09761.jpg',label:'Bryce Canyon · a bristlecone pine, rooted into bare rock at the edge of a hoodoo'},
+        {type:'figure',src:'images/Bryce_Canyon/25092018-DSC09941.jpg',label:'A single hoodoo, capped by a balanced pillar of harder rock'},
         {type:'p',text:'We closed the ring through Valley of Fire, the sandstone there folded into waves so smooth and so red they look almost liquid, as if the desert had caught itself mid-motion, and then on into Death Valley, where the road just keeps going down until you are below sea level and the heat presses on you like a hand. We waited there until full dark, out on the salt flats at Badwater, and the Milky Way came up over us thick and close and almost frightening in its size, a single seated figure silhouetted small against it — and that, more than any canyon or any rock formation, is the image I carry from the whole loop: how a desert this punishing, this dry, this hard on everything that tries to live in it, is also the one place on earth where you can see the most stars. Majesty and harshness, it turns out, are very often the same thing wearing two different faces.'},
+        {type:'figure',src:'images/Valley_of_Fire/26092018-DSC00514-2.jpg',label:'Valley of Fire · sandstone folded into waves of red and orange'},
+        {type:'figure',src:'images/Valley_of_Fire/26092018-DSC00548-2.jpg',label:'Valley of Fire · the rock smoothed as if caught mid-motion'},
+        {type:'figure',src:'images/Death_Valley/26092018-DSC00860.jpg',label:'Zabriskie Point, the badlands catching the last pink light before the salt flats'},
+        {type:'figure',src:'images/Death_Valley/27092018-DSC01631.jpg',label:'A lone figure on a ridge, dwarfed by the valley below at sunset'},
+        {type:'figure',src:'images/Death_Valley/27092018-DSC01703.jpg',label:'Turkey vultures, drying their wings on a dead tree at dusk'},
         {type:'figure',wide:true,src:'images/Death_Valley/27092018-DSC01594.jpg',label:'Death Valley · the Milky Way over the Badwater salt flats'},
         {type:'box',kind:'conservation',heading:'Why it matters',text:'The American Southwest is one of the most water-stressed regions on the continent — the Colorado River, the same river that carved the Grand Canyon and Horseshoe Bend over millions of years, now barely reaches its own delta most years, drained by the cities and farms that depend on it. Many of the dark places we stood under that night sky are disappearing too: light pollution from the booming desert-edge cities is creeping into national parks that have spent decades fighting to keep their skies dark enough to see the Milky Way at all. And the slot canyons — Antelope Canyon above all — are extraordinarily fragile, carved by flash floods that can arrive with no warning and that have, more than once, taken the lives of visitors and guides; this is sacred Navajo land, not simply a backdrop, and every visit happens only with a Navajo guide, on Navajo terms.'},
         {type:'box',kind:'fieldnotes',heading:'Field notes',text:'Best season: spring (March–May) or fall (September–October) — summer temperatures in Death Valley and Valley of Fire regularly cross 45°C. Antelope Canyon can only be visited with a licensed Navajo guide, booked in advance, and tripods are restricted on most tours — check current rules before you go. Sunrise is the only realistic time to see Monument Valley\'s Mittens without a parking lot of other photographers in your frame. Horseshoe Bend\'s overlook has no railing; the wind out there is real, and so is the drop. Bryce sits above 2,400m — pack a real layer for after dark, even in summer, if you want to wait for the stars.'},
@@ -553,6 +566,7 @@ const SITE = {
       label:'3°S 65°W · Mamirauá, Amazon, Brazil',
       title:'The flooded forest',
       heroSrc:'images/amazon-sunset.jpg',
+      heroFocus:'65% 20%',
       blocks:[
         {type:'p',lead:true,text:'To describe the Amazon fully takes more than one life — the richest ecosystem, the vastest forest, the highest concentration of living species on earth. Visiting it means touching one of the wildest places that still exists, while understanding, almost immediately, that what you will see in a lifetime is only the smallest part of what is there. At the heart of it, enclosed between the Rio Solimões and the Auati-Paraná, there is a place even more special: a flooded forest where the rivers rise twelve metres with each season, submerging the trees to their crowns — the Mamirauá Reserve, a UNESCO heritage site of thirty-five thousand square kilometres, where the water is both the threat and the life of everything inside it.'},
         {type:'p',text:'We woke before sunrise each day, and before we moved or spoke the forest was already speaking: a boiling of voices, an intense welcome to the new day, dominated by the howler monkeys marking their territories and their harems in the dark. When the light came through, it did something to the water we had not expected. The rivers here are so still, and so clear, and so flat, that the whole canopy above is reflected perfectly below — trees doubled, sky doubled, a bird crossing the gap doubled — and canoeing between them feels like sliding across ice, following the symmetric images of vegetation mirrored underneath you, the forest given back twice.'},
@@ -780,6 +794,7 @@ function renderArticle(id){
   const heroFull = a.heroSrc ? a.heroSrc : imgSrc({ph:a.heroPh},1800,1100);
   const heroImg = document.querySelector('.art-hero img');
   heroImg.src = heroFull; heroImg.alt = a.title + ' \u2014 ' + a.label;
+  heroImg.style.setProperty('--hero-pos', a.heroFocus || '50% 50%');
   const artHeroMobile = document.getElementById('artHeroMobileSrc');
   if(a.heroSrcMobile){ artHeroMobile.srcset = a.heroSrcMobile; }
   else { artHeroMobile.removeAttribute('srcset'); }
@@ -842,7 +857,8 @@ const nav=document.getElementById('nav');
 addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>40));
 const navLinks=document.getElementById('navLinks'),navToggle=document.getElementById('navToggle');
 navToggle.onclick=()=>{const o=navLinks.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded',o);navToggle.textContent=o?'Close':'Menu';};
+  navToggle.setAttribute('aria-expanded',o);navToggle.textContent=o?'Close':'Menu';
+  nav.classList.toggle('menu-open',o);};
 navLinks.querySelectorAll('a').forEach(a=>a.onclick=()=>{navLinks.classList.remove('open');
   navToggle.textContent='Menu';navToggle.setAttribute('aria-expanded','false');});
 
