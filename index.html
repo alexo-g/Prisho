@@ -135,7 +135,7 @@ a{color:inherit;text-decoration:none}
 .story:nth-child(even){grid-template-columns:1fr 1.25fr}
 .story:nth-child(even) .story-media{order:2}
 .story-media{position:relative;overflow:hidden;background:var(--ink-2)}
-.story-media img{width:100%;aspect-ratio:4/3;object-fit:cover;
+.story-media img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:var(--card-pos,50% 50%);
   transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
 .story:hover .story-media img{transform:scale(1.04)}
 .story-body h3{font-family:"Fraunces",serif;font-weight:400;
@@ -185,7 +185,8 @@ a{color:inherit;text-decoration:none}
 /* ---------- ARTICLE (photo essay) ---------- */
 #article{display:none}
 #article.show{display:block}
-.art-hero{position:relative;min-height:70svh;overflow:hidden}
+.art-hero{position:relative;min-height:var(--hero-min,70svh);max-height:85svh;overflow:hidden;
+  aspect-ratio:var(--hero-ratio,auto)}
 .art-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;object-position:var(--hero-pos,50% 50%)}
 .art-hero::after{content:"";position:absolute;inset:0;z-index:1;
   background:linear-gradient(180deg,rgba(20,16,13,.4) 0%,rgba(20,16,13,0) 22%)}
@@ -454,7 +455,7 @@ const SITE = {
       label:'40°N 8°E · Bosa, Sardinia, Italy',
       title:'The vultures of Bosa',
       dek:'On the road to Bosa, a group of griffon vultures cleaning a carcass — a scene I thought belonged to an African plain, not to Italy.' },
-    { id:'mauritius', src:'images/Mauritius/01102022-_DSC6171-ARW_DxO_DeepPRIME.jpg',
+    { id:'mauritius', src:'images/Mauritius/01102022-_DSC6171-ARW_DxO_DeepPRIME.jpg', cardFocus:'50% 20%',
       label:'20°S 57°E · Mauritius, Indian Ocean',
       title:'The green jewel',
       dek:'Beyond the postcard beaches, a small island holds some of the rarest animals on earth — brought back, against every odd, from the edge of extinction.' },
@@ -528,6 +529,7 @@ const SITE = {
       label:'36°N 114°W · American Southwest, USA',
       title:'A ring through the red desert',
       heroSrc:'images/monument-valley.jpg',
+      heroRatio:'1.878',
       blocks:[
         {type:'p',lead:true,text:'We drove it as a ring — out of the Grand Canyon at dawn, down through Monument Valley, into the slot canyons at Page, up onto the cold rim of Bryce, and back down through the fire-coloured dunes of Valley of Fire to the salt and the stars of Death Valley — and the strange thing about a ring is that it has no real beginning. Every place we stopped only confirmed what the place before it had already promised: the silence, the scale, the colour that doesn\'t look real until you are standing inside it.'},
         {type:'p',text:'Monument Valley is the one everyone already knows, in some way, before they arrive — the two buttes, the Mittens, rising out of the valley floor like something a god left behind and forgot to take back. We got there for the sunrise and stood as the sun came up directly between them, a single white star bursting out of the gap in the rock, and a Navajo guide on horseback crossed the valley floor far below us, small as a thought, the only human-sized thing in a landscape that otherwise refuses any sense of scale at all.'},
@@ -553,6 +555,7 @@ const SITE = {
       label:'37°N 119°W · Sierra Nevada & Pacific Coast, USA',
       title:'The green half of America',
       heroSrc:'images/29092018-DSC03387.jpg',
+      heroRatio:'1.500',
       blocks:[
         {type:'p',lead:true,text:'Half of America, it turns out, is red — and the other half, the half we drove into after the desert, is the deepest green I have ever stood inside. We came down out of the Sierra Nevada through a tunnel cut straight through granite, and on the other side the valley just opened, all at once, the way a held breath finally lets go: El Capitan rearing up on one side, Half Dome standing improbably square at the far end, a waterfall hanging thin and white in between, and every photograph I had ever seen of this place turned out to be true and somehow still not enough.'},
         {type:'p',text:'We caught Half Dome again at the end of the day, the granite gone the colour of a struck match, a pair of dead snags framing it on either side like the valley itself had built a window just for this. Below, the Merced River lay flat enough to double the whole scene, gold grass in the foreground, the mountain repeated underwater as if it needed saying twice. A Steller\'s jay sat watching us from a slab of bare rock, electric blue against all that grey stone, the one small loud thing in a place built at a scale that swallows sound.'},
@@ -592,6 +595,7 @@ const SITE = {
       label:'68°N 15°E · Lofoten, Norway',
       title:'Where morning never becomes day',
       heroSrc:'images/Lofoten/02012017-DSC00913.jpg',
+      heroRatio:'1.777',
       blocks:[
         {type:'p',lead:true,text:'During the two weeks of the arctic night, at noon, the sun tries in vain to overcome the horizon. Sunrise and sunset — the beginning and the end of the day — merge their colours into a single long golden event, and everything between them is light of a kind you do not find elsewhere on earth. Spiky, snow-covered mountains scatter across a flat, dense, silent sea between the islands; the sky and their reflections compete for the same space. The labyrinthine inlets chase each other through long fjords, and the placid glacial water mirrors and multiplies every shape, every colour, every landscape it receives — as if the beauty of these places was not enough, and the sea decided to say it twice.'},
         {type:'p',text:'We had come for the orcas. In winter, killer whale pods follow the herring into the fjords off Andøya — the northernmost point of the archipelago, the open door to the north Atlantic — and for a few weeks each year the water here holds the largest concentration of orcas on earth. We went out on a RIB in the open sea, dressed in thick neoprene drysuits, into cold grey water under a sky the colour of pewter. When the guide found the pod — adult females, a few calves, a male with a dorsal fin so tall it looked architectural — he said quietly to enter the water. I remember not thinking about the cold. The orcas were working the herring school below us, moving fast, their breath loud in the silence. Their strength, their curiosity, their beauty — and at one point a large female turned and looked directly at me with an eye as intelligent as any I have ever faced, before going back to her work.'},
@@ -644,6 +648,7 @@ const SITE = {
       label:'40°N 8°E · Bosa, Sardinia, Italy',
       title:'The vultures of Bosa',
       heroSrc:'images/Sardinia/_DSC2428.JPG',
+      heroRatio:'1.778',
       blocks:[
         {type:'p',lead:true,text:'Sardinia is not only the most beautiful sea in the world — though it is also that. The interior, the part most people never reach, has a richness and a density of beauty that has no equal: golden hills of dry grass rolling one into the next, rising and falling, showing and hiding the horizon with each curve of the road. We were driving toward Bosa, on the west coast, and I knew this was the right area to see griffon vultures — but the road kept climbing and dropping through those golden hills, and I had not seen a single one, not even high up, or at least had not recognised one. I had given up hope.'},
         {type:'p',text:'And then, past a curve, the landscape handed me something I thought you could only see on an African plain, not in Italy. Not griffons circling high overhead, but a group of them on the ground, cleaning the carcass of a sheep. They were closer than I had hoped to see them, more numerous than I had hoped, larger than I had believed, more vulture than I had imagined. In a moment, after the frenzy around the dead sheep, there was nothing left but bones — left for other raptors waiting their turn. And when the meal was finished, they flew off one after another, immense, climbing impossibly high.'},
@@ -739,7 +744,7 @@ const storyList=document.getElementById('storyList');
 SITE.stories.forEach((s,i)=>{
   const d=document.createElement('div');d.className='story reveal';d.dataset.id=s.id;
   d.style.transitionDelay=(i*70)+'ms';
-  d.innerHTML=`<div class="story-media"><img src="${imgSrc(s,1200,900)}" alt="${s.title} — ${s.label}" class="protect" loading="lazy"></div>
+  d.innerHTML=`<div class="story-media"><img src="${imgSrc(s,1200,900)}" alt="${s.title} — ${s.label}" class="protect" loading="lazy" style="--card-pos:${s.cardFocus||'50% 50%'}"></div>
     <div class="story-body">
       <span class="label"><span class="tick">◦</span>${s.label}</span>
       <h3>${s.title}</h3><p>${s.dek}</p>
@@ -799,8 +804,11 @@ function renderArticle(id){
   document.getElementById('artTitle').textContent=a.title;
   const heroFull = a.heroSrc ? a.heroSrc : imgSrc({ph:a.heroPh},1800,1100);
   const heroImg = document.querySelector('.art-hero img');
+  const heroBox = document.querySelector('.art-hero');
   heroImg.src = heroFull; heroImg.alt = a.title + ' \u2014 ' + a.label;
   heroImg.style.setProperty('--hero-pos', a.heroFocus || '50% 50%');
+  heroBox.style.setProperty('--hero-ratio', a.heroRatio || 'auto');
+  heroBox.style.setProperty('--hero-min', a.heroRatio ? '0px' : '70svh');
   const artHeroMobile = document.getElementById('artHeroMobileSrc');
   if(a.heroSrcMobile){ artHeroMobile.srcset = a.heroSrcMobile; }
   else { artHeroMobile.removeAttribute('srcset'); }
