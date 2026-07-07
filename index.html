@@ -15,11 +15,25 @@
      near the bottom (look for "EDIT YOUR CONTENT HERE").
      ============================================================ -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
+/* ---------- SELF-HOSTED FONTS (no external requests, GDPR-safe) ---------- */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:400;font-display:swap;
+  src:url('Fonts/fraunces-v38-latin/fraunces-v38-latin-regular.woff2') format('woff2')}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:500;font-display:swap;
+  src:url('Fonts/fraunces-v38-latin/fraunces-v38-latin-500.woff2') format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:400;font-display:swap;
+  src:url('Fonts/fraunces-v38-latin/fraunces-v38-latin-italic.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;
+  src:url('Fonts/ibm-plex-sans-v23-latin/ibm-plex-sans-v23-latin-regular.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;
+  src:url('Fonts/ibm-plex-sans-v23-latin/ibm-plex-sans-v23-latin-500.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:600;font-display:swap;
+  src:url('Fonts/ibm-plex-sans-v23-latin/ibm-plex-sans-v23-latin-600.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;
+  src:url('Fonts/ibm-plex-mono-v20-latin/ibm-plex-mono-v20-latin-regular.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;
+  src:url('Fonts/ibm-plex-mono-v20-latin/ibm-plex-mono-v20-latin-500.woff2') format('woff2')}
+
 /* ---------- TOKENS ---------- */
 :root{
   --ink:#1A130D;        /* warm dark ground, from photo analysis */
@@ -196,6 +210,15 @@ a{color:inherit;text-decoration:none}
   font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;max-width:18ch;margin-top:1rem;
   letter-spacing:-0.015em}
 .art-body{max-width:680px;margin-inline:auto;padding-inline:var(--gut)}
+.art-share{max-width:680px;margin-inline:auto;padding-inline:var(--gut);
+  margin-top:3rem;padding-top:2rem;border-top:1px solid var(--ink-3);
+  display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.art-share .share-label{font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sand-dim)}
+.art-share a,.art-share button{font-family:"IBM Plex Mono",monospace;font-size:.78rem;
+  letter-spacing:.06em;color:var(--ochre);background:none;border:0;cursor:pointer;
+  padding:0;text-decoration:none;transition:color .25s}
+.art-share a:hover,.art-share button:hover{color:var(--bone)}
 #article > .block{padding-top:clamp(1.2rem,3vw,2rem)}
 .art-body p{font-family:"Fraunces",serif;font-size:1.2rem;line-height:1.75;
   margin-block:1.4rem;color:#DCD4C6}
@@ -273,6 +296,9 @@ a{color:inherit;text-decoration:none}
   .reveal{opacity:1;transform:none}
 }
 </style>
+
+<!-- Umami Analytics — cookieless, no personal data, no consent banner required -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f8301a82-1525-480d-9e38-8164c2f042b9"></script>
 </head>
 <body>
 
@@ -381,6 +407,7 @@ a{color:inherit;text-decoration:none}
   </div>
   <div class="block">
     <div class="art-body" id="artBody"></div>
+    <div class="art-share" id="artShare"></div>
   </div>
 </article>
 
@@ -422,11 +449,11 @@ const SITE = {
     { id:'hebrides', src:'images/Ebridi/18082016-IMG_9547.jpg',
       label:'58°N 6°W · Outer Hebrides, Scotland',
       title:'Freediving with the basking shark',
-      dek:'Cold green water off the Isle of Coll, and a mouth as wide as a small city car sliding silently past.' },
+      dek:'From the bridge onto Skye to a night crossing off Coll \u2014 standing stones, driving rain, and a basking shark that passed close enough to touch, silent and enormous.' },
     { id:'pantanal', src:'images/jaguar-roar-pantanal.jpg',
       label:'17°S 56°W · Pantanal, Brazil',
       title:'The king of the Americas',
-      dek:'The biggest wetland on earth, and the realm of its majesty — the jaguar, found in the tall grass at last light.' },
+      dek:'The biggest wetland on earth, and the realm of the jaguar — found at last light in the tall grass along the riverbank, watched from the water.' },
     { id:'southwest', src:'images/Monument_Valley/24092018-_DSC0799-Prisho-4-3.jpg',
       label:'36°N 114°W · American Southwest, USA',
       title:'A ring through the red desert',
@@ -446,7 +473,7 @@ const SITE = {
     { id:'maldive', src:'images/Maldive_Deep_South/13032022-_DSC3256-ARW.jpg',
       label:'0°S 73°E · Fuvahmulah, Maldives',
       title:'The night the giant danced',
-      dek:'A night dive in the Maldives deep south — and a whale shark that appeared in the torch light, enormous and unhurried, and danced with the plankton.' },
+      dek:'A night dive in the Maldives deep south — and a whale shark that appeared in the torch beam, enormous and unhurried, dancing with the light.' },
     { id:'japan', src:'images/DSC01474.JPG',
       label:'36°N 138°E · Jigokudani, Nagano, Japan',
       title:'Where the macaques bathe',
@@ -823,6 +850,20 @@ function renderArticle(id){
     if(bk.type==='box'){const d=document.createElement('aside');d.className='art-box'+(bk.kind?' '+bk.kind:'');
       d.innerHTML=`<span class="label"><span class="tick">◦</span>${bk.heading}</span><p>${bk.text}</p>`;body.appendChild(d);}
   });
+  const shareUrl = encodeURIComponent(location.href);
+  const shareText = encodeURIComponent(a.title + ' — Prisho');
+  const shareBox = document.getElementById('artShare');
+  shareBox.innerHTML = `<span class="share-label">Share this essay</span>
+    <a href="https://wa.me/?text=${shareText}%20${shareUrl}" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}" target="_blank" rel="noopener">X</a>
+    <a href="mailto:?subject=${shareText}&body=${shareUrl}">Email</a>
+    <button type="button" id="copyLinkBtn">Copy link</button>`;
+  document.getElementById('copyLinkBtn').onclick = function(){
+    navigator.clipboard.writeText(location.href).then(()=>{
+      this.textContent = 'Copied!';
+      setTimeout(()=>{ this.textContent = 'Copy link'; }, 2000);
+    });
+  };
   homeEl.style.display='none';articleEl.classList.add('show');
   window.scrollTo(0,0);protectImages();
   return true;
