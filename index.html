@@ -54,6 +54,7 @@
 
 /* ---------- TOKENS ---------- */
 :root{
+  --app-vh:100vh; /* JS-computed stable viewport height, avoids jump in in-app browsers (Instagram, etc.) */
   --ink:#1A130D;        /* warm dark ground, from photo analysis */
   --ink-2:#231A12;      /* raised surface */
   --ink-3:#3A2C1F;      /* hairlines */
@@ -124,7 +125,7 @@ a{color:inherit;text-decoration:none}
   text-transform:uppercase;cursor:pointer}
 
 /* ---------- HERO ---------- */
-.hero{position:fixed;top:0;left:0;right:0;height:100svh;z-index:0;display:flex;align-items:flex-end;
+.hero{position:fixed;top:0;left:0;right:0;height:var(--app-vh);z-index:0;display:flex;align-items:flex-end;
   padding:0 var(--gut) clamp(3rem,7vw,6rem)}
 .hero.scrolled-past{position:absolute}
 .hero-img{position:absolute;inset:0;z-index:0}
@@ -158,7 +159,7 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- HOME SECTIONS SLIDE OVER THE FIXED HERO ---------- */
 #home > section{position:relative;z-index:1}
-#home > section:first-of-type{margin-top:100svh}
+#home > section:first-of-type{margin-top:var(--app-vh)}
 #stories,#about{background:var(--ink)}
 
 /* ---------- STORIES ---------- */
@@ -218,7 +219,7 @@ a{color:inherit;text-decoration:none}
 /* ---------- ARTICLE (photo essay) ---------- */
 #article{display:none}
 #article.show{display:block}
-.art-hero{position:relative;width:100%;min-height:var(--hero-min,70svh);max-height:85svh;overflow:hidden;
+.art-hero{position:relative;width:100%;min-height:var(--hero-min,calc(var(--app-vh) * 0.7));max-height:calc(var(--app-vh) * 0.85);overflow:hidden;
   aspect-ratio:var(--hero-ratio,auto)}
 .art-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;object-position:var(--hero-pos,50% 50%)}
 .art-hero::after{content:"";position:absolute;inset:0;z-index:1;
@@ -510,6 +511,11 @@ a{color:inherit;text-decoration:none}
 </footer>
 
 <script>
+(function(){
+  function setAppVH(){ document.documentElement.style.setProperty('--app-vh', window.innerHeight + 'px'); }
+  setAppVH();
+  window.addEventListener('orientationchange', setAppVH);
+})();
 /* ============================================================
    ▼▼▼  EDIT YOUR CONTENT HERE  ▼▼▼
    Everything you change lives in this one SITE object.
@@ -943,7 +949,7 @@ function renderArticle(id){
   heroImg.src = heroFull; heroImg.alt = a.title + ' \u2014 ' + a.label;
   heroImg.style.setProperty('--hero-pos', a.heroFocus || '50% 50%');
   heroBox.style.setProperty('--hero-ratio', a.heroRatio || 'auto');
-  heroBox.style.setProperty('--hero-min', a.heroRatio ? '0px' : '70svh');
+  heroBox.style.setProperty('--hero-min', a.heroRatio ? '0px' : 'calc(var(--app-vh) * 0.7)');
   const artHeroMobile = document.getElementById('artHeroMobileSrc');
   if(a.heroSrcMobile){ artHeroMobile.srcset = a.heroSrcMobile; }
   else { artHeroMobile.removeAttribute('srcset'); }
