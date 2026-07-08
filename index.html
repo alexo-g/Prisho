@@ -886,7 +886,6 @@ SITE.stories.forEach((s,i)=>{
       <h3>${s.title}</h3><p>${s.dek}</p>
       <span class="story-more">Read the essay <span class="arr">→</span></span>
     </div>`;
-  d.addEventListener('click',(e)=>{e.preventDefault();openArticle(s.id);});
   storyList.appendChild(d);
   io.observe(d);
 });
