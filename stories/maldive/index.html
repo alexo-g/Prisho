@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The night the giant danced — Prisho</title>
+<meta name="description" content="A night dive in the Maldives deep south — and a whale shark that appeared in the torch beam, enormous and unhurried, dancing with the light.">
+<link rel="canonical" href="https://prisho.org/stories/maldive/">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Prisho">
+<meta property="og:title" content="The night the giant danced — Prisho">
+<meta property="og:description" content="A night dive in the Maldives deep south — and a whale shark that appeared in the torch beam, enormous and unhurried, dancing with the light.">
+<meta property="og:url" content="https://prisho.org/stories/maldive/">
+<meta property="og:image" content="https://prisho.org/images/Maldive_Deep_South/13032022-_DSC3256-ARW.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The night the giant danced — Prisho">
+<meta name="twitter:description" content="A night dive in the Maldives deep south — and a whale shark that appeared in the torch beam, enormous and unhurried, dancing with the light.">
+<meta name="twitter:image" content="https://prisho.org/images/Maldive_Deep_South/13032022-_DSC3256-ARW.jpg">
+
+<style>
+
+/* ---------- SELF-HOSTED FONTS (no external requests, GDPR-safe) ---------- */
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:400;font-display:swap;
+  src:url('Fonts/fraunces-v38-latin/fraunces-v38-latin-regular.woff2') format('woff2')}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:500;font-display:swap;
+  src:url('Fonts/fraunces-v38-latin/fraunces-v38-latin-500.woff2') format('woff2')}
+@font-face{font-family:'Fraunces';font-style:italic;font-weight:400;font-display:swap;
+  src:url('Fonts/fraunces-v38-latin/fraunces-v38-latin-italic.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:400;font-display:swap;
+  src:url('Fonts/ibm-plex-sans-v23-latin/ibm-plex-sans-v23-latin-regular.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:500;font-display:swap;
+  src:url('Fonts/ibm-plex-sans-v23-latin/ibm-plex-sans-v23-latin-500.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-style:normal;font-weight:600;font-display:swap;
+  src:url('Fonts/ibm-plex-sans-v23-latin/ibm-plex-sans-v23-latin-600.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:400;font-display:swap;
+  src:url('Fonts/ibm-plex-mono-v20-latin/ibm-plex-mono-v20-latin-regular.woff2') format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-style:normal;font-weight:500;font-display:swap;
+  src:url('Fonts/ibm-plex-mono-v20-latin/ibm-plex-mono-v20-latin-500.woff2') format('woff2')}
+
+/* ---------- TOKENS ---------- */
+:root{
+  --app-vh:100vh; /* JS-computed stable viewport height, avoids jump in in-app browsers (Instagram, etc.) */
+  --ink:#1A130D;        /* warm dark ground, from photo analysis */
+  --ink-2:#231A12;      /* raised surface */
+  --ink-3:#3A2C1F;      /* hairlines */
+  --bone:#F1E6D5;       /* primary text */
+  --sand:#B0967C;       /* muted text */
+  --sand-dim:#8A7560;   /* faint text */
+  --ochre:#D3793D;      /* signature accent, from photos */
+  --ochre-soft:#A35F2F;
+  --teal:#6FA6AE;       /* rare second accent: water */
+  --maxw:1180px;
+  --gut:clamp(1.25rem,5vw,4rem);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overscroll-behavior-y:none}
+body{
+  background:var(--ink);color:var(--bone);
+  font-family:"IBM Plex Sans",system-ui,sans-serif;
+  font-size:clamp(1rem,0.6vw+0.9rem,1.0625rem);
+  line-height:1.7;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;overscroll-behavior-y:none;
+}
+img{display:block;max-width:100%;image-orientation:from-image}
+a{color:inherit;text-decoration:none}
+
+/* ---------- TYPE ROLES ---------- */
+.display{font-family:"Fraunces",Georgia,serif;font-weight:400;line-height:1.04;letter-spacing:-0.01em}
+.serif{font-family:"Fraunces",Georgia,serif}
+.label{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:500;
+  text-transform:uppercase;letter-spacing:.18em;color:var(--sand);
+  text-shadow:0 1px 12px rgba(0,0,0,.6);
+}
+.label .tick{color:var(--ochre);margin-right:.55em}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--ochre)}
+
+/* ---------- LAYOUT HELPERS ---------- */
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.block{padding-block:clamp(4.5rem,9vw,8rem)}
+.hairline{border:0;border-top:1px solid var(--ink-3)}
+.reveal{opacity:0;transform:translateY(24px) scale(.97);transition:opacity .8s cubic-bezier(.16,.8,.4,1),transform .8s cubic-bezier(.16,.8,.4,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;
+  justify-content:space-between;padding:1.1rem var(--gut);
+  transition:background .4s ease,border-color .4s ease,padding .4s ease;
+  border-bottom:1px solid transparent}
+.nav::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(10,8,6,.5) 0%,rgba(10,8,6,0) 100%);
+  pointer-events:none;opacity:1;transition:opacity .4s ease}
+.nav.solid::before{opacity:0}
+.nav.solid{background:rgba(20,16,13,.86);backdrop-filter:blur(10px);
+  border-bottom-color:var(--ink-3);padding-block:.85rem}
+.nav.menu-open{backdrop-filter:none}
+.brand,.nav-links a,.nav-toggle{text-shadow:0 1px 8px rgba(0,0,0,.5)}
+.brand{font-family:"Fraunces",serif;font-size:1.45rem;letter-spacing:.02em;display:inline-flex;align-items:center}
+.brand-mark{height:34px;width:auto;display:block}
+.foot-mark{height:46px}
+.brand b{font-weight:500}
+.brand .dot{color:var(--ochre)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--sand);transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--bone)}
+.nav-toggle{display:none;background:none;border:0;color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.16em;
+  text-transform:uppercase;cursor:pointer}
+
+/* ---------- HERO ---------- */
+.hero{position:fixed;top:0;left:0;right:0;height:var(--app-vh);z-index:0;display:flex;align-items:flex-end;
+  padding:0 var(--gut) clamp(3rem,7vw,6rem)}
+.hero.scrolled-past{position:absolute}
+.hero-img{position:absolute;inset:0;z-index:0}
+.hero-img img,.hero-img video{width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(20,16,13,.55) 0%,rgba(20,16,13,.1) 35%,rgba(20,16,13,.85) 100%)}
+.hero-inner{max-width:880px;position:relative;z-index:2}
+.hero h1{font-family:"Fraunces",Georgia,serif;font-weight:400;
+  font-size:clamp(2rem,4.6vw,4.2rem);line-height:1.08;letter-spacing:-0.01em;
+  margin:1.1rem 0 1.4rem;text-wrap:balance;max-width:18ch}
+.hero h1 em{font-style:italic;color:var(--ochre)}
+.scrollcue{position:absolute;bottom:1.5rem;right:var(--gut);writing-mode:vertical-rl;z-index:2;
+  font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--sand)}
+.scrollcue::after{content:"";display:block;width:1px;height:46px;background:var(--ochre);
+  margin:.8rem auto 0;animation:drip 2.4s ease-in-out infinite}
+@keyframes drip{0%,100%{transform:scaleY(.4);opacity:.4;transform-origin:top}50%{transform:scaleY(1);opacity:1;transform-origin:top}}
+
+/* ---------- MANIFESTO ---------- */
+.manifesto{background:var(--ink-2)}
+.manifesto .wrap{display:grid;grid-template-columns:0.8fr 1.6fr;gap:clamp(1.5rem,5vw,5rem);align-items:start}
+.manifesto p{font-family:"Fraunces",serif;font-size:clamp(1.35rem,2.2vw,1.85rem);
+  line-height:1.5;color:var(--bone)}
+.manifesto p span{color:var(--sand)}
+
+/* ---------- SECTION HEAD ---------- */
+.shead{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;
+  margin-bottom:clamp(2rem,4vw,3rem);flex-wrap:wrap}
+.shead h2{font-family:"Fraunces",serif;font-weight:400;
+  font-size:clamp(1.9rem,3.4vw,2.8rem);letter-spacing:-0.01em}
+
+/* ---------- HOME SECTIONS SLIDE OVER THE FIXED HERO ---------- */
+#home > section{position:relative;z-index:1}
+#home > section:first-of-type{margin-top:var(--app-vh)}
+#stories,#about{background:var(--ink)}
+
+/* ---------- STORIES ---------- */
+.stories{display:grid;gap:clamp(2.5rem,5vw,4rem)}
+.story{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(1.5rem,4vw,3.5rem);
+  align-items:center;cursor:pointer}
+.story:nth-child(even){grid-template-columns:1fr 1.25fr}
+.story:nth-child(even) .story-media{order:2}
+.story-media{position:relative;overflow:hidden;background:var(--ink-2)}
+.story-media img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:var(--card-pos,50% 50%);
+  transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.story:hover .story-media img{transform:scale(1.04)}
+.story-body h3{font-family:"Fraunces",serif;font-weight:400;
+  font-size:clamp(1.5rem,2.6vw,2.1rem);line-height:1.12;margin:.7rem 0 .8rem;
+  letter-spacing:-0.01em}
+.story-body p{color:var(--sand);max-width:42ch}
+.story-more{display:inline-flex;align-items:center;gap:.6em;margin-top:1.2rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ochre)}
+.story-more .arr{transition:transform .3s}
+.story:hover .story-more .arr{transform:translateX(5px)}
+
+/* ---------- PORTFOLIO ---------- */
+.portfolio{background:var(--ink-2);margin-bottom:-1px}
+.tabs{display:flex;gap:1.6rem;margin-bottom:2rem}
+.tab{background:none;border:0;cursor:pointer;padding:0 0 .4rem;
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--sand-dim);border-bottom:1px solid transparent;
+  transition:color .25s,border-color .25s}
+.tab:hover{color:var(--sand)}
+.tab.active{color:var(--bone);border-bottom-color:var(--ochre)}
+.grid{columns:3;column-gap:14px}
+.grid figure{break-inside:avoid;margin-bottom:14px;position:relative;cursor:zoom-in;
+  overflow:hidden;background:var(--ink)}
+.grid img{width:100%;transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .5s}
+.grid figure:hover img{transform:scale(1.05)}
+.grid figcaption{position:absolute;left:0;right:0;bottom:0;padding:.9rem .9rem .8rem;
+  background:linear-gradient(0deg,rgba(20,16,13,.9),transparent);
+  opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+.grid figure:hover figcaption{opacity:1;transform:none}
+
+/* ---------- LIGHTBOX ---------- */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
+  display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:80vh;object-fit:contain;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb-cap{position:absolute;bottom:clamp(1rem,3vw,2.2rem);left:0;right:0;text-align:center}
+.lb-close{position:absolute;top:clamp(1rem,3vw,2rem);right:clamp(1rem,3vw,2rem);
+  background:none;border:1px solid var(--ink-3);color:var(--bone);width:44px;height:44px;
+  border-radius:50%;cursor:pointer;font-size:1.1rem;transition:border-color .25s}
+.lb-close:hover{border-color:var(--ochre)}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:0;
+  color:var(--sand);font-size:2rem;cursor:pointer;padding:1rem;transition:color .25s}
+.lb-nav:hover{color:var(--bone)}
+.lb-prev{left:clamp(.5rem,2vw,2rem)}.lb-next{right:clamp(.5rem,2vw,2rem)}
+
+/* ---------- ARTICLE (photo essay) ---------- */
+#article{display:none}
+#article.show{display:block}
+.art-hero{position:relative;width:100%;min-height:var(--hero-min,calc(var(--app-vh) * 0.7));max-height:calc(var(--app-vh) * 0.85);overflow:hidden;
+  aspect-ratio:var(--hero-ratio,auto)}
+.art-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;object-position:var(--hero-pos,50% 50%)}
+.art-hero::after{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(20,16,13,.4) 0%,rgba(20,16,13,0) 22%)}
+.art-masthead{background:var(--ink);padding:clamp(2.2rem,6vw,4rem) var(--gut) clamp(1.2rem,3vw,2rem)}
+.art-masthead .wrap{position:relative}
+.art-masthead h1{font-family:"Fraunces",serif;font-weight:400;
+  font-size:clamp(2.2rem,5vw,4rem);line-height:1.05;max-width:18ch;margin-top:1rem;
+  letter-spacing:-0.015em}
+.art-body{max-width:680px;margin-inline:auto;padding-inline:var(--gut)}
+.art-share{max-width:680px;margin-inline:auto;padding-inline:var(--gut);
+  margin-top:3rem;padding-top:2rem;border-top:1px solid var(--ink-3);
+  display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
+.art-share .share-label{font-family:"IBM Plex Mono",monospace;font-size:.72rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--sand-dim)}
+.art-share a,.art-share button{font-family:"IBM Plex Mono",monospace;font-size:.78rem;
+  letter-spacing:.06em;color:var(--ochre);background:none;border:0;cursor:pointer;
+  padding:0;text-decoration:none;transition:color .25s}
+.art-share a:hover,.art-share button:hover{color:var(--bone)}
+#article > .block{padding-top:clamp(1.2rem,3vw,2rem)}
+.art-body p{font-family:"Fraunces",serif;font-size:1.2rem;line-height:1.75;
+  margin-block:1.4rem;color:#DCD4C6}
+.art-body .lead::first-letter{font-size:3.4rem;float:left;line-height:.82;
+  padding:.08em .14em 0 0;color:var(--ochre);font-weight:500}
+.art-figure{margin:clamp(2.5rem,6vw,4.5rem) 0}
+.art-figure.wide{max-width:1100px;margin-inline:auto}
+.art-figure img{width:100%}
+.art-figure figcaption{margin-top:.7rem}
+.pullquote{font-family:"Fraunces",serif;font-style:italic;
+  font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.3;color:var(--bone);
+  border-left:2px solid var(--ochre);padding-left:1.4rem;margin:clamp(2.5rem,5vw,4rem) 0}
+.art-box{margin:clamp(2.5rem,5vw,4rem) 0;padding:1.5rem 1.7rem;border-radius:10px;
+  background:var(--ink-2);border:1px solid var(--ink-3)}
+.art-box .label{display:block;margin-bottom:.6rem}
+.art-box p{margin:0;font-size:.98rem;color:var(--bone);opacity:.92}
+.art-box.conservation{border-left:3px solid var(--ochre)}
+.art-box.conservation .label{color:var(--ochre)}
+.art-box.fieldnotes{border-left:3px solid var(--teal)}
+.art-box.fieldnotes .label{color:var(--teal)}
+.back{display:inline-flex;align-items:center;gap:.6em;cursor:pointer;
+  font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ochre);margin-bottom:1rem}
+
+/* ---------- ABOUT ---------- */
+.about .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.about-portrait{background:var(--ink-2)}
+.about-portrait img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.about h2{font-family:"Fraunces",serif;font-weight:400;
+  font-size:clamp(1.9rem,3.4vw,2.8rem);margin:.8rem 0 1.3rem;letter-spacing:-0.01em}
+.about p{color:var(--sand);margin-bottom:1.1rem}
+.about p strong{color:var(--bone);font-weight:500}
+
+/* ---------- NEWSLETTER ---------- */
+.news{background:var(--ink-2);text-align:center}
+.news h2{font-family:"Fraunces",serif;font-weight:400;
+  font-size:clamp(1.9rem,3.6vw,3rem);max-width:18ch;margin:.6rem auto 1rem;letter-spacing:-0.01em}
+.news p{color:var(--sand);max-width:48ch;margin:0 auto 2rem}
+.signup{display:flex;gap:.6rem;max-width:440px;margin-inline:auto;flex-wrap:wrap;justify-content:center}
+.btn-mail{display:inline-block;background:var(--ochre);color:var(--ink);text-decoration:none;
+  padding:.9rem 2rem;font-family:"IBM Plex Mono",monospace;font-size:.76rem;letter-spacing:.14em;
+  text-transform:uppercase;transition:background .25s}
+.btn-mail:hover{background:var(--bone)}
+
+/* ---------- FOOTER ---------- */
+.foot{padding:clamp(3rem,6vw,5rem) var(--gut) 2.5rem;border-top:1px solid var(--ink-3)}
+.foot-top{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;
+  max-width:var(--maxw);margin-inline:auto}
+.foot .brand{font-size:1.6rem}
+.foot-links{display:flex;gap:1.6rem;flex-wrap:wrap}
+.foot-links a{font-family:"IBM Plex Mono",monospace;font-size:.74rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--sand);transition:color .25s}
+.foot-links a:hover{color:var(--ochre)}
+.foot-base{max-width:var(--maxw);margin:2.5rem auto 0;display:flex;justify-content:space-between;
+  gap:1rem;flex-wrap:wrap;font-family:"IBM Plex Mono",monospace;font-size:.68rem;
+  letter-spacing:.1em;color:var(--sand-dim)}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:860px){
+  .grid{columns:2}
+  .manifesto .wrap,.about .wrap{grid-template-columns:1fr}
+  .story,.story:nth-child(even){grid-template-columns:1fr}
+  .story:nth-child(even) .story-media{order:0}
+  .nav-links{position:fixed;inset:0;flex-direction:column;justify-content:center;
+    gap:2.2rem;background:rgba(20,16,13,.98);transform:translateX(100%);
+    transition:transform .4s ease}
+  .nav-links.open{transform:none}
+  .nav-links a{font-size:1rem}
+  .nav-toggle{display:block;z-index:60}
+}
+@media(max-width:520px){.grid{columns:1}}
+#stories,#portfolio,#about,#prisho,#contact{scroll-margin-top:90px}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+
+.art-hero{position:relative;width:100%;min-height:calc(var(--app-vh) * 0.7);max-height:calc(var(--app-vh) * 0.85);overflow:hidden;aspect-ratio:auto}
+</style>
+</head>
+<body>
+<script>
+(function(){
+  function setAppVH(){ document.documentElement.style.setProperty('--app-vh', window.innerHeight + 'px'); }
+  setAppVH();
+  window.addEventListener('orientationchange', setAppVH);
+})();
+</script>
+<nav class="nav" id="nav">
+  <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+  <div class="nav-links" id="navLinks">
+    <a href="/#stories">Stories</a>
+    <a href="/#portfolio">Portfolio</a>
+    <a href="/#about">About</a>
+    <a href="/#prisho">Prisho</a>
+    <a href="/#contact">Contact</a>
+  </div>
+</nav>
+
+<article id="article" class="show" style="display:block">
+  <div class="art-hero">
+    <picture>
+      
+      <img src="/images/Maldive_Deep_South/13032022-_DSC3256-ARW.jpg" alt="The night the giant danced — 0°S 73°E · Fuvahmulah, Maldives" style="--hero-pos:50% 50%">
+    </picture>
+  </div>
+  <div class="art-masthead">
+    <div class="wrap" style="max-width:680px">
+      <a class="back" href="/#stories">← All field notes</a>
+      <span class="label"><span class="tick">◦</span>0°S 73°E · Fuvahmulah, Maldives</span>
+      <h1>The night the giant danced</h1>
+    </div>
+  </div>
+  <div class="block">
+    <div class="art-body" style="max-width:680px">
+      <p class="lead">The Maldives deep south is not the Maldives of any brochure. Not the shallow turquoise lagoons and sand bars of the northern atolls. The southern archipelago is something else: remote, dark, washed by open Indian Ocean swells, visited by things that pass through deep water and surface here for reasons that are not entirely understood. We were on a liveaboard, several days out, at latitudes barely north of the equator. Fuvahmulah, the single-island atoll that sits alone between the Maldives and the Laccadives, surrounded by deep water on all sides, rich in currents and — sharks: hundreds of reef sharks moving left and right along the reef edge, riding the current, a colossal tiger shark patrolling around. It is one of the few places on earth where whale sharks come year-round. We had come to find one.</p>
+      <p>It appeared at night, in the rich, glittering plankton illuminated by artificial light. One moment, there was only dark water. Then there was something enormous moving through it, a tail that seemed to continue indefinitely, a body the size of something that should not exist in the same element as a human body. But the word that stayed with me was not size: it was gentleness. The whale shark moved with absolute ease, as if the concept of effort did not apply to it, sinuous, unhurried, almost playful. It moved smoothly in the water, approaching with its huge, open mouth, small eyes, and beautiful, spotted hide. It danced with the light and the plankton, and it accepted our presence in the water around it, or perhaps simply ignored us. The distinction, if there is one, did not feel important. We followed it through the dark for as long as we could.</p>
+      <p class="pullquote">It danced with the light and the plankton — enormous, sinuous, almost playful — accepting our presence in the water around it, or perhaps simply ignoring us. The distinction did not feel important.</p>
+      <figure class="art-figure"><img src="/images/Maldive_Deep_South/13032022-_DSC3277-ARW.jpg" alt="Fuvahmulah · the whale shark rising through the torch light, by night" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · the whale shark rising through the torch light, by night</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Maldive_Deep_South/13032022-_DSC3280-ARW.jpg" alt="Fuvahmulah · a whale shark and a diver — a scale that is difficult to photograph" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · a whale shark and a diver — a scale that is difficult to photograph</figcaption></figure>
+      <p>The daytime dives were a different world: the reef, shallower and lit, crowded with smaller life. The clownfish are everywhere, and they have a quality I had not expected: a kind of theatrical personality. At first, each one hides, retreating into the anemone&#x27;s tentacles, peering out to check whether the camera is still there. Then it finds its confidence and begins to move as it normally moves, alternating between drifting with the current and sudden, vivid bursts of energy, quick and precise. Many were in pairs. Dressed extravagantly, energetic, joyful, and almost reckless, the clownfish is exactly the emblem of tropical seas that it looks like, and it performs the role without any apparent self-consciousness.</p>
+      <figure class="art-figure"><img src="/images/Maldive_Deep_South/16032022-_DSC3391.jpg" alt="Fuvahmulah · clownfish on a bleached anemone" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · clownfish on a bleached anemone</figcaption></figure>
+      <p>In some of these frames, though, the anemone is white. Not the warm amber of a healthy anemone — completely white, bleached, the coral expelling its symbiotic algae under thermal stress. The clownfish live there regardless, and the vivid orange against the complete white of the bleach makes an image that is very hard to look at once you understand what the white means.</p>
+      <figure class="art-figure wide"><img src="/images/Maldive_Deep_South/13032022-_DSC3266-Modifica.jpg" alt="Fuvahmulah · whale shark in the dark water, Maldives deep south" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · whale shark in the dark water, Maldives deep south</figcaption></figure>
+      <p>That night in the dark water, following the whale shark through the plankton, it was difficult to hold both things at once: the immensity and grace of what was in front of me, and the knowledge of what is happening to the water it swims in. By day, it was unavoidable. Almost every reef we dived was bleached white or simply dead, not in patches, but as the general condition of the place. And above the surface, the construction was everywhere: new artificial islands appearing from the water, new resorts going up, and the great reclaimed city rising out of the lagoon near Malé, Hulhumalé, built on dredged sand to move the population off the atolls and free the islands for tourism. The Maldives is the lowest-lying country on earth, and it is being simultaneously drowned by the sea and rebuilt against it. The whale shark, which has been moving through these oceans for sixty million years, is now listed as Endangered. I followed it through the dark for as long as I could. It did not seem to know any of this.</p>
+      <aside class="art-box conservation"><span class="label"><span class="tick">◦</span>Why it matters</span><p>The whale shark is the largest fish on earth and one of its most ancient — essentially unchanged for sixty million years. It is also, since 2016, listed as Endangered on the IUCN Red List, its population estimated to have declined by more than fifty percent over the past seventy-five years. The primary threats are targeted hunting in parts of Asia, bycatch in pelagic fisheries, and boat strikes in high-traffic areas. The Maldives declared itself a whale shark sanctuary in 1995, prohibiting all hunting and trade, and the aggregations at Fuvahmulah and South Ari Atoll are among the most important in the Indian Ocean for research and monitoring. But the deeper existential threat to the Maldives — and to everything that lives in its waters — is thermal. The 2016 bleaching event destroyed an estimated seventy percent of the archipelago&#x27;s shallow-water corals, and on a 2022 trip the reefs of the deep south were overwhelmingly bleached or dead. The government has committed to carbon neutrality by 2030 and manages extensive marine protected areas, but it is also pursuing large-scale land reclamation — most visibly Hulhumalé, an artificial island built on dredged lagoon sand to rehouse much of the population and open the natural atolls to resort development. The tension is stark: a nation literally building new ground to survive rising seas, while the reefs that historically built and defended that ground die underneath it. And sea surface temperatures are driven by global emissions, not local policy.</p></aside>
+      <aside class="art-box fieldnotes"><span class="label"><span class="tick">◦</span>Field notes</span><p>Liveaboard itineraries into the deep south depart from Malé — by boat or via an intermediate domestic flight — and run four to seven nights; the northeast monsoon season (December–April) offers the calmest seas and best visibility. Fuvahmulah is also accessible via a one-hour domestic flight from Malé; the atoll&#x27;s unique oceanography, with deep channels creating upwelling that concentrates plankton, makes whale shark encounters possible year-round without feeding stations or bait, which is rare. Snorkelling is possible but encounters are more consistent and more intimate in the water; basic freediving skills help significantly.</p></aside>
+    </div>
+    <div class="art-share" style="max-width:680px;margin-inline:auto;padding-inline:var(--gut);margin-top:3rem;padding-top:2rem;border-top:1px solid var(--ink-3);display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
+      <span class="share-label" style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sand-dim)">Share this essay</span>
+      <a href="https://wa.me/?text=The night the giant danced%20https://prisho.org/stories/maldive/" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ochre)">WhatsApp</a>
+      <a href="https://twitter.com/intent/tweet?text=The night the giant danced&url=https://prisho.org/stories/maldive/" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ochre)">X</a>
+      <a href="mailto:?subject=The night the giant danced&body=https://prisho.org/stories/maldive/" style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ochre)">Email</a>
+    </div>
+  </div>
+</article>
+
+<footer class="foot">
+  <div class="foot-top">
+    <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark foot-mark"></a>
+    <div class="foot-links">
+      <a href="/#stories">Stories</a><a href="/#portfolio">Portfolio</a>
+      <a href="/#about">About</a><a href="/#contact">Contact</a>
+      <a href="https://instagram.com/prisho_wild" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span id="copyright"></span>
+    <span>All photographs © Prisho · do not reproduce without permission</span>
+  </div>
+</footer>
+</body>
+</html>

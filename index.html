@@ -877,7 +877,8 @@ document.querySelectorAll('[data-ph]').forEach(el=>{
 /* --- render stories --- */
 const storyList=document.getElementById('storyList');
 SITE.stories.forEach((s,i)=>{
-  const d=document.createElement('div');d.className='story reveal';d.dataset.id=s.id;
+  const d=document.createElement('a');d.className='story reveal';d.dataset.id=s.id;
+  d.href='/stories/'+s.id+'/';
   d.style.transitionDelay=(i*70)+'ms';
   d.innerHTML=`<div class="story-media"><img src="${imgSrc(s,1200,900)}" alt="${s.title} — ${s.label}" class="protect" loading="lazy" style="--card-pos:${s.cardFocus||'50% 50%'}"></div>
     <div class="story-body">
@@ -885,7 +886,7 @@ SITE.stories.forEach((s,i)=>{
       <h3>${s.title}</h3><p>${s.dek}</p>
       <span class="story-more">Read the essay <span class="arr">→</span></span>
     </div>`;
-  d.addEventListener('click',()=>openArticle(s.id));
+  d.addEventListener('click',(e)=>{e.preventDefault();openArticle(s.id);});
   storyList.appendChild(d);
   io.observe(d);
 });
