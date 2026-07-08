@@ -49,13 +49,13 @@
   --gut:clamp(1.25rem,5vw,4rem);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overscroll-behavior-y:none}
 body{
   background:var(--ink);color:var(--bone);
   font-family:"IBM Plex Sans",system-ui,sans-serif;
   font-size:clamp(1rem,0.6vw+0.9rem,1.0625rem);
   line-height:1.7;-webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  overflow-x:hidden;overscroll-behavior-y:none;
 }
 img{display:block;max-width:100%;image-orientation:from-image}
 a{color:inherit;text-decoration:none}
@@ -321,8 +321,8 @@ a{color:inherit;text-decoration:none}
   <div class="hero-img">
     <video id="heroVideo" autoplay muted loop playsinline style="display:none"></video>
     <picture>
-      <!-- To add a mobile portrait crop: <source media="(max-width: 768px)" srcset="images/hero-home-mobile.jpg"> -->
-      <img id="heroImg" src="images/pelicans-namibia.jpg" alt="Great white pelicans in flight over the water, Namibia" class="protect">
+      <source media="(max-width: 768px)" srcset="images/home_page/home_page_verticali/21062022-DSC03981.jpg">
+      <img id="heroImg" src="images/home_page/home_page_orizzontali/21062022-DSC03981.jpg" alt="Great white pelicans in flight over the dunes, Namibia" class="protect">
     </picture>
   </div>
   <div class="hero-inner reveal">
@@ -386,9 +386,63 @@ a{color:inherit;text-decoration:none}
     <div class="signup">
       <a href="mailto:alex@prisho.org" class="btn-mail">alex@prisho.org</a>
     </div>
+    <p style="margin-top:1.5rem"><a href="#/privacy" style="font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sand-dim)">Privacy Policy · Datenschutz</a></p>
   </div>
 </section>
 </main>
+
+<!-- ============ PRIVACY POLICY ============ -->
+<section id="privacy" style="display:none;background:var(--ink)">
+  <div class="art-masthead">
+    <div class="wrap" style="max-width:680px">
+      <a class="back" href="#top" onclick="showHome(false)">← Back to Prisho</a>
+      <span class="label"><span class="tick">◦</span>Legal</span>
+      <h1>Privacy Policy · Datenschutzerklärung</h1>
+    </div>
+  </div>
+  <div class="block">
+    <div class="art-body" style="max-width:680px">
+      <p class="lead">This page is available in German (the legally binding version) and English (a courtesy translation for readers of the site).</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:400;margin-top:3rem">Datenschutzerklärung (Deutsch)</h2>
+      <h3>1. Datenschutz auf einen Blick</h3>
+      <p><strong>Allgemeine Hinweise</strong><br>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie der nachfolgenden Datenschutzerklärung.</p>
+      <p><strong>Datenerfassung auf dieser Website</strong><br><em>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</em><br>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur verantwortlichen Stelle" entnehmen.</p>
+      <p><em>Wie erfassen wir Ihre Daten?</em><br>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
+      <p><em>Wofür nutzen wir Ihre Daten?</em><br>Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+      <p><em>Welche Rechte haben Sie bezüglich Ihrer Daten?</em><br>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.</p>
+      <h3>2. Hosting</h3>
+      <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Meta- und Kommunikationsdaten, Kontaktdaten, Namen und Websitezugriffe handeln.</p>
+      <p>Das externe Hosting erfolgt im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).</p>
+      <p>Wir setzen folgenden Hoster ein:<br>GitHub, Inc. (GitHub Pages)<br>GitHub B.V., Prins Bernhardplein 200, 1097 JB Amsterdam, Netherlands</p>
+      <p><strong>Auftragsverarbeitung</strong><br>Wir haben einen Vertrag über Auftragsverarbeitung (AVV) zur Nutzung des oben genannten Dienstes geschlossen. Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gewährleistet, dass dieser die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.</p>
+      <p><strong>Umami Analytics</strong><br>Diese Website nutzt Umami, einen cookiefreien Webanalysedienst, zur statistischen Auswertung der Besucherzugriffe. Umami verwendet keine Cookies und erhebt keine personenbezogenen Daten. Die erfassten Daten beschränken sich auf aggregierte, anonyme Statistiken (z. B. Seitenaufrufe, Herkunft der Zugriffe, Land, Gerätetyp) und lassen keine Identifizierung einzelner Besucher zu. Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an der Analyse und Verbesserung unseres Webangebots (Art. 6 Abs. 1 lit. f DSGVO). Da keine personenbezogenen Daten verarbeitet und keine Cookies gespeichert werden, ist für den Einsatz dieses Tools keine Einwilligung erforderlich. Anbieter: Umami Software, Inc. Die Datenverarbeitung erfolgt auf Servern innerhalb der EU (Deutschland).</p>
+      <h3>3. Allgemeine Hinweise und Pflichtinformationen</h3>
+      <p><strong>Hinweis zur verantwortlichen Stelle</strong><br>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br>Paolo Alessandro Grieco<br>E-Mail: alex@prisho.org</p>
+      <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.</p>
+      <p><strong>Speicherdauer</strong><br>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt.</p>
+      <p><strong>SSL- bzw. TLS-Verschlüsselung</strong><br>Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt.</p>
+      <h3>4. Datenerfassung auf dieser Website</h3>
+      <p><strong>Server-Log-Dateien</strong><br>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt: Browsertyp und -version, Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage, IP-Adresse. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
+      <p style="color:var(--sand-dim);font-size:.9rem">Quelle: e-recht24.de</p>
+
+      <h2 style="font-family:'Fraunces',serif;font-weight:400;margin-top:4rem">Privacy Policy (English)</h2>
+      <h3>1. Data protection at a glance</h3>
+      <p><strong>General information</strong><br>The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to identify you personally. Detailed information can be found in the German version above, which is the legally binding text.</p>
+      <p><em>Who is responsible for data collection on this website?</em><br>Data processing on this website is carried out by the website operator, whose contact details are given below.</p>
+      <p><em>How do we collect your data?</em><br>Some data is collected when you provide it to us. Other data is collected automatically by our IT systems when you visit the website — primarily technical data (browser, operating system, time of access).</p>
+      <p><em>What rights do you have regarding your data?</em><br>You have the right, at any time, to obtain free information about your stored personal data, its origin and recipients, and the purpose of processing, and a right to correction or deletion. You may withdraw any consent at any time, and you have the right to lodge a complaint with the competent supervisory authority.</p>
+      <h3>2. Hosting</h3>
+      <p>This website is hosted externally, for the purpose of a secure, fast and efficient provision of our online service (Art. 6(1)(f) GDPR).<br>Host: GitHub, Inc. (GitHub Pages) — GitHub B.V., Prins Bernhardplein 200, 1097 JB Amsterdam, Netherlands. A data processing agreement (DPA) is in place for this service.</p>
+      <p><strong>Umami Analytics</strong><br>This website uses Umami, a cookie-free web analytics service. Umami does not use cookies and does not collect personally identifiable information — only aggregated, anonymous statistics (page views, referral sources, country, device type). Processing is based on our legitimate interest under Art. 6(1)(f) GDPR; no consent is required. Provider: Umami Software, Inc. Data is processed on servers located in the EU (Germany).</p>
+      <h3>3. General information</h3>
+      <p><strong>Notice concerning the responsible party</strong><br>Paolo Alessandro Grieco<br>Email: alex@prisho.org</p>
+      <p><strong>SSL/TLS encryption</strong><br>This site uses SSL/TLS encryption for security. You can recognise this by the address bar changing from "http://" to "https://".</p>
+      <h3>4. Data collection on this website</h3>
+      <p><strong>Server log files</strong><br>The provider automatically collects information in server log files transmitted by your browser: browser type and version, operating system, referrer URL, host name, time of server request, IP address. This data is not combined with other sources, and is collected on the basis of Art. 6(1)(f) GDPR.</p>
+      <p style="color:var(--sand-dim);font-size:.9rem">Source: e-recht24.de</p>
+    </div>
+  </div>
+</section>
 
 <!-- ============ ARTICLE VIEW (photo essay) ============ -->
 <article id="article">
@@ -399,7 +453,7 @@ a{color:inherit;text-decoration:none}
     </picture>
   </div>
   <div class="art-masthead">
-    <div class="wrap" style="padding-inline:0;max-width:680px">
+    <div class="wrap" style="max-width:680px">
       <a class="back" id="backBtn">← All field notes</a>
       <span class="label" id="artLabel"></span>
       <h1 id="artTitle"></h1>
@@ -462,7 +516,7 @@ const SITE = {
       label:'37°N 119°W · Sierra Nevada & Pacific Coast, USA',
       title:'The green half of America',
       dek:'Granite cathedrals, two-thousand-year-old giants, and a coast crowded with otters, seals and a whale — California outside its cities.' },
-    { id:'mamiraua', src:'images/amazon-sunset.jpg',
+    { id:'mamiraua', src:'images/mamiruaua/29072019-DSC04550.jpg',
       label:'3°S 65°W · Mamirauá, Amazon, Brazil',
       title:'The flooded forest',
       dek:'Deep in the Amazon, a flooded forest where the water rises twelve metres each season — and every morning begins with a howler monkey chorus in the dark.' },
@@ -492,20 +546,20 @@ const SITE = {
       dek:'The largest dune field in South America, and a landscape of pure geometry — white sand and turquoise lagoons repeating to the horizon, gone again within months.' },
   ],
   galleries: {
-    Travel: [
-      {src:'images/horseshoe-bend.jpg',label:'Horseshoe Bend · Arizona'},
-      {src:'images/callanish-stones.jpg',label:'Callanish Stones · Lewis, Scotland'},
-      {src:'images/monument-valley.jpg',label:'Monument Valley · Utah'},
-      {src:'images/old-man-storr.jpg',label:'Old Man of Storr · Skye'},
-      {src:'images/bryce-canyon.jpg',label:'Bryce Canyon · Utah'},
+    'Wild Places': [
+      {src:'images/gallery/Places/19062022-DSC02613.jpg',label:'Deadvlei, Sossusvlei · the dead trees against the red dunes'},
+      {src:'images/gallery/Places/19062022-_DSC4307.jpg',label:'Climbing the dunes at Sossusvlei, Namibia'},
+      {src:'images/gallery/Places/19062022-_DSC4329.jpg',label:'Sossusvlei · the ridgeline texture of a dune'},
+      {src:'images/gallery/Places/19062022-_DSC4451.jpg',label:'The dunes of Sossusvlei, catching the light'},
+      {src:'images/mamiruaua/29072019-DSC04550.jpg',label:'Mamirauá, Amazon · the forest doubled in still water'},
       {src:'images/grand-canyon.jpg',label:'Grand Canyon · Arizona'},
-      {src:'images/fire-wave-valley.jpg',label:'The Fire Wave · Valley of Fire'},
-      {src:'images/amazon-sunset.jpg',label:'Mamirauà · Amazon, Brazil'},
+      {src:'images/Bryce_Canyon/25092018-DSC09806.jpg',label:'The amphitheatre at Bryce Canyon, hoodoos crowded to the horizon'},
+      {src:'images/Lofoten/05012017-DSC03333.jpg',label:'Skagsanden beach · the northern lights, doubled in the still water'},
     ],
-    Wildlife: [
+    'Wild Animals': [
       {src:'images/Ebridi/18082016-IMG_9547.jpg',label:'Basking shark · Hebrides'},
       {src:'images/jaguar-roar-pantanal.jpg',label:'Jaguar · Pantanal'},
-      {src:'images/pelicans-namibia.jpg',label:'Great white pelicans · Namibia'},
+      {src:'images/home_page/home_page_orizzontali/21062022-DSC03981.jpg',label:'Great white pelicans · Namibia'},
       {src:'images/zebra-etosha.jpg',label:'Plains zebra · Etosha, Namibia'},
       {src:'images/pantanal-sunset.jpg',label:'Sunset over the wetland · Pantanal'},
       {src:'images/southwest-vista.jpg',label:'Desert light · American Southwest'},
@@ -549,7 +603,6 @@ const SITE = {
         {type:'figure',src:'images/Pantanal/23072019-DSC02113.jpg',label:'Caimans on the riverbank, jaws open to the sun'},
         {type:'figure',src:'images/Pantanal/23072019-DSC01891-Migliorato-NR.jpg',label:'A jaguar, walking a fallen log like a stage of its own'},
         {type:'quote',text:'First the vegetation moves without showing anything \u2014 a presence that does not yet declare itself. Then the gaze. And only then the animal, in full: powerful, elegant, completely sovereign.'},
-        {type:'figure',wide:true,src:'images/pantanal-sunset.jpg',label:'Last light over the wetland, near Porto Jofre'},
         {type:'p',text:'What stays with me is not only the jaguars, though nine sightings is a number I still find hard to believe. It is the accumulation \u2014 the caimans, the giant otters, the hyacinth macaws crossing the sky in pairs, the heat, the smell of the river, the sheer abundance of a place that simply has not been emptied out yet, the way so much of the world has been. A richness of life, and a specificity of fauna and flora, that leave this place carved into memory.'},
         {type:'box',kind:'conservation',heading:'Why it matters',text:'Pantanal is mainly located in the Brazilian states of Mato Grosso and Mato Grosso do Sul \u2014 among the regions with the highest rates of deforestation and habitat loss in the country, driven largely by agriculture, and devastated by the record wildfires of recent years. The Pantanal Conservation Area is a UNESCO World Heritage Site, but it represents only about 1.3% of Brazil\u2019s Pantanal region. Every tourism dollar spent at the lodges and pousadas along the Transpantaneira directly funds the rangers and the land protection that keep this place \u2014 and the jaguars in it \u2014 alive.'},
         {type:'box',kind:'fieldnotes',heading:'Field notes',text:'Base yourself at Porto Jofre, reached via the Transpantaneira from Poco\u00f1\u00e9 \u2014 a long, slow, unpaved drive across more than a hundred wooden bridges, best done in daylight for the wildlife alone. Jaguar sightings are by boat along the Cuiab\u00e1 and Tr\u00eas Irm\u00e3os rivers; the dry season (roughly July\u2013October) concentrates wildlife along the riverbanks and gives the best odds. Many lodges along the road also offer horseback rides and rowing-boat excursions worth taking for the smaller wildlife. Bring a long lens, sun protection, and patience \u2014 the best encounters came after hours of nothing.'},
@@ -605,18 +658,21 @@ const SITE = {
     mamiraua: {
       label:'3°S 65°W · Mamirauá, Amazon, Brazil',
       title:'The flooded forest',
-      heroSrc:'images/amazon-sunset.jpg',
-      heroFocus:'65% 20%',
+      heroSrc:'images/mamiruaua/29072019-DSC04550.jpg',
+      heroRatio:'1.777',
       blocks:[
         {type:'p',lead:true,text:'To describe the Amazon fully takes more than one life — the richest ecosystem, the vastest forest, the highest concentration of living species on earth. Visiting it means touching one of the wildest places that still exists, while understanding, almost immediately, that what you will see in a lifetime is only the smallest part of what is there. At the heart of it, enclosed between the Rio Solimões and the Auati-Paraná, there is a place even more special: a flooded forest where the rivers rise twelve metres with each season, submerging the trees to their crowns — the Mamirauá Reserve, a UNESCO heritage site of thirty-five thousand square kilometres, where the water is both the threat and the life of everything inside it.'},
         {type:'p',text:'We woke before sunrise each day, and before we moved or spoke the forest was already speaking: a boiling of voices, an intense welcome to the new day, dominated by the howler monkeys marking their territories and their harems in the dark. When the light came through, it did something to the water we had not expected. The rivers here are so still, and so clear, and so flat, that the whole canopy above is reflected perfectly below — trees doubled, sky doubled, a bird crossing the gap doubled — and canoeing between them feels like sliding across ice, following the symmetric images of vegetation mirrored underneath you, the forest given back twice.'},
         {type:'quote',text:'Canoeing on the rivers sounds like sliding on ice — the forest mirrored underneath you, given back twice.'},
         {type:'figure',src:'images/mamiruaua/26072019-DSC03376.jpg',label:'Mamirauá · canoeing into the flooded forest with a local guide from the Uakari Lodge'},
         {type:'p',text:'Every morning we left the open river on a traditional wooden canoe with a local guide and pushed deep into the trees. The transition is immediate and total: the light drops, the air thickens, the sounds change. You do not look at the forest from the outside any more — you are inside it, touching trunks that have been standing for centuries from the side of the boat, smelling the rot and the green of it, catching shapes moving through branches far above. The caiman sometimes surfaced alongside us without hurry, barely a ripple, aware of exactly where we were. Ask your guide to make the sound of a baby caiman and the whole river will answer — and you will discover you have been surrounded for some time.'},
+        {type:'figure',src:'images/mamiruaua/26072019-DSC03350.jpg',label:'An enormous tree rising out of the flooded forest, its scale impossible to judge from the water'},
+        {type:'figure',src:'images/mamiruaua/29072019-DSC04937.jpg',label:'Inside the flooded forest, the canoe moving between half-submerged trunks'},
         {type:'p',text:'The wildlife accumulates until it starts to feel implausible. The white uakari — found nowhere else on earth, with the bare red face that Walter Bates, the great Victorian naturalist, once called "the most grotesque appearance" — is one of the more arresting things I have ever had looking back at me from a branch. Capuchin monkeys, saki, black spider monkeys. And then the river itself: the boto, the pink river dolphin, surfacing with that peculiar washed-out coral colour that makes it look less like a real animal than something dreamed up by someone who had never actually seen the sea.'},
+        {type:'figure',src:'images/mamiruaua/29072019-DSC04860.jpg',label:'A capuchin monkey, watching from a branch'},
         {type:'figure',src:'images/mamiruaua/29072019-DSC04642.jpg',label:'Mamirauá · a boto, the pink river dolphin, surfacing in the open water'},
         {type:'p',text:'The Mamirauá lake is where everything opens out. Past the narrow rivers and the cathedral dark of the trees, the lake is wide and bright and the sky above it is enormous. We stayed the whole day and then until the sunset — the sunset in the Amazon exhausting the entire spectrum, red and orange and yellow in sequence, colours too strong to be entirely plausible, mirrored perfectly in the flat water so that the strip of vegetation at the horizon is the only border between the sky above and the sky below. We stood there until the light was gone, not saying much, because anything we might have said would have been smaller than what we were looking at.'},
-        {type:'figure',wide:true,src:'images/mamiruaua/29072019-DSC04555.jpg',label:'Mamirauá lake · the Amazon forest doubled in the still water'},
+        {type:'figure',wide:true,src:'images/mamiruaua/28072019-DSC04468.jpg',label:'Sunset over the Mamirauá lake, the forest a thin line between two skies'},
         {type:'p',text:'That night, lying in our floating bungalow surrounded by the breath of the forest — constant, alive, full — there was a moment of something I am not entirely able to put into words. In Italian there is a word for it: panismo. The dissolution of the border between the self and the place. The Amazon is too large to hold in the mind as a concept. But you can feel it, at night, from inside it — and that feeling is what this kind of travel is really for.'},
         {type:'box',kind:'conservation',heading:'Why it matters',text:'The Mamirauá Reserve exists largely because of one man\'s stubbornness. The primatologist and conservationist José Márcio Corrêa Ayres arrived here in the 1980s and found a biome of extraordinary richness being systematically stripped: commercial fishing boats, hunting, resource extraction. What he understood — and what was not at all obvious at the time — was that the only realistic protection for this forest was the people already living inside it. By founding the Mamirauá Institute for Sustainable Development in 1999, he secured 3.47 million hectares in the heart of the Amazon and built a model in which local communities — descendants of migrants from north-eastern Brazil who over two centuries had learned to live in balance with the flood cycles — become the guardians and the beneficiaries of the place simultaneously. The Uakari Lodge, a small floating eco-lodge run jointly by the Institute and community members, is the most visible expression of that model: ecotourism that funds the reserve and the people who protect it, at the same time.'},
         {type:'box',kind:'fieldnotes',heading:'Field notes',text:'The journey starts at Manaus — the two-million-person capital of Amazonas state, a full city with good restaurants and a humidity that can be genuinely overwhelming. From Manaus, Azul flies one hour to Tefé: almost the entire route is above unbroken forest, rivers threading through it, and it is the most visceral way to begin to grasp the scale of what you are about to enter. From Tefé, a fast boat takes roughly an hour to reach the reserve. Stay at the Uakari Lodge: seven floating bungalows built with local materials, solar-powered, connected by bridges, ten rooms with private bathrooms and a veranda. The restaurant serves some of the best Amazonian cooking we had in Brazil. The staff are from the local communities — the knowledge they carry of the forest and the river is something no guidebook can replicate.'},
@@ -847,12 +903,18 @@ document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return
 
 /* --- article view + hash routing --- */
 const articleEl=document.getElementById('article'),homeEl=document.getElementById('home');
+const DEFAULT_TITLE = document.title;
+const DEFAULT_DESC = (document.querySelector('meta[name="description"]')||{}).content || '';
 
 function renderArticle(id){
   const a = SITE.articles && SITE.articles[id];
   if(!a) return false;
   document.getElementById('artLabel').innerHTML=`<span class="tick">◦</span>${a.label}`;
   document.getElementById('artTitle').textContent=a.title;
+  const storyMeta = SITE.stories.find(s=>s.id===id);
+  document.title = a.title + ' — Prisho';
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if(metaDesc) metaDesc.setAttribute('content', (storyMeta && storyMeta.dek) ? storyMeta.dek : a.title + ' — ' + a.label);
   const heroFull = a.heroSrc ? a.heroSrc : imgSrc({ph:a.heroPh},1800,1100);
   const heroImg = document.querySelector('.art-hero img');
   const heroBox = document.querySelector('.art-hero');
@@ -894,10 +956,23 @@ function renderArticle(id){
 
 function showHome(scrollToStories){
   articleEl.classList.remove('show');homeEl.style.display='';
+  const priv=document.getElementById('privacy'); if(priv) priv.style.display='none';
+  document.title = DEFAULT_TITLE;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if(metaDesc) metaDesc.setAttribute('content', DEFAULT_DESC);
   if(scrollToStories){const st=document.getElementById('stories');if(st)st.scrollIntoView();}
 }
 
+function showPrivacy(){
+  homeEl.style.display='none';articleEl.classList.remove('show');
+  document.getElementById('privacy').style.display='block';
+  document.title = 'Privacy Policy — Prisho';
+  window.scrollTo(0,0);
+}
+
 function route(){
+  if(location.hash === '#/privacy'){ showPrivacy(); return; }
+  document.getElementById('privacy').style.display='none';
   const m = location.hash.match(/^#\/story\/([a-z0-9-]+)$/i);
   if(m && renderArticle(m[1])) return;
   showHome(false);
