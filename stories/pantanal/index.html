@@ -191,6 +191,14 @@ a{color:inherit;text-decoration:none}
 .grid figure:hover figcaption{opacity:1;transform:none}
 
 /* ---------- LIGHTBOX ---------- */
+.img-protect-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink-2);border:1px solid var(--ink-3);color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.04em;
+  padding:.85rem 1.4rem;border-radius:6px;z-index:200;opacity:0;
+  transition:opacity .35s ease,transform .35s ease;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.img-protect-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.img-protect-toast .tick{color:var(--ochre);margin-right:.5em}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
   display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
 .lb.open{display:flex}
@@ -315,6 +323,31 @@ a{color:inherit;text-decoration:none}
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+(function(){
+  let toastTimer;
+  function showProtectToast(){
+    let t = document.querySelector('.img-protect-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.className = 'img-protect-toast';
+      t.innerHTML = '<span class="tick">◦</span>Images on this site are protected — please contact for licensing.';
+      document.body.appendChild(t);
+    }
+    clearTimeout(toastTimer);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+  }
+  function isProtectedImg(el){
+    return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
+  }
+  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
+  document.addEventListener('contextmenu', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
+  });
+  document.addEventListener('dragstart', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); }
+  });
+})();
 </script>
 <nav class="nav" id="nav">
   <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
@@ -332,7 +365,7 @@ a{color:inherit;text-decoration:none}
   <div class="art-hero">
     <picture>
       
-      <img src="/images/jaguar-roar-pantanal.jpg" alt="The king of the Americas — 17°S 56°W · Pantanal, Brazil" style="--hero-pos:50% 50%">
+      <img src="/images/jaguar-roar-pantanal.jpg" alt="The king of the Americas — 17°S 56°W · Pantanal, Brazil" class="protect" style="--hero-pos:50% 50%">
     </picture>
   </div>
   <div class="art-masthead">
@@ -346,13 +379,13 @@ a{color:inherit;text-decoration:none}
     <div class="art-body" style="max-width:680px">
       <p class="lead">As wildlife lovers, we found here our promised land. The biggest wetland on earth — more than two hundred thousand square kilometres of rivers, lagoons and flooded forest — and the realm of its majesty: the jaguar, the king of the Americas.</p>
       <p>You enter the Pantanal along the Transpantaneira, a single dirt road that runs straight into the wetland, bridge after wooden bridge, each one a small theatre of its own. But to drive it is to cross into another world — a place so dense with life it is genuinely difficult to believe, growing wilder with every bridge you cross. Caimans stacked along the banks like driftwood, storks and herons, capybaras grazing in families, and — if you are lucky — a tapir crossing ahead of you, or the giant anteaters, which we saw many times, including the small ones I could not stop photographing. And once, at dusk, right at the edge of the fazenda itself, something rarer than anything the river gave us: a maned wolf, slender and elegant, fox-red and furtive, crossing the open ground far off and gone again before we had properly understood what we were looking at. You wake every morning to the parrots; we had two hyacinth macaws, a vast electric blue, crossing the sky in pairs above the fazenda. You spend your days here surrounded constantly by dozens of species at once: walking the land on horseback, sliding in a rowing boat down what passes for a river between the trees, always with animals on every side. And all of it on ground that, for months of the year, lies completely underwater.</p>
-      <figure class="art-figure"><img src="/images/Pantanal/21072019-DSC09666-Migliorato-NR.jpg" alt="Pantanal · a giant anteater along the Transpantaneira" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Pantanal · a giant anteater along the Transpantaneira</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Pantanal/21072019-DSC09755.jpg" alt="A maned wolf, seen once at dusk at the edge of the fazenda" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A maned wolf, seen once at dusk at the edge of the fazenda</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Pantanal/24072019-DSC02714.jpg" alt="Pantanal · a pair of hyacinth macaws, electric blue against the canopy" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Pantanal · a pair of hyacinth macaws, electric blue against the canopy</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Pantanal/21072019-DSC09666-Migliorato-NR.jpg" alt="Pantanal · a giant anteater along the Transpantaneira" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Pantanal · a giant anteater along the Transpantaneira</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Pantanal/21072019-DSC09755.jpg" alt="A maned wolf, seen once at dusk at the edge of the fazenda" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A maned wolf, seen once at dusk at the edge of the fazenda</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Pantanal/24072019-DSC02714.jpg" alt="Pantanal · a pair of hyacinth macaws, electric blue against the canopy" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Pantanal · a pair of hyacinth macaws, electric blue against the canopy</figcaption></figure>
       <p>Porto Jofre is the frontier. It sits at the very end of the Transpantaneira — the edge of civilisation and of humanity, made of a few low wooden houses. Beyond it there is no more road, and no more us: only the kingdom of the jaguar.</p>
       <p>You go out onto the water and the river becomes a stage. You drift surrounded by hundreds of caimans lying with their jaws open to the sun, by capybaras, by giant otters — noisy, restless, endlessly curious. And then the jaguar appears, but never all at once. First the vegetation moves without showing anything, a presence that does not yet declare itself. Then the gaze — that powerful, level stare from inside the green. And only then the animal itself, emerging in full, with all its force and presence: powerful, elegant, completely sovereign. Over a few days we saw nine of them — nine — and every single one stopped something in us. We watched one walk the sand of a riverbank like a stage, slip into the water, and — curious — come terribly close to the boats. We were lucky enough to see a courting pair. There is a theatrical royalty to the way a jaguar reveals itself that no photograph fully holds.</p>
-      <figure class="art-figure"><img src="/images/Pantanal/23072019-DSC02113.jpg" alt="Caimans on the riverbank, jaws open to the sun" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Caimans on the riverbank, jaws open to the sun</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Pantanal/23072019-DSC01891-Migliorato-NR.jpg" alt="A jaguar, walking a fallen log like a stage of its own" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A jaguar, walking a fallen log like a stage of its own</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Pantanal/23072019-DSC02113.jpg" alt="Caimans on the riverbank, jaws open to the sun" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Caimans on the riverbank, jaws open to the sun</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Pantanal/23072019-DSC01891-Migliorato-NR.jpg" alt="A jaguar, walking a fallen log like a stage of its own" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A jaguar, walking a fallen log like a stage of its own</figcaption></figure>
       <p class="pullquote">First the vegetation moves without showing anything — a presence that does not yet declare itself. Then the gaze. And only then the animal, in full: powerful, elegant, completely sovereign.</p>
       <p>What stays with me is not only the jaguars, though nine sightings is a number I still find hard to believe. It is the accumulation — the caimans, the giant otters, the hyacinth macaws crossing the sky in pairs, the heat, the smell of the river, the sheer abundance of a place that simply has not been emptied out yet, the way so much of the world has been. A richness of life, and a specificity of fauna and flora, that leave this place carved into memory.</p>
       <aside class="art-box conservation"><span class="label"><span class="tick">◦</span>Why it matters</span><p>Pantanal is mainly located in the Brazilian states of Mato Grosso and Mato Grosso do Sul — among the regions with the highest rates of deforestation and habitat loss in the country, driven largely by agriculture, and devastated by the record wildfires of recent years. The Pantanal Conservation Area is a UNESCO World Heritage Site, but it represents only about 1.3% of Brazil’s Pantanal region. Every tourism dollar spent at the lodges and pousadas along the Transpantaneira directly funds the rangers and the land protection that keep this place — and the jaguars in it — alive.</p></aside>

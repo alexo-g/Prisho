@@ -191,6 +191,14 @@ a{color:inherit;text-decoration:none}
 .grid figure:hover figcaption{opacity:1;transform:none}
 
 /* ---------- LIGHTBOX ---------- */
+.img-protect-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink-2);border:1px solid var(--ink-3);color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.04em;
+  padding:.85rem 1.4rem;border-radius:6px;z-index:200;opacity:0;
+  transition:opacity .35s ease,transform .35s ease;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.img-protect-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.img-protect-toast .tick{color:var(--ochre);margin-right:.5em}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
   display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
 .lb.open{display:flex}
@@ -315,6 +323,31 @@ a{color:inherit;text-decoration:none}
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+(function(){
+  let toastTimer;
+  function showProtectToast(){
+    let t = document.querySelector('.img-protect-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.className = 'img-protect-toast';
+      t.innerHTML = '<span class="tick">◦</span>Images on this site are protected — please contact for licensing.';
+      document.body.appendChild(t);
+    }
+    clearTimeout(toastTimer);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+  }
+  function isProtectedImg(el){
+    return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
+  }
+  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
+  document.addEventListener('contextmenu', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
+  });
+  document.addEventListener('dragstart', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); }
+  });
+})();
 </script>
 <nav class="nav" id="nav">
   <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
@@ -332,7 +365,7 @@ a{color:inherit;text-decoration:none}
   <div class="art-hero">
     <picture>
       
-      <img src="/images/mamiruaua/29072019-DSC04550.jpg" alt="The flooded forest — 3°S 65°W · Mamirauá, Amazon, Brazil" style="--hero-pos:50% 50%">
+      <img src="/images/mamiruaua/29072019-DSC04550.jpg" alt="The flooded forest — 3°S 65°W · Mamirauá, Amazon, Brazil" class="protect" style="--hero-pos:50% 50%">
     </picture>
   </div>
   <div class="art-masthead">
@@ -347,15 +380,15 @@ a{color:inherit;text-decoration:none}
       <p class="lead">To describe the Amazon fully takes more than one life — the richest ecosystem, the vastest forest, the highest concentration of living species on earth. Visiting it means touching one of the wildest places that still exists, while understanding, almost immediately, that what you will see in a lifetime is only the smallest part of what is there. At the heart of it, enclosed between the Rio Solimões and the Auati-Paraná, there is a place even more special: a flooded forest where the rivers rise twelve metres with each season, submerging the trees to their crowns — the Mamirauá Reserve, a UNESCO heritage site of thirty-five thousand square kilometres, where the water is both the threat and the life of everything inside it.</p>
       <p>We woke before sunrise each day, and before we moved or spoke the forest was already speaking: a boiling of voices, an intense welcome to the new day, dominated by the howler monkeys marking their territories and their harems in the dark. When the light came through, it did something to the water we had not expected. The rivers here are so still, and so clear, and so flat, that the whole canopy above is reflected perfectly below — trees doubled, sky doubled, a bird crossing the gap doubled — and canoeing between them feels like sliding across ice, following the symmetric images of vegetation mirrored underneath you, the forest given back twice.</p>
       <p class="pullquote">Canoeing on the rivers sounds like sliding on ice — the forest mirrored underneath you, given back twice.</p>
-      <figure class="art-figure"><img src="/images/mamiruaua/26072019-DSC03376.jpg" alt="Mamirauá · canoeing into the flooded forest with a local guide from the Uakari Lodge" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Mamirauá · canoeing into the flooded forest with a local guide from the Uakari Lodge</figcaption></figure>
+      <figure class="art-figure"><img src="/images/mamiruaua/26072019-DSC03376.jpg" alt="Mamirauá · canoeing into the flooded forest with a local guide from the Uakari Lodge" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Mamirauá · canoeing into the flooded forest with a local guide from the Uakari Lodge</figcaption></figure>
       <p>Every morning we left the open river on a traditional wooden canoe with a local guide and pushed deep into the trees. The transition is immediate and total: the light drops, the air thickens, the sounds change. You do not look at the forest from the outside any more — you are inside it, touching trunks that have been standing for centuries from the side of the boat, smelling the rot and the green of it, catching shapes moving through branches far above. The caiman sometimes surfaced alongside us without hurry, barely a ripple, aware of exactly where we were. Ask your guide to make the sound of a baby caiman and the whole river will answer — and you will discover you have been surrounded for some time.</p>
-      <figure class="art-figure"><img src="/images/mamiruaua/26072019-DSC03350.jpg" alt="An enormous tree rising out of the flooded forest, its scale impossible to judge from the water" loading="lazy"><figcaption class="label"><span class="tick">◦</span>An enormous tree rising out of the flooded forest, its scale impossible to judge from the water</figcaption></figure>
-      <figure class="art-figure"><img src="/images/mamiruaua/29072019-DSC04937.jpg" alt="Inside the flooded forest, the canoe moving between half-submerged trunks" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Inside the flooded forest, the canoe moving between half-submerged trunks</figcaption></figure>
+      <figure class="art-figure"><img src="/images/mamiruaua/26072019-DSC03350.jpg" alt="An enormous tree rising out of the flooded forest, its scale impossible to judge from the water" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>An enormous tree rising out of the flooded forest, its scale impossible to judge from the water</figcaption></figure>
+      <figure class="art-figure"><img src="/images/mamiruaua/29072019-DSC04937.jpg" alt="Inside the flooded forest, the canoe moving between half-submerged trunks" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Inside the flooded forest, the canoe moving between half-submerged trunks</figcaption></figure>
       <p>The wildlife accumulates until it starts to feel implausible. The white uakari — found nowhere else on earth, with the bare red face that Walter Bates, the great Victorian naturalist, once called &quot;the most grotesque appearance&quot; — is one of the more arresting things I have ever had looking back at me from a branch. Capuchin monkeys, saki, black spider monkeys. And then the river itself: the boto, the pink river dolphin, surfacing with that peculiar washed-out coral colour that makes it look less like a real animal than something dreamed up by someone who had never actually seen the sea.</p>
-      <figure class="art-figure"><img src="/images/mamiruaua/29072019-DSC04860.jpg" alt="A capuchin monkey, watching from a branch" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A capuchin monkey, watching from a branch</figcaption></figure>
-      <figure class="art-figure"><img src="/images/mamiruaua/29072019-DSC04642.jpg" alt="Mamirauá · a boto, the pink river dolphin, surfacing in the open water" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Mamirauá · a boto, the pink river dolphin, surfacing in the open water</figcaption></figure>
+      <figure class="art-figure"><img src="/images/mamiruaua/29072019-DSC04860.jpg" alt="A capuchin monkey, watching from a branch" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A capuchin monkey, watching from a branch</figcaption></figure>
+      <figure class="art-figure"><img src="/images/mamiruaua/29072019-DSC04642.jpg" alt="Mamirauá · a boto, the pink river dolphin, surfacing in the open water" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Mamirauá · a boto, the pink river dolphin, surfacing in the open water</figcaption></figure>
       <p>The Mamirauá lake is where everything opens out. Past the narrow rivers and the cathedral dark of the trees, the lake is wide and bright and the sky above it is enormous. We stayed the whole day and then until the sunset — the sunset in the Amazon exhausting the entire spectrum, red and orange and yellow in sequence, colours too strong to be entirely plausible, mirrored perfectly in the flat water so that the strip of vegetation at the horizon is the only border between the sky above and the sky below. We stood there until the light was gone, not saying much, because anything we might have said would have been smaller than what we were looking at.</p>
-      <figure class="art-figure wide"><img src="/images/mamiruaua/28072019-DSC04468.jpg" alt="Sunset over the Mamirauá lake, the forest a thin line between two skies" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Sunset over the Mamirauá lake, the forest a thin line between two skies</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/mamiruaua/28072019-DSC04468.jpg" alt="Sunset over the Mamirauá lake, the forest a thin line between two skies" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Sunset over the Mamirauá lake, the forest a thin line between two skies</figcaption></figure>
       <p>That night, lying in our floating bungalow surrounded by the breath of the forest — constant, alive, full — there was a moment of something I am not entirely able to put into words. In Italian there is a word for it: panismo. The dissolution of the border between the self and the place. The Amazon is too large to hold in the mind as a concept. But you can feel it, at night, from inside it — and that feeling is what this kind of travel is really for.</p>
       <aside class="art-box conservation"><span class="label"><span class="tick">◦</span>Why it matters</span><p>The Mamirauá Reserve exists largely because of one man&#x27;s stubbornness. The primatologist and conservationist José Márcio Corrêa Ayres arrived here in the 1980s and found a biome of extraordinary richness being systematically stripped: commercial fishing boats, hunting, resource extraction. What he understood — and what was not at all obvious at the time — was that the only realistic protection for this forest was the people already living inside it. By founding the Mamirauá Institute for Sustainable Development in 1999, he secured 3.47 million hectares in the heart of the Amazon and built a model in which local communities — descendants of migrants from north-eastern Brazil who over two centuries had learned to live in balance with the flood cycles — become the guardians and the beneficiaries of the place simultaneously. The Uakari Lodge, a small floating eco-lodge run jointly by the Institute and community members, is the most visible expression of that model: ecotourism that funds the reserve and the people who protect it, at the same time.</p></aside>
       <aside class="art-box fieldnotes"><span class="label"><span class="tick">◦</span>Field notes</span><p>The journey starts at Manaus — the two-million-person capital of Amazonas state, a full city with good restaurants and a humidity that can be genuinely overwhelming. From Manaus, Azul flies one hour to Tefé: almost the entire route is above unbroken forest, rivers threading through it, and it is the most visceral way to begin to grasp the scale of what you are about to enter. From Tefé, a fast boat takes roughly an hour to reach the reserve. Stay at the Uakari Lodge: seven floating bungalows built with local materials, solar-powered, connected by bridges, ten rooms with private bathrooms and a veranda. The restaurant serves some of the best Amazonian cooking we had in Brazil. The staff are from the local communities — the knowledge they carry of the forest and the river is something no guidebook can replicate.</p></aside>

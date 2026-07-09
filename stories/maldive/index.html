@@ -191,6 +191,14 @@ a{color:inherit;text-decoration:none}
 .grid figure:hover figcaption{opacity:1;transform:none}
 
 /* ---------- LIGHTBOX ---------- */
+.img-protect-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink-2);border:1px solid var(--ink-3);color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.04em;
+  padding:.85rem 1.4rem;border-radius:6px;z-index:200;opacity:0;
+  transition:opacity .35s ease,transform .35s ease;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.img-protect-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.img-protect-toast .tick{color:var(--ochre);margin-right:.5em}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
   display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
 .lb.open{display:flex}
@@ -315,6 +323,31 @@ a{color:inherit;text-decoration:none}
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+(function(){
+  let toastTimer;
+  function showProtectToast(){
+    let t = document.querySelector('.img-protect-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.className = 'img-protect-toast';
+      t.innerHTML = '<span class="tick">◦</span>Images on this site are protected — please contact for licensing.';
+      document.body.appendChild(t);
+    }
+    clearTimeout(toastTimer);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+  }
+  function isProtectedImg(el){
+    return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
+  }
+  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
+  document.addEventListener('contextmenu', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
+  });
+  document.addEventListener('dragstart', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); }
+  });
+})();
 </script>
 <nav class="nav" id="nav">
   <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
@@ -332,7 +365,7 @@ a{color:inherit;text-decoration:none}
   <div class="art-hero">
     <picture>
       
-      <img src="/images/Maldive_Deep_South/13032022-_DSC3256-ARW.jpg" alt="The night the giant danced — 0°S 73°E · Fuvahmulah, Maldives" style="--hero-pos:50% 50%">
+      <img src="/images/Maldive_Deep_South/13032022-_DSC3256-ARW.jpg" alt="The night the giant danced — 0°S 73°E · Fuvahmulah, Maldives" class="protect" style="--hero-pos:50% 50%">
     </picture>
   </div>
   <div class="art-masthead">
@@ -347,12 +380,12 @@ a{color:inherit;text-decoration:none}
       <p class="lead">The Maldives deep south is not the Maldives of any brochure. Not the shallow turquoise lagoons and sand bars of the northern atolls. The southern archipelago is something else: remote, dark, washed by open Indian Ocean swells, visited by things that pass through deep water and surface here for reasons that are not entirely understood. We were on a liveaboard, several days out, at latitudes barely north of the equator. Fuvahmulah, the single-island atoll that sits alone between the Maldives and the Laccadives, surrounded by deep water on all sides, rich in currents and — sharks: hundreds of reef sharks moving left and right along the reef edge, riding the current, a colossal tiger shark patrolling around. It is one of the few places on earth where whale sharks come year-round. We had come to find one.</p>
       <p>It appeared at night, in the rich, glittering plankton illuminated by artificial light. One moment, there was only dark water. Then there was something enormous moving through it, a tail that seemed to continue indefinitely, a body the size of something that should not exist in the same element as a human body. But the word that stayed with me was not size: it was gentleness. The whale shark moved with absolute ease, as if the concept of effort did not apply to it, sinuous, unhurried, almost playful. It moved smoothly in the water, approaching with its huge, open mouth, small eyes, and beautiful, spotted hide. It danced with the light and the plankton, and it accepted our presence in the water around it, or perhaps simply ignored us. The distinction, if there is one, did not feel important. We followed it through the dark for as long as we could.</p>
       <p class="pullquote">It danced with the light and the plankton — enormous, sinuous, almost playful — accepting our presence in the water around it, or perhaps simply ignoring us. The distinction did not feel important.</p>
-      <figure class="art-figure"><img src="/images/Maldive_Deep_South/13032022-_DSC3277-ARW.jpg" alt="Fuvahmulah · the whale shark rising through the torch light, by night" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · the whale shark rising through the torch light, by night</figcaption></figure>
-      <figure class="art-figure wide"><img src="/images/Maldive_Deep_South/13032022-_DSC3280-ARW.jpg" alt="Fuvahmulah · a whale shark and a diver — a scale that is difficult to photograph" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · a whale shark and a diver — a scale that is difficult to photograph</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Maldive_Deep_South/13032022-_DSC3277-ARW.jpg" alt="Fuvahmulah · the whale shark rising through the torch light, by night" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · the whale shark rising through the torch light, by night</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Maldive_Deep_South/13032022-_DSC3280-ARW.jpg" alt="Fuvahmulah · a whale shark and a diver — a scale that is difficult to photograph" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · a whale shark and a diver — a scale that is difficult to photograph</figcaption></figure>
       <p>The daytime dives were a different world: the reef, shallower and lit, crowded with smaller life. The clownfish are everywhere, and they have a quality I had not expected: a kind of theatrical personality. At first, each one hides, retreating into the anemone&#x27;s tentacles, peering out to check whether the camera is still there. Then it finds its confidence and begins to move as it normally moves, alternating between drifting with the current and sudden, vivid bursts of energy, quick and precise. Many were in pairs. Dressed extravagantly, energetic, joyful, and almost reckless, the clownfish is exactly the emblem of tropical seas that it looks like, and it performs the role without any apparent self-consciousness.</p>
-      <figure class="art-figure"><img src="/images/Maldive_Deep_South/16032022-_DSC3391.jpg" alt="Fuvahmulah · clownfish on a bleached anemone" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · clownfish on a bleached anemone</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Maldive_Deep_South/16032022-_DSC3391.jpg" alt="Fuvahmulah · clownfish on a bleached anemone" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · clownfish on a bleached anemone</figcaption></figure>
       <p>In some of these frames, though, the anemone is white. Not the warm amber of a healthy anemone — completely white, bleached, the coral expelling its symbiotic algae under thermal stress. The clownfish live there regardless, and the vivid orange against the complete white of the bleach makes an image that is very hard to look at once you understand what the white means.</p>
-      <figure class="art-figure wide"><img src="/images/Maldive_Deep_South/13032022-_DSC3266-Modifica.jpg" alt="Fuvahmulah · whale shark in the dark water, Maldives deep south" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · whale shark in the dark water, Maldives deep south</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Maldive_Deep_South/13032022-_DSC3266-Modifica.jpg" alt="Fuvahmulah · whale shark in the dark water, Maldives deep south" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Fuvahmulah · whale shark in the dark water, Maldives deep south</figcaption></figure>
       <p>That night in the dark water, following the whale shark through the plankton, it was difficult to hold both things at once: the immensity and grace of what was in front of me, and the knowledge of what is happening to the water it swims in. By day, it was unavoidable. Almost every reef we dived was bleached white or simply dead, not in patches, but as the general condition of the place. And above the surface, the construction was everywhere: new artificial islands appearing from the water, new resorts going up, and the great reclaimed city rising out of the lagoon near Malé, Hulhumalé, built on dredged sand to move the population off the atolls and free the islands for tourism. The Maldives is the lowest-lying country on earth, and it is being simultaneously drowned by the sea and rebuilt against it. The whale shark, which has been moving through these oceans for sixty million years, is now listed as Endangered. I followed it through the dark for as long as I could. It did not seem to know any of this.</p>
       <aside class="art-box conservation"><span class="label"><span class="tick">◦</span>Why it matters</span><p>The whale shark is the largest fish on earth and one of its most ancient — essentially unchanged for sixty million years. It is also, since 2016, listed as Endangered on the IUCN Red List, its population estimated to have declined by more than fifty percent over the past seventy-five years. The primary threats are targeted hunting in parts of Asia, bycatch in pelagic fisheries, and boat strikes in high-traffic areas. The Maldives declared itself a whale shark sanctuary in 1995, prohibiting all hunting and trade, and the aggregations at Fuvahmulah and South Ari Atoll are among the most important in the Indian Ocean for research and monitoring. But the deeper existential threat to the Maldives — and to everything that lives in its waters — is thermal. The 2016 bleaching event destroyed an estimated seventy percent of the archipelago&#x27;s shallow-water corals, and on a 2022 trip the reefs of the deep south were overwhelmingly bleached or dead. The government has committed to carbon neutrality by 2030 and manages extensive marine protected areas, but it is also pursuing large-scale land reclamation — most visibly Hulhumalé, an artificial island built on dredged lagoon sand to rehouse much of the population and open the natural atolls to resort development. The tension is stark: a nation literally building new ground to survive rising seas, while the reefs that historically built and defended that ground die underneath it. And sea surface temperatures are driven by global emissions, not local policy.</p></aside>
       <aside class="art-box fieldnotes"><span class="label"><span class="tick">◦</span>Field notes</span><p>Liveaboard itineraries into the deep south depart from Malé — by boat or via an intermediate domestic flight — and run four to seven nights; the northeast monsoon season (December–April) offers the calmest seas and best visibility. Fuvahmulah is also accessible via a one-hour domestic flight from Malé; the atoll&#x27;s unique oceanography, with deep channels creating upwelling that concentrates plankton, makes whale shark encounters possible year-round without feeding stations or bait, which is rare. Snorkelling is possible but encounters are more consistent and more intimate in the water; basic freediving skills help significantly.</p></aside>

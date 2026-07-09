@@ -191,6 +191,14 @@ a{color:inherit;text-decoration:none}
 .grid figure:hover figcaption{opacity:1;transform:none}
 
 /* ---------- LIGHTBOX ---------- */
+.img-protect-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink-2);border:1px solid var(--ink-3);color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.04em;
+  padding:.85rem 1.4rem;border-radius:6px;z-index:200;opacity:0;
+  transition:opacity .35s ease,transform .35s ease;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.img-protect-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.img-protect-toast .tick{color:var(--ochre);margin-right:.5em}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
   display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
 .lb.open{display:flex}
@@ -315,6 +323,31 @@ a{color:inherit;text-decoration:none}
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+(function(){
+  let toastTimer;
+  function showProtectToast(){
+    let t = document.querySelector('.img-protect-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.className = 'img-protect-toast';
+      t.innerHTML = '<span class="tick">◦</span>Images on this site are protected — please contact for licensing.';
+      document.body.appendChild(t);
+    }
+    clearTimeout(toastTimer);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+  }
+  function isProtectedImg(el){
+    return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
+  }
+  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
+  document.addEventListener('contextmenu', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
+  });
+  document.addEventListener('dragstart', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); }
+  });
+})();
 </script>
 <nav class="nav" id="nav">
   <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
@@ -332,7 +365,7 @@ a{color:inherit;text-decoration:none}
   <div class="art-hero">
     <picture>
       
-      <img src="/images/DSC01474.JPG" alt="Where the macaques bathe — 36°N 138°E · Jigokudani, Nagano, Japan" style="--hero-pos:50% 50%">
+      <img src="/images/DSC01474.JPG" alt="Where the macaques bathe — 36°N 138°E · Jigokudani, Nagano, Japan" class="protect" style="--hero-pos:50% 50%">
     </picture>
   </div>
   <div class="art-masthead">
@@ -346,10 +379,10 @@ a{color:inherit;text-decoration:none}
     <div class="art-body" style="max-width:680px">
       <p class="lead">After days in Tokyo — a city where it is genuinely difficult to find a single tree or a patch of grass — and three and a half hours on a train so fast the landscape becomes abstract, an unbroken wall of narrow buildings stacked against narrow buildings with no natural corner anywhere in it, you finally reach the mountains. And you breathe. Nagano in March is beautiful in its own right, snow still deep on the peaks, the air thin and clean after the density of the capital. You rise before dawn to reach the monkeys.</p>
       <p>The place is remote, reached by bus or car to a freezing trailhead deep in snow, the temperature brutally low. But there is no point despairing at the cold, because you are not there yet — you still have to walk. The trail climbs for a little over an hour through a forest of conifers, and every so often the wind brings down a small avalanche of snow from the branches overhead, a soft collapse and then silence again. At the top, at the end of the valley, there is a small museum dedicated to the monkeys that doubles as a refuge — a place to literally thaw out — and beyond it a bridge. The view itself is nothing special. But this is where the macaques finally appear: small, ruffled, thick-furred, walking and running through the snow and the freezing air as if the cold simply did not touch them. Sometimes one sits down in the snow and relaxes, and you wonder how it does not freeze. They are active, playful, occasionally quarrelsome. And then you reach the small thermal pool, and the macaques become many.</p>
-      <figure class="art-figure wide"><img src="/images/DSC01615.JPG" alt="Jigokudani · the troop in the thermal pool, grooming in the steam" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Jigokudani · the troop in the thermal pool, grooming in the steam</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/DSC01615.JPG" alt="Jigokudani · the troop in the thermal pool, grooming in the steam" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Jigokudani · the troop in the thermal pool, grooming in the steam</figcaption></figure>
       <p>The troop holds every age. There are big, dishevelled males with thick, vaporous fur, and a great many wildly energetic infants who play in the water, leaping onto one another, splashing, pushing each other under. But the most absorbing thing is the faces — the enormous range of expression on them. One dozes gently in the warm vapour, perhaps half-attended by another picking through its fur in some social rite; one dives; the males stay apart, holding their place in the hierarchy. And all of them with facial expressions that are captivating, extraordinarily readable, startlingly human — familiar in a way you are not prepared for.</p>
       <p>You stay for hours in the freezing air, watching, never bored, held by the curiosity and the strangeness of this surreal behaviour: so natural, and so close to our own way of relaxing in a spa. The contrast holds you — the freezing air, the steaming thermal pool, the colony so relaxed, almost indulgent, behaving in a way that looks almost urban next to ours. Your hands and feet freeze. You cannot bring yourself to give up the spectacle. Eventually you return to the museum, thaw your hands and feet, drink a free cup of tea, and walk back down through the forest.</p>
-      <figure class="art-figure"><img src="/images/DSC01913.JPG" alt="Jigokudani · a mother holds her infant against the cold" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Jigokudani · a mother holds her infant against the cold</figcaption></figure>
+      <figure class="art-figure"><img src="/images/DSC01913.JPG" alt="Jigokudani · a mother holds her infant against the cold" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Jigokudani · a mother holds her infant against the cold</figcaption></figure>
       <aside class="art-box conservation"><span class="label"><span class="tick">◦</span>Why it matters</span><p>The bathing macaques of Jigokudani are not a tourist invention but the surviving end of a genuine conservation story — and a quietly redemptive one. In the 1950s, the post-war expansion of ski resorts and logging in the Shiga Highlands drove the Japanese macaques down out of their mountain habitat and into the farmland below, where they raided crops and were, inevitably, treated as pests and hunted. In 1964 the park was established as a refuge: feeding the troop deliberately to keep it away from the villages, giving the displaced animals a reason to stay in the valley instead of in conflict with people. The famous bathing behaviour came later and entirely by accident — young monkeys were seen climbing into the outdoor baths used by a local inn’s human guests, possibly drawn by the warmth, and the habit spread through the troop and passed down the generations. The Japanese macaque is the most northerly-living non-human primate on earth, and Jigokudani is the only place where they have learned to use a hot spring against the cold. The park is careful with it: the monkeys are wild and free to come and go, fed enough to keep them in the valley but never enough to make them dependent, observed at close range but never fenced. It is a rare example of a human–wildlife conflict that was solved by giving the animals somewhere to be.</p></aside>
       <aside class="art-box fieldnotes"><span class="label"><span class="tick">◦</span>Field notes</span><p>Jigokudani Yaen-Koen sits at 850 metres in the Joshinetsu Kogen National Park, about three and a half hours from Tokyo: Shinkansen to Nagano, then a bus toward Kanbayashi Onsen, then the final approach on foot. That last stretch cannot be shortened — a 1.6 km trail through cedar and conifer forest, around thirty to forty minutes, slippery in winter, so bring proper boots. Winter (December–March) is when the snow is deep and the monkeys use the pool most, though they roam free and do not visit every single day; check the park’s live updates before committing to the trip. For photography, the conditions are a gift and a challenge at once: diffuse, low-contrast light, constant steam, and a near-monochrome palette of white, grey and sepia, like a postcard from an older Japan. Work the faces and the vapour, dress far more warmly than you think you need to, and stay long — the best expressions come to those who wait in the cold. Combine the visit with a night in the onsen towns of Shibu or Yudanaka, where you can take your own hot-spring bath afterwards.</p></aside>
     </div>

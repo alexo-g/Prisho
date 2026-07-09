@@ -191,6 +191,14 @@ a{color:inherit;text-decoration:none}
 .grid figure:hover figcaption{opacity:1;transform:none}
 
 /* ---------- LIGHTBOX ---------- */
+.img-protect-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink-2);border:1px solid var(--ink-3);color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.04em;
+  padding:.85rem 1.4rem;border-radius:6px;z-index:200;opacity:0;
+  transition:opacity .35s ease,transform .35s ease;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.img-protect-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.img-protect-toast .tick{color:var(--ochre);margin-right:.5em}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
   display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
 .lb.open{display:flex}
@@ -315,6 +323,31 @@ a{color:inherit;text-decoration:none}
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+(function(){
+  let toastTimer;
+  function showProtectToast(){
+    let t = document.querySelector('.img-protect-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.className = 'img-protect-toast';
+      t.innerHTML = '<span class="tick">◦</span>Images on this site are protected — please contact for licensing.';
+      document.body.appendChild(t);
+    }
+    clearTimeout(toastTimer);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+  }
+  function isProtectedImg(el){
+    return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
+  }
+  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
+  document.addEventListener('contextmenu', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
+  });
+  document.addEventListener('dragstart', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); }
+  });
+})();
 </script>
 <nav class="nav" id="nav">
   <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
@@ -332,7 +365,7 @@ a{color:inherit;text-decoration:none}
   <div class="art-hero">
     <picture>
       
-      <img src="/images/Lofoten/02012017-DSC00913.jpg" alt="Where morning never becomes day — 68°N 15°E · Lofoten, Norway" style="--hero-pos:50% 50%">
+      <img src="/images/Lofoten/02012017-DSC00913.jpg" alt="Where morning never becomes day — 68°N 15°E · Lofoten, Norway" class="protect" style="--hero-pos:50% 50%">
     </picture>
   </div>
   <div class="art-masthead">
@@ -347,11 +380,11 @@ a{color:inherit;text-decoration:none}
       <p class="lead">During the two weeks of the arctic night, at noon, the sun tries in vain to overcome the horizon. Sunrise and sunset — the beginning and the end of the day — merge their colours into a single long golden event, and everything between them is light of a kind you do not find elsewhere on earth. Spiky, snow-covered mountains scatter across a flat, dense, silent sea between the islands; the sky and their reflections compete for the same space. The labyrinthine inlets chase each other through long fjords, and the placid glacial water mirrors and multiplies every shape, every colour, every landscape it receives — as if the beauty of these places was not enough, and the sea decided to say it twice.</p>
       <p>We had come for the orcas. In winter, killer whale pods follow the herring into the fjords off Andøya — the northernmost point of the archipelago, the open door to the north Atlantic — and for a few weeks each year the water here holds the largest concentration of orcas on earth. We went out on a RIB in the open sea, dressed in thick neoprene drysuits, into cold grey water under a sky the colour of pewter. When the guide found the pod — adult females, a few calves, a male with a dorsal fin so tall it looked architectural — he said quietly to enter the water. I remember not thinking about the cold. The orcas were working the herring school below us, moving fast, their breath loud in the silence. Their strength, their curiosity, their beauty — and at one point a large female turned and looked directly at me with an eye as intelligent as any I have ever faced, before going back to her work.</p>
       <p class="pullquote">Their strength, their breath, their curiosity, their beauty — a pod of killer whales feeding in a grey Arctic sea, and the strange privilege of being, for a moment, in the water with them.</p>
-      <figure class="art-figure"><img src="/images/Lofoten/31122016-IMG_0162.jpg" alt="A killer whale surfaces off Andøya, in the winter fjords" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A killer whale surfaces off Andøya, in the winter fjords</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Lofoten/31122016-IMG_0162.jpg" alt="A killer whale surfaces off Andøya, in the winter fjords" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A killer whale surfaces off Andøya, in the winter fjords</figcaption></figure>
       <p>The rest of Lofoten is Svolvær — the main town, the starting point, the place to orient yourself before the E10 takes you south island by island along the most scenic road I have ever driven. We stayed in a rorbu: the red-and-white wooden fishermen&#x27;s cabins built directly over the water, some centuries old, most now converted into something warm and quietly romantic. You wake up on the wooden floor, open the window, and a fjord is directly outside. There is nothing to prepare you for that. The best day was on the water — the boat into Trollfjord, a narrow rocky throat of a canyon with mountains on both sides so steep and close they seem to be negotiating with each other for the sky, the water below painted blue and pink and red in the colours the sun throws from just below the horizon. Sea eagles work the same channel; they have learned the boats.</p>
-      <figure class="art-figure wide"><img src="/images/Lofoten/02012017-DSC01943-Migliorato-NR.jpg" alt="Approaching Trollfjord by boat, snow-capped peaks on calm water" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Approaching Trollfjord by boat, snow-capped peaks on calm water</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Lofoten/02012017-DSC01943-Migliorato-NR.jpg" alt="Approaching Trollfjord by boat, snow-capped peaks on calm water" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Approaching Trollfjord by boat, snow-capped peaks on calm water</figcaption></figure>
       <p>The northern lights are different in Lofoten than anywhere else I have seen them because the landscape frames them properly. At Skagsanden beach the sand freezes in winter, and the frozen sand mirrors the sky — so the aurora above you and the aurora below you are the same event, and you are standing in the middle of it. The green aurora is the most common, but in two weeks I watched the pink and white aurora at least twice, the whole bay lit up in colours that have no right to exist at that latitude, doubling in the flat frozen mirror below until the sky and the ground become indistinguishable and the only human-scale thing left is the person standing next to you.</p>
-      <figure class="art-figure wide"><img src="/images/Lofoten/05012017-DSC03333.jpg" alt="Skagsanden beach · the northern lights, doubled in the still water" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Skagsanden beach · the northern lights, doubled in the still water</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Lofoten/05012017-DSC03333.jpg" alt="Skagsanden beach · the northern lights, doubled in the still water" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Skagsanden beach · the northern lights, doubled in the still water</figcaption></figure>
       <p>What I carried home from Lofoten is not any single image but a quality of light I have not found anywhere since. For the two weeks of the arctic night the sun never clears the horizon — it surfaces in the south around nine in the morning, moves along the edge of the sky with enormous slowness, and slips back below around half past three in the afternoon. The whole day is a perpetual golden hour. Everything it touches — rock, water, snow, a red wooden cabin, the dorsal fin of a killer whale — it touches with the quality of something ending or beginning, and you can never quite tell which. I think that is precisely the point.</p>
       <aside class="art-box conservation"><span class="label"><span class="tick">◦</span>Why it matters</span><p>The killer whale pods that winter in these fjords follow one of the largest herring stocks on earth. Norwegian spring-spawning herring collapsed in the 1960s after decades of industrial overfishing — and the orcas essentially disappeared from the region at the same time. The stock recovered in the 1990s under strict Norwegian quota management, and the pods came back with it, which is why Andøya and the fjords around Tromsø now host the largest winter concentration of orcas in the world. It is one of the more clearly documented cause-and-effect stories in North Atlantic marine conservation: manage the prey, and the predator returns. Norway is also, as of 2025, one of only three countries still permitting commercial whaling — specifically of minke whales — while simultaneously operating one of the world&#x27;s most successful whale tourism industries. The same waters, two industries, and the tension between them is not resolved.</p></aside>
       <aside class="art-box fieldnotes"><span class="label"><span class="tick">◦</span>Field notes</span><p>Whale-swimming expeditions leave from Andenes and from Skjervøy and Tromsø further south — the orca concentrations shift depending on where the herring school, so confirm the current hotspot when you book. Book well in advance for December–January slots; the season is short and demand is high. Permits for swimming are limited and conditions are weather-dependent — build flexibility into your schedule. Svolvær is the practical base for the archipelago; the E10 road connects the islands south to the village of Å and almost everything essential is visible from it. Book rorbu cabins early, especially at New Year. For aurora viewing, Skagsanden beach is the canonical spot but any dark fjord-side location works on a clear night. Use aurora forecast apps to time it — aurora-service.eu is reliable — and go out even on modest forecasts, as the lights can appear quickly and the forecast updates throughout the night.</p></aside>

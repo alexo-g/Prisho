@@ -191,6 +191,14 @@ a{color:inherit;text-decoration:none}
 .grid figure:hover figcaption{opacity:1;transform:none}
 
 /* ---------- LIGHTBOX ---------- */
+.img-protect-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink-2);border:1px solid var(--ink-3);color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.04em;
+  padding:.85rem 1.4rem;border-radius:6px;z-index:200;opacity:0;
+  transition:opacity .35s ease,transform .35s ease;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.img-protect-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.img-protect-toast .tick{color:var(--ochre);margin-right:.5em}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
   display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
 .lb.open{display:flex}
@@ -315,6 +323,31 @@ a{color:inherit;text-decoration:none}
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+(function(){
+  let toastTimer;
+  function showProtectToast(){
+    let t = document.querySelector('.img-protect-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.className = 'img-protect-toast';
+      t.innerHTML = '<span class="tick">◦</span>Images on this site are protected — please contact for licensing.';
+      document.body.appendChild(t);
+    }
+    clearTimeout(toastTimer);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+  }
+  function isProtectedImg(el){
+    return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
+  }
+  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
+  document.addEventListener('contextmenu', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
+  });
+  document.addEventListener('dragstart', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); }
+  });
+})();
 </script>
 <nav class="nav" id="nav">
   <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
@@ -332,7 +365,7 @@ a{color:inherit;text-decoration:none}
   <div class="art-hero">
     <picture>
       
-      <img src="/images/29092018-DSC03387.jpg" alt="The green half of America — 37°N 119°W · Sierra Nevada &amp; Pacific Coast, USA" style="--hero-pos:50% 50%">
+      <img src="/images/29092018-DSC03387.jpg" alt="The green half of America — 37°N 119°W · Sierra Nevada &amp; Pacific Coast, USA" class="protect" style="--hero-pos:50% 50%">
     </picture>
   </div>
   <div class="art-masthead">
@@ -346,14 +379,14 @@ a{color:inherit;text-decoration:none}
     <div class="art-body" style="max-width:680px">
       <p class="lead">Half of America, it turns out, is red — and the other half, the half we drove into after the desert, is the deepest green I have ever stood inside. We came down out of the Sierra Nevada through a tunnel cut straight through granite, and on the other side the valley just opened, all at once, the way a held breath finally lets go: El Capitan rearing up on one side, Half Dome standing improbably square at the far end, a waterfall hanging thin and white in between, and every photograph I had ever seen of this place turned out to be true and somehow still not enough.</p>
       <p>We caught Half Dome again at the end of the day, the granite gone the colour of a struck match, a pair of dead snags framing it on either side like the valley itself had built a window just for this. Below, the Merced River lay flat enough to double the whole scene, gold grass in the foreground, the mountain repeated underwater as if it needed saying twice. A Steller&#x27;s jay sat watching us from a slab of bare rock, electric blue against all that grey stone, the one small loud thing in a place built at a scale that swallows sound.</p>
-      <figure class="art-figure wide"><img src="/images/29092018-DSC03311.jpg" alt="Yosemite · Half Dome at golden hour, the Merced River below" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Yosemite · Half Dome at golden hour, the Merced River below</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/29092018-DSC03311.jpg" alt="Yosemite · Half Dome at golden hour, the Merced River below" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Yosemite · Half Dome at golden hour, the Merced River below</figcaption></figure>
       <p>Sequoia is where the trees stop being scenery and start being individuals. We walked in among trunks wider than rooms, bark the colour of rust against canopy so green it looked lit from inside, and stood for a long time at the base of one that had been hollowed out entirely by fire at some point in the last thousand years — burned black on the inside, alive and green on top, a person standing in the cavity of it for scale, no bigger than a single rib in something that size. They told us afterwards that some sequoias actually need fire to reproduce: the heat is what finally opens their cones. The thing that should have killed it is the same thing that lets it go on. A Douglas squirrel worked at a cone overhead, completely unbothered, doing the same job these trees have always depended on.</p>
       <p class="pullquote">Burned black on the inside, alive and green on top — the thing that should have killed it is the same thing that lets it go on.</p>
-      <figure class="art-figure"><img src="/images/28092018-DSC02964.jpg" alt="Sequoia National Park · a fire-hollowed trunk, still standing" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Sequoia National Park · a fire-hollowed trunk, still standing</figcaption></figure>
+      <figure class="art-figure"><img src="/images/28092018-DSC02964.jpg" alt="Sequoia National Park · a fire-hollowed trunk, still standing" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Sequoia National Park · a fire-hollowed trunk, still standing</figcaption></figure>
       <p>The coast, when we finally reached it past Big Sur, turned out to be the wildest stretch of the entire trip — not in scenery, though McWay Falls dropping straight onto a beach of its own private cove is hard to beat, but in how much was simply alive there, all at once, without any effort to find it. Sea otters lay on their backs in calm water like they&#x27;d been doing it for centuries, which, depending how you count, they had. Sea lions piled on the rocks barking at nothing. And further south, an entire colony of elephant seals had hauled themselves onto the sand — two young males rearing up nose to nose like they meant it, an older one with its mouth thrown open mid-roar, sand and salt and noise everywhere, the most unglamorous and most thrilling wildlife I saw on the whole trip.</p>
-      <figure class="art-figure"><img src="/images/07102018-DSC06383.jpg" alt="California coast · an elephant seal, mid-roar" loading="lazy"><figcaption class="label"><span class="tick">◦</span>California coast · an elephant seal, mid-roar</figcaption></figure>
+      <figure class="art-figure"><img src="/images/07102018-DSC06383.jpg" alt="California coast · an elephant seal, mid-roar" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>California coast · an elephant seal, mid-roar</figcaption></figure>
       <p>On the last evening, far out past the breakers, something dark rolled at the surface and went down again, slow, deliberate, a tail lifting clear of the water for just long enough to be unmistakable before it was gone — a whale, close enough to the shore that for one second the whole Pacific felt like something with a heartbeat. We stood there until the light went, the sky doing something orange and ridiculous over water that had just swallowed something the size of a bus without a sound, and I understood, finally, why this half of the country gets called green and the other half red: not the colour of the ground, but the colour of how alive each one turns out to be, once you actually stand in it.</p>
-      <figure class="art-figure wide"><img src="/images/06102018-DSC05515.jpg" alt="California coast · a whale, diving" loading="lazy"><figcaption class="label"><span class="tick">◦</span>California coast · a whale, diving</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/06102018-DSC05515.jpg" alt="California coast · a whale, diving" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>California coast · a whale, diving</figcaption></figure>
       <aside class="art-box conservation"><span class="label"><span class="tick">◦</span>Why it matters</span><p>Giant sequoias only grow naturally in about 70 isolated groves on the western slope of the Sierra Nevada, and in recent years wildfires intensified by drought and a century of fire-suppression policy have killed thousands of large, old-growth sequoias — trees that, until very recently, were thought to be almost fire-proof. The irony is sharp: these trees evolved to need fire, in carefully calibrated doses, and the same climate pressure now sending hotter, more frequent fires through the Sierra is starting to overwhelm the very adaptation that kept them alive for two thousand years. Along the coast, sea otters remain a conservation success story still very much in progress — hunted to near-extinction for their fur by the early 1900s, they&#x27;re recovering slowly along central California, and as a keystone species their return is helping kelp forests recover too, since otters keep in check the sea-urchin populations that would otherwise strip the kelp bare.</p></aside>
       <aside class="art-box fieldnotes"><span class="label"><span class="tick">◦</span>Field notes</span><p>Best season: late spring through early fall for Yosemite Valley (Tioga Pass and the high country close with snow in winter); Sequoia&#x27;s Giant Forest is accessible most of the year but check road conditions first. The elephant seal rookery along the coast is most active — and loudest — during pupping and mating season, roughly December through March; outside that window you&#x27;ll still see seals, just fewer and quieter. McWay Falls itself can only be viewed from the overlook trail — the cove below is closed to visitors. If you want a real shot at seeing a whale from shore, pick a calm day and bring binoculars; migration runs along this coast twice a year, but a sighting is never guaranteed.</p></aside>
     </div>

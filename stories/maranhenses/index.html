@@ -191,6 +191,14 @@ a{color:inherit;text-decoration:none}
 .grid figure:hover figcaption{opacity:1;transform:none}
 
 /* ---------- LIGHTBOX ---------- */
+.img-protect-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink-2);border:1px solid var(--ink-3);color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.04em;
+  padding:.85rem 1.4rem;border-radius:6px;z-index:200;opacity:0;
+  transition:opacity .35s ease,transform .35s ease;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.img-protect-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.img-protect-toast .tick{color:var(--ochre);margin-right:.5em}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
   display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
 .lb.open{display:flex}
@@ -315,6 +323,31 @@ a{color:inherit;text-decoration:none}
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+(function(){
+  let toastTimer;
+  function showProtectToast(){
+    let t = document.querySelector('.img-protect-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.className = 'img-protect-toast';
+      t.innerHTML = '<span class="tick">◦</span>Images on this site are protected — please contact for licensing.';
+      document.body.appendChild(t);
+    }
+    clearTimeout(toastTimer);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+  }
+  function isProtectedImg(el){
+    return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
+  }
+  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
+  document.addEventListener('contextmenu', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
+  });
+  document.addEventListener('dragstart', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); }
+  });
+})();
 </script>
 <nav class="nav" id="nav">
   <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
@@ -332,7 +365,7 @@ a{color:inherit;text-decoration:none}
   <div class="art-hero">
     <picture>
       
-      <img src="/images/Maranenses/01082019-DSC05593.jpg" alt="Walking inside a painting — 2°S 43°W · Lençóis Maranhenses, Brazil" style="--hero-pos:50% 50%">
+      <img src="/images/Maranenses/01082019-DSC05593.jpg" alt="Walking inside a painting — 2°S 43°W · Lençóis Maranhenses, Brazil" class="protect" style="--hero-pos:50% 50%">
     </picture>
   </div>
   <div class="art-masthead">
@@ -346,14 +379,14 @@ a{color:inherit;text-decoration:none}
     <div class="art-body" style="max-width:680px">
       <p class="lead">There are landscapes you understand better the more you look at them. The Lençóis Maranhenses is the opposite. It is a surreal sight from the first moment — colours so other, so extraterrestrial, so close to a vision of paradise: a pure white, and a turquoise, and the occasional emerald that divides the two along a single thin line. Geometries painted by the caresses of the air, kept light and poetic and delicate precisely because of the gentleness of the hand that arranges them. And then, when you learn how it forms, none of it becomes more comprehensible. If anything, the more you understand, the more impossible the whole thing seems.</p>
       <p>Here is what is happening, and it does not help. The white sand is not from here at all: two rivers carry thousands of tons of sediment out of the interior of the continent toward the Atlantic, and then the equatorial winds blow it back inland, sometimes tens of kilometres, piling it into dunes that look, from above, like white bedsheets hung out to dry — which is exactly what lençóis means. Then, for half the year, the rain comes, and because a layer of impermeable rock sits just beneath the sand, the water cannot drain away. It pools. Thousands upon thousands of crystalline lagoons appear in the valleys between the dunes — a turquoise mosaic laid across the white, present for only a few months before the sun takes them back.</p>
-      <figure class="art-figure wide"><img src="/images/Maranenses/01082019-DSC05503.jpg" alt="Pools within pools, dunes layered toward the horizon" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Pools within pools, dunes layered toward the horizon</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Maranenses/01082019-DSC05503.jpg" alt="Pools within pools, dunes layered toward the horizon" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Pools within pools, dunes layered toward the horizon</figcaption></figure>
       <p>And then the deepest mystery of all: there are fish in the lagoons. Lagoons that did not exist a few weeks earlier, in the middle of a sand desert, far from any permanent water — and they are full of fish. Part of the answer is migration: at their fullest, the lagoons connect to rivers that cut through the dunes, and fish swim in. But part of it is stranger. Some species, like the wolf fish, survive the dry season buried in the damp mud beneath the vanished water, dormant, waiting — and others lay their eggs in the dry sand, so that when the rains return, the eggs hatch and a whole population simply begins again, out of what looked like nothing.</p>
-      <figure class="art-figure"><img src="/images/Maranenses/01082019-DSC05679.jpg" alt="Where sand meets water, a colour without a name" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Where sand meets water, a colour without a name</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Maranenses/01082019-DSC05679.jpg" alt="Where sand meets water, a colour without a name" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Where sand meets water, a colour without a name</figcaption></figure>
       <p>You walk into this the way you walk into a painting. You climb a white dune and the next valley holds a lagoon the colour of a stone you do not have a name for, and the one after that holds another, and another, to the horizon. There is no fauna to wait for here, no animal to appear from the vegetation — there is no vegetation. There is only the landscape itself, in its most delicate register: the quiet, poetic, almost unbearable softness of natural beauty with nothing else competing for your attention. It is the gentlest place I have ever stood inside.</p>
       <p class="pullquote">Colours so other, so close to paradise — you do not look at this landscape so much as walk inside a painting.</p>
-      <figure class="art-figure wide"><img src="/images/Maranenses/03082019-DSC06263.jpg" alt="A lagoon carved into an emerald curve, sand on both sides" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A lagoon carved into an emerald curve, sand on both sides</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Maranenses/03082019-DSC06263.jpg" alt="A lagoon carved into an emerald curve, sand on both sides" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A lagoon carved into an emerald curve, sand on both sides</figcaption></figure>
       <aside class="art-box conservation"><span class="label"><span class="tick">◦</span>Why it matters</span><p>The Lençóis Maranhenses became a UNESCO World Heritage Site in 2024 — recognition of one of the rarest landscape systems on earth: the largest dune field in South America, where flowing white sand and thousands of seasonal freshwater lagoons coexist in a way found nowhere else. The system is also fragile in a specific way. It depends on a precise, seasonal balance of wind, rainfall and groundwater, which makes it unusually exposed to climate disruption — shifts in rainfall timing or volume change the lagoons directly. The same steady coastal winds that build the dunes have also drawn heavy investment in wind energy: a cluster of wind farms now operates in the region between Barreirinhas and Paulino Neves, hundreds of turbines turning within sight of the park, and the socio-environmental impact of that development on the Maranhão coast is now the subject of academic study in its own right. Tourism, meanwhile, has grown past sixty thousand visitors a year — bringing both the income that gives the park its economic value and the pressure that comes with foot traffic across a living, moving system of sand.</p></aside>
-      <figure class="art-figure"><img src="/images/Maranenses/02082019-DSC06085.jpg" alt="Wind turbines rise along the dune field, part of a major wind-energy complex sited inside the region" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Wind turbines rise along the dune field, part of a major wind-energy complex sited inside the region</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Maranenses/02082019-DSC06085.jpg" alt="Wind turbines rise along the dune field, part of a major wind-energy complex sited inside the region" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Wind turbines rise along the dune field, part of a major wind-energy complex sited inside the region</figcaption></figure>
       <aside class="art-box fieldnotes"><span class="label"><span class="tick">◦</span>Field notes</span><p>The lagoons are seasonal, and timing is everything: they fill from the rains between January and June, and are at their fullest and most photogenic from roughly July to September, before the dry season slowly empties them again. The main gateway is Barreirinhas, reached from São Luís, with 4x4 vehicles making the approach across the sand to the most accessible lagoon circuits (Lagoa Azul, Lagoa Bonita). For the deeper, emptier landscapes, the village of Atins and the remote oases of Queimada dos Britos and Baixa Grande — settlements that exist inside the dunes — are worth the extra effort. Photographically, the surface is the subject: shoot the geometry at low sun, when the dunes throw long shadows and the lagoons catch the colour of the sky, and look for the thin emerald lines where white sand meets turquoise water.</p></aside>
     </div>
     <div class="art-share" style="max-width:680px;margin-inline:auto;padding-inline:var(--gut);margin-top:3rem;padding-top:2rem;border-top:1px solid var(--ink-3);display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">

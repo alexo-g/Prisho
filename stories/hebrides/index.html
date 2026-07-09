@@ -191,6 +191,14 @@ a{color:inherit;text-decoration:none}
 .grid figure:hover figcaption{opacity:1;transform:none}
 
 /* ---------- LIGHTBOX ---------- */
+.img-protect-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink-2);border:1px solid var(--ink-3);color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.04em;
+  padding:.85rem 1.4rem;border-radius:6px;z-index:200;opacity:0;
+  transition:opacity .35s ease,transform .35s ease;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.img-protect-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.img-protect-toast .tick{color:var(--ochre);margin-right:.5em}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
   display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
 .lb.open{display:flex}
@@ -315,6 +323,31 @@ a{color:inherit;text-decoration:none}
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+(function(){
+  let toastTimer;
+  function showProtectToast(){
+    let t = document.querySelector('.img-protect-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.className = 'img-protect-toast';
+      t.innerHTML = '<span class="tick">◦</span>Images on this site are protected — please contact for licensing.';
+      document.body.appendChild(t);
+    }
+    clearTimeout(toastTimer);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+  }
+  function isProtectedImg(el){
+    return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
+  }
+  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
+  document.addEventListener('contextmenu', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
+  });
+  document.addEventListener('dragstart', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); }
+  });
+})();
 </script>
 <nav class="nav" id="nav">
   <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
@@ -332,7 +365,7 @@ a{color:inherit;text-decoration:none}
   <div class="art-hero">
     <picture>
       
-      <img src="/images/Ebridi/18082016-IMG_9547.jpg" alt="Freediving with the basking shark — 58°N 6°W · The Hebrides, Scotland" style="--hero-pos:50% 50%">
+      <img src="/images/Ebridi/18082016-IMG_9547.jpg" alt="Freediving with the basking shark — 58°N 6°W · The Hebrides, Scotland" class="protect" style="--hero-pos:50% 50%">
     </picture>
   </div>
   <div class="art-masthead">
@@ -346,13 +379,13 @@ a{color:inherit;text-decoration:none}
     <div class="art-body" style="max-width:680px">
       <p class="lead">Scotland surprises, the first time, with its sheer proximity. This is one of the wildest places left in Europe, and it sits closer to the rest of the continent than the wildness suggests it should — a short flight, sometimes just a train and a ferry, from cities where you would swear this kind of place could no longer exist. Oban deserves a night of its own before you go further: a working harbour town with a distillery rising behind the main street, and restaurants where the menu devotes many more pages to single malts than to food — not an affectation but a statement of cultural priorities, and a correct one. From Oban the road runs north and west until, finally, it reaches the bridge.</p>
       <p>The Skye Bridge is an ordinary piece of engineering that functions as something else entirely: a threshold. You drive across it and the world on the far side is not the world you left. The weather changes every twenty minutes — full sun, then immediate cold wind and rain, then sun again, the island cycling through its seasons in a single afternoon as if demonstrating its range. Between weather events, Skye opens into wide, indefinite meadows — heather and wet grass and, in the right season, an extravagant quantity of wildflowers: marsh orchids, ragged robin, harebells, bog cotton, the deep pink of thrift along the clifftops. The ratio of animals to humans is impossible to ignore. Sheep everywhere — on the road, off the road, standing in a single-track passing place watching your approach with philosophical calm. And the Highland cattle, broad and shaggy and unhurried, in their palette of black, amber, pale yellow and near-cream — patchwork coats fading into the moorland as if they had grown from it, which in any meaningful sense they had.</p>
-      <figure class="art-figure"><img src="/images/Ebridi/19082016-DSC07314.jpg" alt="Highland cattle, unhurried on the moorland of Skye" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Highland cattle, unhurried on the moorland of Skye</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Ebridi/11082016-DSC01313.jpg" alt="A sheep, unbothered, in a single-track passing place" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A sheep, unbothered, in a single-track passing place</figcaption></figure>
-      <figure class="art-figure"><img src="/images/old-man-storr.jpg" alt="The Old Man of Storr · Isle of Skye" loading="lazy"><figcaption class="label"><span class="tick">◦</span>The Old Man of Storr · Isle of Skye</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Ebridi/19082016-DSC07314.jpg" alt="Highland cattle, unhurried on the moorland of Skye" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Highland cattle, unhurried on the moorland of Skye</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Ebridi/11082016-DSC01313.jpg" alt="A sheep, unbothered, in a single-track passing place" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A sheep, unbothered, in a single-track passing place</figcaption></figure>
+      <figure class="art-figure"><img src="/images/old-man-storr.jpg" alt="The Old Man of Storr · Isle of Skye" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>The Old Man of Storr · Isle of Skye</figcaption></figure>
       <p>The roads are single-track with passing places — narrow strips of tarmac that push into the hills and the clifftop meadows without apology, requiring a cooperative choreography of reversing and waving when two cars meet. Driving them slowly is itself a way of understanding the island. At the north, the Old Man of Storr rises sixty metres above the ridge, a rocky pillar broken from the escarpment. The walk up to it was the surprise: a surreal silence the whole way, broken only by crows and the occasional goat picking across the rock, the kind of quiet that makes you lower your voice without deciding to. And then, at the top, the full force of the elements with no transition at all — driving wind and horizontal rain arriving from the west, the island’s whole temper concentrated into the summit. On the western coast, where the cliffs drop straight to the sea, white-tailed eagles ride the updrafts — the largest bird of prey in Britain, effortless and enormous — and below them fulmars and guillemots work the cliff face. Along the shore, oystercatchers: loud, black-and-white, orange-billed, never silent, the constant nervous soundtrack of the Hebridean coast. Kayaking at the base of the cliffs you share the water with grey seals, who surface alongside and consider you briefly before deciding you are not interesting. In the evenings the villages close early — a dock, a few small boats, a pub where the food menu is brief and the whisky list is not.</p>
       <p>The Outer Hebrides feel different again. The mountains of Skye give way to open moorland, and the western shores of Lewis and the Uists face the Atlantic directly — the first solid land between here and Newfoundland. You feel the ocean’s force in the wind and the breaking surf, but also, strangely, its warmth and its light: the Gulf Stream keeps this coast improbably mild, and the afternoon light over the water has a quality of pure openness, the brightness of a horizon with nothing to interrupt it. And nothing prepares you for Luskentyre: a beach you simply do not expect to find here, the sand bleached almost white, the water turquoise and emerald in bands like something out of the tropics — spectacular enough that the cold, genuinely too much for me, Mediterranean as I am, stopped almost no one else. The air carries the smell of peat — earthy, smoky, faintly medicinal — rising from the bogs that have been cut here for fuel for centuries, and that give the island whiskies their particular smoke. Gannets fish in the Hebridean way, climbing high, tilting, then falling vertically into the sea at full speed — a white spike disappearing in a column of spray. Grey seals haul out on the outer rocks, present rather than abundant. The standing stones at Callanish on Lewis are almost five thousand years old, set in a ring above a sea loch by people who understood something about this place we are still trying to articulate. And the sunsets, at the western edge of Europe, use the full range of the sky — gold, orange, and then briefly a pink that has no precise name but that you do not forget.</p>
-      <figure class="art-figure wide"><img src="/images/Ebridi/15082016-DSC04191.jpg" alt="Luskentyre, Isle of Harris — sand bleached white, water turquoise and emerald" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Luskentyre, Isle of Harris — sand bleached white, water turquoise and emerald</figcaption></figure>
-      <figure class="art-figure wide"><img src="/images/callanish-stones.jpg" alt="Callanish Stones · a five-thousand-year-old ring on Lewis, at sunset" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Callanish Stones · a five-thousand-year-old ring on Lewis, at sunset</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Ebridi/15082016-DSC04191.jpg" alt="Luskentyre, Isle of Harris — sand bleached white, water turquoise and emerald" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Luskentyre, Isle of Harris — sand bleached white, water turquoise and emerald</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/callanish-stones.jpg" alt="Callanish Stones · a five-thousand-year-old ring on Lewis, at sunset" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Callanish Stones · a five-thousand-year-old ring on Lewis, at sunset</figcaption></figure>
       <p>We had come for the basking shark, which meant crossing further out, to the Isle of Coll. The basking shark is one of the oldest things still swimming — unchanged in any significant way for millions of years, a gentle ghost that passes through the temperate seas of the world at its own pace, almost invisible in most of the oceans it haunts. It is the second-largest fish on earth and feeds entirely on plankton, cruising slowly at the surface with its enormous mouth open, filtering thousands of litres of water an hour. Here, in the summer months, in the plankton-rich channels between the islands, it is not a rarity but part of the landscape — a more visible presence than almost anywhere, moving among the seals and the other marine mammals as though it belonged to the scenery.</p>
       <p>You find it by looking for the fin. A basking shark at the surface raises a large, rounded dorsal fin — not the sharp triangle of nightmares but something broad and deliberate, moving at a steady walking pace. You slip into the water some distance ahead of its line and wait. The water off Coll is cold and green and opaque — an emerald darkness, the kind of water that hides things — and you float in the silence of it, looking down and seeing nothing, looking across and seeing nothing, breathing slowly, aware only that something very large is coming from a direction you cannot read. And then it appears. There is no warning: a darkness in the green that resolves into a shape, and the shape becomes a mouth, and the mouth is open and vast — as wide as the front of a Fiat 500 — coming at you steadily, enormous, powerful, alien, with no apparent awareness of you at all. For a moment it is almost too much: a giant bearing down on you in the dark water. And then it is simply sublime, entirely in its element. Behind the open mouth the gill slits work continuously, and behind them the body — and it is unmistakably a shark in every line: the gills, the dorsal and pectoral fins, the whole powerful silhouette that belongs to nothing else. It does not deviate. It slides past you, powerful and unbothered, and the caudal fin, when it finally arrives, is enormous — a slow, infinite sweep of a tail — and then it is gone, fading into the green, the great fin the last thing visible before the ocean takes it back.</p>
       <p class="pullquote">It swam harmless close to us; I had the feeling that a silent van was driving in front of me.</p>

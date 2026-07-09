@@ -191,6 +191,14 @@ a{color:inherit;text-decoration:none}
 .grid figure:hover figcaption{opacity:1;transform:none}
 
 /* ---------- LIGHTBOX ---------- */
+.img-protect-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink-2);border:1px solid var(--ink-3);color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.04em;
+  padding:.85rem 1.4rem;border-radius:6px;z-index:200;opacity:0;
+  transition:opacity .35s ease,transform .35s ease;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.img-protect-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.img-protect-toast .tick{color:var(--ochre);margin-right:.5em}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
   display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
 .lb.open{display:flex}
@@ -315,6 +323,31 @@ a{color:inherit;text-decoration:none}
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+(function(){
+  let toastTimer;
+  function showProtectToast(){
+    let t = document.querySelector('.img-protect-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.className = 'img-protect-toast';
+      t.innerHTML = '<span class="tick">◦</span>Images on this site are protected — please contact for licensing.';
+      document.body.appendChild(t);
+    }
+    clearTimeout(toastTimer);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+  }
+  function isProtectedImg(el){
+    return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
+  }
+  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
+  document.addEventListener('contextmenu', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
+  });
+  document.addEventListener('dragstart', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); }
+  });
+})();
 </script>
 <nav class="nav" id="nav">
   <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
@@ -332,7 +365,7 @@ a{color:inherit;text-decoration:none}
   <div class="art-hero">
     <picture>
       
-      <img src="/images/monument-valley.jpg" alt="A ring through the red desert — 36°N 114°W · American Southwest, USA" style="--hero-pos:50% 50%">
+      <img src="/images/monument-valley.jpg" alt="A ring through the red desert — 36°N 114°W · American Southwest, USA" class="protect" style="--hero-pos:50% 50%">
     </picture>
   </div>
   <div class="art-masthead">
@@ -346,20 +379,20 @@ a{color:inherit;text-decoration:none}
     <div class="art-body" style="max-width:680px">
       <p class="lead">We drove it as a ring — out of the Grand Canyon at dawn, down through Monument Valley, into the slot canyons at Page, up onto the cold rim of Bryce, and back down through the fire-coloured dunes of Valley of Fire to the salt and the stars of Death Valley — and the strange thing about a ring is that it has no real beginning. Every place we stopped only confirmed what the place before it had already promised: the silence, the scale, the colour that doesn&#x27;t look real until you are standing inside it.</p>
       <p>Monument Valley is the one everyone already knows, in some way, before they arrive — the two buttes, the Mittens, rising out of the valley floor like something a god left behind and forgot to take back. We got there for the sunrise and stood as the sun came up directly between them, a single white star bursting out of the gap in the rock, and a Navajo guide on horseback crossed the valley floor far below us, small as a thought, the only human-sized thing in a landscape that otherwise refuses any sense of scale at all.</p>
-      <figure class="art-figure"><img src="/images/Monument_Valley/23092018-_DSC0487.jpg" alt="A rider crosses the valley floor below the Mittens, small as a thought" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A rider crosses the valley floor below the Mittens, small as a thought</figcaption></figure>
-      <figure class="art-figure wide"><img src="/images/Antelope_Canyon/24092018-DSC09202.jpg" alt="Antelope Canyon · a single beam of light finding the canyon floor" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Antelope Canyon · a single beam of light finding the canyon floor</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Monument_Valley/23092018-_DSC0487.jpg" alt="A rider crosses the valley floor below the Mittens, small as a thought" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A rider crosses the valley floor below the Mittens, small as a thought</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Antelope_Canyon/24092018-DSC09202.jpg" alt="Antelope Canyon · a single beam of light finding the canyon floor" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Antelope Canyon · a single beam of light finding the canyon floor</figcaption></figure>
       <p>Antelope Canyon is the opposite kind of wonder — not vast but intimate, a narrow throat of sandstone carved smooth by a thousand flash floods, the rock itself the colour of fire and lavender and old amber depending on where the light happens to touch it. A single beam fell from a crack far above us and landed on the canyon floor like something solid, and as we watched, sand began sifting down through it — light turned, suddenly and impossibly, into a physical thing you could almost reach out and hold. A little further on, at Horseshoe Bend, the canyon opens wide enough to swallow the whole river: the Colorado bending nearly back on its own course a thousand feet below the rim, and a single figure standing right at the edge of it for no reason except, I think, the same reason all of us were standing there — to feel small in front of something old.</p>
-      <figure class="art-figure"><img src="/images/Horseshoe/24092018-_DSC0899.jpg" alt="Horseshoe Bend · the Colorado bending nearly back on its own course" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Horseshoe Bend · the Colorado bending nearly back on its own course</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Horseshoe/24092018-_DSC0899.jpg" alt="Horseshoe Bend · the Colorado bending nearly back on its own course" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Horseshoe Bend · the Colorado bending nearly back on its own course</figcaption></figure>
       <p class="pullquote">At the edge of Horseshoe Bend you don&#x27;t look down so much as feel the drop arrive in your stomach before your eyes have even finished believing it.</p>
       <p>Bryce Canyon is gothic where the rest of the desert is operatic — thousands of hoodoos crowded together like a frozen crowd, pink and orange in the low light, with green pine pushing up between them in the one real patch of colour that isn&#x27;t red or gold anywhere on this whole ring. On the edge of one hoodoo a single bristlecone pine has grown sideways out of almost nothing, roots exposed, gripping bare rock, ancient and stubborn and somehow more alive-looking than anything green has any right to be at that altitude. We came back after dark and watched the moon rise white and enormous over the amphitheatre of stone, and it was cold enough that our breath showed — the first real cold of the whole trip.</p>
-      <figure class="art-figure wide"><img src="/images/Bryce_Canyon/25092018-DSC09806.jpg" alt="The amphitheatre at Bryce Canyon, hoodoos crowded to the horizon" loading="lazy"><figcaption class="label"><span class="tick">◦</span>The amphitheatre at Bryce Canyon, hoodoos crowded to the horizon</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Bryce_Canyon/25092018-DSC09761.jpg" alt="Bryce Canyon · a bristlecone pine, rooted into bare rock at the edge of a hoodoo" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Bryce Canyon · a bristlecone pine, rooted into bare rock at the edge of a hoodoo</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Bryce_Canyon/25092018-DSC09941.jpg" alt="A single hoodoo, capped by a balanced pillar of harder rock" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A single hoodoo, capped by a balanced pillar of harder rock</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Bryce_Canyon/25092018-DSC09806.jpg" alt="The amphitheatre at Bryce Canyon, hoodoos crowded to the horizon" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>The amphitheatre at Bryce Canyon, hoodoos crowded to the horizon</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Bryce_Canyon/25092018-DSC09761.jpg" alt="Bryce Canyon · a bristlecone pine, rooted into bare rock at the edge of a hoodoo" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Bryce Canyon · a bristlecone pine, rooted into bare rock at the edge of a hoodoo</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Bryce_Canyon/25092018-DSC09941.jpg" alt="A single hoodoo, capped by a balanced pillar of harder rock" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A single hoodoo, capped by a balanced pillar of harder rock</figcaption></figure>
       <p>We closed the ring through Valley of Fire, the sandstone there folded into waves so smooth and so red they look almost liquid, as if the desert had caught itself mid-motion, and then on into Death Valley, where the road just keeps going down until you are below sea level and the heat presses on you like a hand. We waited there until full dark, out on the salt flats at Badwater, and the Milky Way came up over us thick and close and almost frightening in its size, a single seated figure silhouetted small against it — and that, more than any canyon or any rock formation, is the image I carry from the whole loop: how a desert this punishing, this dry, this hard on everything that tries to live in it, is also the one place on earth where you can see the most stars. Majesty and harshness, it turns out, are very often the same thing wearing two different faces.</p>
-      <figure class="art-figure"><img src="/images/Valley_of_Fire/26092018-DSC00514-2.jpg" alt="Valley of Fire · sandstone folded into waves of red and orange" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Valley of Fire · sandstone folded into waves of red and orange</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Death_Valley/26092018-DSC00860.jpg" alt="Zabriskie Point, the badlands catching the last pink light before the salt flats" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Zabriskie Point, the badlands catching the last pink light before the salt flats</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Death_Valley/27092018-DSC01703.jpg" alt="Turkey vultures, drying their wings on a dead tree at dusk" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Turkey vultures, drying their wings on a dead tree at dusk</figcaption></figure>
-      <figure class="art-figure wide"><img src="/images/Death_Valley/27092018-DSC01594.jpg" alt="Death Valley · the Milky Way over the Badwater salt flats" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Death Valley · the Milky Way over the Badwater salt flats</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Valley_of_Fire/26092018-DSC00514-2.jpg" alt="Valley of Fire · sandstone folded into waves of red and orange" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Valley of Fire · sandstone folded into waves of red and orange</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Death_Valley/26092018-DSC00860.jpg" alt="Zabriskie Point, the badlands catching the last pink light before the salt flats" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Zabriskie Point, the badlands catching the last pink light before the salt flats</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Death_Valley/27092018-DSC01703.jpg" alt="Turkey vultures, drying their wings on a dead tree at dusk" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Turkey vultures, drying their wings on a dead tree at dusk</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Death_Valley/27092018-DSC01594.jpg" alt="Death Valley · the Milky Way over the Badwater salt flats" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Death Valley · the Milky Way over the Badwater salt flats</figcaption></figure>
       <aside class="art-box conservation"><span class="label"><span class="tick">◦</span>Why it matters</span><p>The American Southwest is one of the most water-stressed regions on the continent — the Colorado River, the same river that carved the Grand Canyon and Horseshoe Bend over millions of years, now barely reaches its own delta most years, drained by the cities and farms that depend on it. Many of the dark places we stood under that night sky are disappearing too: light pollution from the booming desert-edge cities is creeping into national parks that have spent decades fighting to keep their skies dark enough to see the Milky Way at all. And the slot canyons — Antelope Canyon above all — are extraordinarily fragile, carved by flash floods that can arrive with no warning and that have, more than once, taken the lives of visitors and guides; this is sacred Navajo land, not simply a backdrop, and every visit happens only with a Navajo guide, on Navajo terms.</p></aside>
       <aside class="art-box fieldnotes"><span class="label"><span class="tick">◦</span>Field notes</span><p>Best season: spring (March–May) or fall (September–October) — summer temperatures in Death Valley and Valley of Fire regularly cross 45°C. Antelope Canyon can only be visited with a licensed Navajo guide, booked in advance, and tripods are restricted on most tours — check current rules before you go. Sunrise is the only realistic time to see Monument Valley&#x27;s Mittens without a parking lot of other photographers in your frame. Horseshoe Bend&#x27;s overlook has no railing; the wind out there is real, and so is the drop. Bryce sits above 2,400m — pack a real layer for after dark, even in summer, if you want to wait for the stars.</p></aside>
     </div>

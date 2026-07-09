@@ -191,6 +191,14 @@ a{color:inherit;text-decoration:none}
 .grid figure:hover figcaption{opacity:1;transform:none}
 
 /* ---------- LIGHTBOX ---------- */
+.img-protect-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink-2);border:1px solid var(--ink-3);color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.04em;
+  padding:.85rem 1.4rem;border-radius:6px;z-index:200;opacity:0;
+  transition:opacity .35s ease,transform .35s ease;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.img-protect-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.img-protect-toast .tick{color:var(--ochre);margin-right:.5em}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
   display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
 .lb.open{display:flex}
@@ -315,6 +323,31 @@ a{color:inherit;text-decoration:none}
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+(function(){
+  let toastTimer;
+  function showProtectToast(){
+    let t = document.querySelector('.img-protect-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.className = 'img-protect-toast';
+      t.innerHTML = '<span class="tick">◦</span>Images on this site are protected — please contact for licensing.';
+      document.body.appendChild(t);
+    }
+    clearTimeout(toastTimer);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+  }
+  function isProtectedImg(el){
+    return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
+  }
+  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
+  document.addEventListener('contextmenu', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
+  });
+  document.addEventListener('dragstart', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); }
+  });
+})();
 </script>
 <nav class="nav" id="nav">
   <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
@@ -332,7 +365,7 @@ a{color:inherit;text-decoration:none}
   <div class="art-hero">
     <picture>
       
-      <img src="/images/Mauritius/01102022-_DSC6171-ARW_DxO_DeepPRIME.jpg" alt="The green jewel — 20°S 57°E · Mauritius, Indian Ocean" style="--hero-pos:50% 50%">
+      <img src="/images/Mauritius/01102022-_DSC6171-ARW_DxO_DeepPRIME.jpg" alt="The green jewel — 20°S 57°E · Mauritius, Indian Ocean" class="protect" style="--hero-pos:50% 50%">
     </picture>
   </div>
   <div class="art-masthead">
@@ -345,14 +378,14 @@ a{color:inherit;text-decoration:none}
   <div class="block">
     <div class="art-body" style="max-width:680px">
       <p class="lead">Mauritius is one of the gems set into that jewel which is the Indian Ocean. If the Maldives are a sapphire — the rarest and deepest blue — then Mauritius is an emerald: green, layered, more complicated the closer you look. The postcard beaches and the impossible colours of the sea would already be reason enough to come. But push past them, beyond the lagoon, and you find an unexpected richness on almost every axis at once: a landscape of hills and small mountains, breathtaking views over the interior and the reef, forests and waterfalls, extravagant gardens, and a fauna that is entirely its own — much of it found nowhere else on earth.</p>
-      <figure class="art-figure wide"><img src="/images/Mauritius/05102022-DSC00774-Migliorato-NR.jpg" alt="Mauritius · the lagoon and the reef, seen from the interior heights" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Mauritius · the lagoon and the reef, seen from the interior heights</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Mauritius/05102022-DSC00774-Migliorato-NR.jpg" alt="Mauritius · the lagoon and the reef, seen from the interior heights" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Mauritius · the lagoon and the reef, seen from the interior heights</figcaption></figure>
       <p>That fauna carries a particular weight here, because Mauritius is where the word extinct was, in a sense, invented — this is the island of the dodo, the animal that became the global shorthand for a species wiped out by human arrival. But the island also holds one of the most hopeful conservation stories anywhere. On Île aux Aigrettes, a small islet restored to something like its original state, you get a narrow glimpse into an ancient world — perhaps lost, perhaps still preserved and capable of returning, demonstrating all the resilience of nature. The pink pigeon is the emblem of that resilience: reduced to around ten birds in the wild in the 1990s, and brought back, through sheer stubborn conservation work, to several hundred. To see one on a branch, calm and unbothered, is to look at an animal that statistically should not exist.</p>
       <p>The same small island holds two more survivors most visitors never hear of. The Telfair\u2019s skink — a heavy-bodied, handsome lizard endemic to Mauritius — was wiped out on the mainland entirely by introduced rats and cats, and clung on only on a few offshore islets before conservationists began reintroducing it. And the Aldabra giant tortoises that amble across Île aux Aigrettes today are not native to Mauritius at all; they were brought in from Aldabra in the Seychelles as ecological stand-ins for the giant tortoises Mauritius lost completely, doing the same slow work of seed dispersal and grazing the original tortoises once did. Nothing here is quite what it first appears — a lizard given back its island, a tortoise standing in for one that no longer exists.</p>
-      <figure class="art-figure"><img src="/images/Mauritius/01102022-DSC09882-Migliorato-NR.jpg" alt="Île aux Aigrettes · an Aldabra giant tortoise, standing in for a species long gone" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Île aux Aigrettes · an Aldabra giant tortoise, standing in for a species long gone</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Mauritius/01102022-DSC09926-Migliorato-NR.jpg" alt="Île aux Aigrettes · a Telfair\u2019s skink, once wiped from the mainland entirely" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Île aux Aigrettes · a Telfair\u2019s skink, once wiped from the mainland entirely</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Mauritius/01102022-DSC09882-Migliorato-NR.jpg" alt="Île aux Aigrettes · an Aldabra giant tortoise, standing in for a species long gone" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Île aux Aigrettes · an Aldabra giant tortoise, standing in for a species long gone</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Mauritius/01102022-DSC09926-Migliorato-NR.jpg" alt="Île aux Aigrettes · a Telfair\u2019s skink, once wiped from the mainland entirely" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Île aux Aigrettes · a Telfair\u2019s skink, once wiped from the mainland entirely</figcaption></figure>
       <p>There are endemic day geckos here too, electric green marked with red and turquoise, and the flying foxes are simply part of the everyday landscape — so thoroughly urbanised that you see them hanging in fruit trees at close range, or crossing the evening sky over the towns, enormous and ordinary at once.</p>
-      <figure class="art-figure"><img src="/images/Mauritius/02102022-DSC00217-Migliorato-NR.jpg" alt="An ornate day gecko, endemic to Mauritius, electric green and turquoise" loading="lazy"><figcaption class="label"><span class="tick">◦</span>An ornate day gecko, endemic to Mauritius, electric green and turquoise</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Mauritius/06102022-DSC01695-Migliorato-NR.jpg" alt="A Mauritius flying fox, hanging in a flowering tree at close range" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A Mauritius flying fox, hanging in a flowering tree at close range</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Mauritius/02102022-DSC00217-Migliorato-NR.jpg" alt="An ornate day gecko, endemic to Mauritius, electric green and turquoise" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>An ornate day gecko, endemic to Mauritius, electric green and turquoise</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Mauritius/06102022-DSC01695-Migliorato-NR.jpg" alt="A Mauritius flying fox, hanging in a flowering tree at close range" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A Mauritius flying fox, hanging in a flowering tree at close range</figcaption></figure>
       <p class="pullquote">Push past the postcard, beyond the lagoon, and Mauritius reveals itself: an emerald, green and layered and more complicated the closer you look.</p>
       <p>The sea holds its own inventory. Beyond the reef, in the deep blue, live great cetaceans: resident sperm whales year-round off the west coast, and humpback whales that arrive each austral winter, between roughly June and October, to give birth and nurse their calves in the calm warmth of the western lagoon while the males compete and sing. There are resident pods of spinner and bottlenose dolphins. Mauritius, for these animals, is a nursery and a sanctuary — one the island now protects with some of the strictest marine mammal regulations anywhere, after decades of tour boats getting too close for the animals\u2019 own good.</p>
       <p>And then there is the other thing that makes Mauritius what it is — which is not natural at all, but human. The island\u2019s history is a difficult one: colonialism, slavery, indenture, deportation and exploitation, with consequences that reach into the present. And yet out of that painful history came an astonishing cultural richness, which — alongside the natural beauty — is the single most striking thing about the place. Cultures live side by side here that elsewhere keep their distance: Indo-Mauritian, the largest group by far, Hindu and Muslim, descended from the indentured labourers brought from India after the abolition of slavery; Creole, descended from enslaved Africans and Malagasy; Sino-Mauritian; Franco-Mauritian. To walk through the streets of a Mauritian village is to take a small trip around the world in a few steps, and to understand how much strong, distinct cultural identity can coexist — without conflict — in one rich and multicoloured kaleidoscope of folklore, belief, art and habit. It is an extraordinary example of living together.</p>

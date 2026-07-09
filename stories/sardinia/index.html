@@ -191,6 +191,14 @@ a{color:inherit;text-decoration:none}
 .grid figure:hover figcaption{opacity:1;transform:none}
 
 /* ---------- LIGHTBOX ---------- */
+.img-protect-toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--ink-2);border:1px solid var(--ink-3);color:var(--bone);
+  font-family:"IBM Plex Mono",monospace;font-size:.78rem;letter-spacing:.04em;
+  padding:.85rem 1.4rem;border-radius:6px;z-index:200;opacity:0;
+  transition:opacity .35s ease,transform .35s ease;pointer-events:none;
+  box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.img-protect-toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.img-protect-toast .tick{color:var(--ochre);margin-right:.5em}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(12,9,7,.97);
   display:none;align-items:center;justify-content:center;padding:clamp(1rem,4vw,3rem)}
 .lb.open{display:flex}
@@ -315,6 +323,31 @@ a{color:inherit;text-decoration:none}
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+(function(){
+  let toastTimer;
+  function showProtectToast(){
+    let t = document.querySelector('.img-protect-toast');
+    if(!t){
+      t = document.createElement('div');
+      t.className = 'img-protect-toast';
+      t.innerHTML = '<span class="tick">◦</span>Images on this site are protected — please contact for licensing.';
+      document.body.appendChild(t);
+    }
+    clearTimeout(toastTimer);
+    requestAnimationFrame(()=>t.classList.add('show'));
+    toastTimer = setTimeout(()=>t.classList.remove('show'), 2600);
+  }
+  function isProtectedImg(el){
+    return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
+  }
+  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
+  document.addEventListener('contextmenu', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
+  });
+  document.addEventListener('dragstart', (e)=>{
+    if(isProtectedImg(e.target)){ e.preventDefault(); }
+  });
+})();
 </script>
 <nav class="nav" id="nav">
   <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
@@ -332,7 +365,7 @@ a{color:inherit;text-decoration:none}
   <div class="art-hero">
     <picture>
       
-      <img src="/images/Sardegna/09072021-_DSC2428.jpg" alt="The vultures of Bosa — 40°N 8°E · Bosa, Sardinia, Italy" style="--hero-pos:50% 50%">
+      <img src="/images/Sardegna/09072021-_DSC2428.jpg" alt="The vultures of Bosa — 40°N 8°E · Bosa, Sardinia, Italy" class="protect" style="--hero-pos:50% 50%">
     </picture>
   </div>
   <div class="art-masthead">
@@ -347,11 +380,11 @@ a{color:inherit;text-decoration:none}
       <p class="lead">Sardinia is not only the most beautiful sea in the world — though it is also that. The interior, the part most people never reach, has a richness and a density of beauty that has no equal: golden hills of dry grass rolling one into the next, rising and falling, showing and hiding the horizon with each curve of the road. We were driving toward Bosa, on the west coast, and I knew this was the right area to see griffon vultures — but the road kept climbing and dropping through those golden hills, and I had not seen a single one, not even high up, or at least had not recognised one. I had given up hope.</p>
       <p>And then, past a curve, the landscape handed me something I thought you could only see on an African plain, not in Italy. Not griffons circling high overhead, but a group of them on the ground, cleaning the carcass of a sheep. They were closer than I had hoped to see them, more numerous than I had hoped, larger than I had believed, more vulture than I had imagined. In a moment, after the frenzy around the dead sheep, there was nothing left but bones — left for other raptors waiting their turn. And when the meal was finished, they flew off one after another, immense, climbing impossibly high.</p>
       <p class="pullquote">They were closer than I had hoped, more numerous than I had hoped, larger than I had believed — more vulture than I had imagined.</p>
-      <figure class="art-figure wide"><img src="/images/Sardegna/09072021-_DSC2355.jpg" alt="Bosa · griffon vultures at a carcass in the golden interior" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Bosa · griffon vultures at a carcass in the golden interior</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Sardegna/09072021-_DSC2355.jpg" alt="Bosa · griffon vultures at a carcass in the golden interior" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Bosa · griffon vultures at a carcass in the golden interior</figcaption></figure>
       <p>We stayed and talked with a shepherd, the owner of the dead sheep, who told us about living alongside the griffons — their behaviour with the carcasses of the sheep that die, for one reason or another, across his land. There was no resentment in it. The vulture takes the dead animal he would otherwise have to dispose of himself; the arrangement is old, and it works. What struck me, standing there, was the simple fact of where I was: Sardinia, Italy, Europe. We are not so far from Africa and its biodiversity as we like to think. When we give nature the opportunity to come back, it reminds us how rich it can be — even in its largest inhabitants, the ones we had assumed were gone for good.</p>
-      <figure class="art-figure"><img src="/images/Sardegna/09072021-_DSC2493.jpg" alt="Bosa · nothing left but bone, and another raptor waiting its turn" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Bosa · nothing left but bone, and another raptor waiting its turn</figcaption></figure>
-      <figure class="art-figure wide"><img src="/images/Sardegna/02072021-_DSC9824.jpg" alt="Sardinia · the granite coast near Bosa at the end of the day" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Sardinia · the granite coast near Bosa at the end of the day</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Sardegna/05072021-_DSC0936.jpg" alt="Sardinia · the water along the coast, turquoise over pale granite" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Sardinia · the water along the coast, turquoise over pale granite</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Sardegna/09072021-_DSC2493.jpg" alt="Bosa · nothing left but bone, and another raptor waiting its turn" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Bosa · nothing left but bone, and another raptor waiting its turn</figcaption></figure>
+      <figure class="art-figure wide"><img src="/images/Sardegna/02072021-_DSC9824.jpg" alt="Sardinia · the granite coast near Bosa at the end of the day" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Sardinia · the granite coast near Bosa at the end of the day</figcaption></figure>
+      <figure class="art-figure"><img src="/images/Sardegna/05072021-_DSC0936.jpg" alt="Sardinia · the water along the coast, turquoise over pale granite" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Sardinia · the water along the coast, turquoise over pale granite</figcaption></figure>
       <aside class="art-box conservation"><span class="label"><span class="tick">◦</span>Why it matters</span><p>The fact that you can see this at all is the result of one of Italy’s great conservation recoveries. In the 1930s, Sardinia held eight hundred to twelve hundred griffon vultures; by 2014, after decades of poisoning, persecution and the disappearance of carcasses from the land, the island population had collapsed to around sixty birds, confined to a few cliffs between Bosa and Alghero — the last native colony of the species left in all of Italy. Two EU-funded LIFE projects, “Under Griffon Wings” and “Safe for Vultures,” led by the University of Sassari, reversed the decline through a combination of measures: reducing poisoning, making power lines safe, and — crucially — establishing a network of carnai, farm feeding stations where shepherds can legally leave the carcasses of dead livestock for the birds. Young griffons, many rehabilitated from wildlife centres in Spain, were released to reinforce the population. The 2025 census counted between 516 and 566 individuals — more than double the number five years earlier — and the colony is now spreading south and east across the island, reclaiming territory it had been absent from for decades. The shepherd and his dead sheep are not a footnote to that recovery. They are the mechanism of it.</p></aside>
       <aside class="art-box fieldnotes"><span class="label"><span class="tick">◦</span>Field notes</span><p>The reliable area for griffons is the stretch of west coast between Bosa and Alghero, where the road follows the sea cliffs — the Bosa–Alghero coastal road is one of the most beautiful drives in Italy regardless of whether you see a vulture. They are most active around mid-morning, riding the thermals as the land heats up; a carcass on the ground will draw a crowd quickly. Bring a long lens but do not expect to need it as much as you think — they can be remarkably close. Combine the wildlife with the landscape: the granite coast around Bosa and the interior hills are extraordinary, and the light at the end of the day, raking across the dry grass and the granite, is reason enough to be there.</p></aside>
     </div>
