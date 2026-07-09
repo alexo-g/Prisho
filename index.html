@@ -3,26 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Freediving with the basking shark — Prisho</title>
-<meta name="description" content="From the bridge onto Skye to a night crossing off Coll — standing stones, driving rain, and a basking shark that passed close enough to touch, silent and enormous.">
-<link rel="canonical" href="https://prisho.org/stories/hebrides/">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<title>Prisho — Field notes from the quiet edges</title>
+<meta name="description" content="Travel and wildlife photography. Field notes and photo essays from the quiet edges of wild places.">
 
-<meta property="og:type" content="article">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<link rel="canonical" href="https://prisho.org/">
+
+<meta property="og:type" content="website">
 <meta property="og:site_name" content="Prisho">
-<meta property="og:title" content="Freediving with the basking shark — Prisho">
-<meta property="og:description" content="From the bridge onto Skye to a night crossing off Coll — standing stones, driving rain, and a basking shark that passed close enough to touch, silent and enormous.">
-<meta property="og:url" content="https://prisho.org/stories/hebrides/">
-<meta property="og:image" content="https://prisho.org/images/Ebridi/18082016-IMG_9547.jpg">
+<meta property="og:title" content="Prisho — Field notes from the quiet edges">
+<meta property="og:description" content="Travel and wildlife photography. Field notes and photo essays from the quiet edges of wild places.">
+<meta property="og:url" content="https://prisho.org/">
+<meta property="og:image" content="https://prisho.org/images/home_page/home_page_orizzontali/21062022-DSC03981.jpg">
+<meta property="og:image:width" content="2042">
+<meta property="og:image:height" content="1149">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Freediving with the basking shark — Prisho">
-<meta name="twitter:description" content="From the bridge onto Skye to a night crossing off Coll — standing stones, driving rain, and a basking shark that passed close enough to touch, silent and enormous.">
-<meta name="twitter:image" content="https://prisho.org/images/Ebridi/18082016-IMG_9547.jpg">
+<meta name="twitter:title" content="Prisho — Field notes from the quiet edges">
+<meta name="twitter:description" content="Travel and wildlife photography. Field notes and photo essays from the quiet edges of wild places.">
+<meta name="twitter:image" content="https://prisho.org/images/home_page/home_page_orizzontali/21062022-DSC03981.jpg">
+
+<!-- ============================================================
+     PRISHO.ORG  ·  v1
+     Built as a single self-contained file: no build tools, no
+     framework, nothing to "maintain". To deploy, drag this whole
+     folder onto Netlify Drop or Cloudflare Pages. To edit content,
+     there is ONE place to do it: the SITE object inside <script>
+     near the bottom (look for "EDIT YOUR CONTENT HERE").
+     ============================================================ -->
 
 <style>
-
 /* ---------- SELF-HOSTED FONTS (no external requests, GDPR-safe) ---------- */
 @font-face{font-family:'Fraunces';font-style:normal;font-weight:400;font-display:swap;
   src:url('Fonts/fraunces-v38-latin/fraunces-v38-latin-regular.woff2') format('woff2')}
@@ -312,17 +323,748 @@ a{color:inherit;text-decoration:none}
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .reveal{opacity:1;transform:none}
 }
-
-.art-hero{position:relative;width:100%;min-height:calc(var(--app-vh) * 0.7);max-height:calc(var(--app-vh) * 0.85);overflow:hidden;aspect-ratio:auto}
 </style>
+
+<!-- Umami Analytics — cookieless, no personal data, no consent banner required -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="f8301a82-1525-480d-9e38-8164c2f042b9"></script>
 </head>
 <body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Prisho — home"><img src="images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
+  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
+  <div class="nav-links" id="navLinks">
+    <a href="#stories">Stories</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#prisho">Prisho</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ============ HOME ============ -->
+<main id="home">
+<header class="hero" id="top">
+  <div class="hero-img">
+    <video id="heroVideo" autoplay muted loop playsinline style="display:none"></video>
+    <picture>
+      <source media="(max-width: 768px)" srcset="images/home_page/home_page_verticali/21062022-DSC03981.jpg">
+      <img id="heroImg" src="images/home_page/home_page_orizzontali/21062022-DSC03981.jpg" alt="Great white pelicans in flight over the dunes, Namibia" class="protect">
+    </picture>
+  </div>
+  <div class="hero-inner reveal">
+    <span class="label"><span class="tick">◦</span>19°S 13°E · Namib, Namibia</span>
+    <h1>Photography from <em>wild</em> places. Capturing the wonder they hold.</h1>
+  </div>
+  <span class="scrollcue">Scroll</span>
+</header>
+
+<!-- ---- STORIES ---- -->
+<section class="block" id="stories">
+  <div class="wrap">
+    <div class="shead reveal">
+      <h2>Field notes</h2>
+      <span class="label"><span class="tick">◦</span>Photo essays</span>
+    </div>
+    <div class="stories" id="storyList"><!-- rendered from SITE.stories --></div>
+  </div>
+</section>
+
+<!-- ---- PORTFOLIO ---- -->
+<section class="portfolio block" id="portfolio">
+  <div class="wrap">
+    <div class="shead reveal">
+      <h2>Portfolio</h2>
+      <span class="label"><span class="tick">◦</span>Selected frames</span>
+    </div>
+    <div class="tabs reveal" id="tabs"></div>
+    <div class="grid" id="grid"><!-- rendered from SITE.galleries --></div>
+  </div>
+</section>
+
+<!-- ---- ABOUT ---- -->
+<section class="about block" id="about">
+  <div class="wrap">
+    <div class="about-portrait reveal"><img src="images/alessandro-grand-canyon.jpg" alt="Alessandro Grieco at the Grand Canyon, at sunset" class="protect"></div>
+    <div class="reveal">
+      <span class="eyebrow">About</span>
+      <p>Wonder at the natural world came first, long before the camera. I grew up in <strong>Apulia</strong>, in the south of Italy, one of the most beautiful corners I know, in a family that taught me to look closely and stay curious about it — I've come to believe that kind of attention is one of the richest experiences a life can hold. I have a humanistic background, and years spent in the north of Italy, between the sea of Liguria and the peaks of the Dolomites, only deepened it: two loves, water and mountain, that still shape almost everything I shoot.</p>
+      <p>The camera came later, as a way to freeze a feeling and carry it home: the animal before it notices you, the light an hour before anyone else is awake, the quiet at the edge of a place most people only pass through. I'm drawn to subjects that reward patience and research — wildlife and travel, the places where land meets water, earth meets sky, or the world goes quiet underwater. I started as a diver, and I still go looking for the encounter in the wild: an intimate search for something pristine, more than for the postcard.</p>
+      <p>What I find out there comes with an obligation. These are places under pressure, and to photograph them is also to bear quiet witness for them — for the conservation of the habitats we share, and for a safer future for the species that live in them. It is also, I hope, something to pass on: the wonder itself, and a world still wild enough to hold it, handed down to my son the way mine was handed down to me.</p>
+      <p class="label" style="margin-top:1.5rem"><span class="tick">◦</span>Alessandro Grieco</p>
+    </div>
+  </div>
+</section>
+
+<!-- ---- WHY PRISHO ---- -->
+<section class="manifesto block" id="prisho">
+  <div class="wrap reveal">
+    <span class="eyebrow">Why "Prisho"</span>
+    <p>There's a word in the dialect of my region that doesn't quite translate: <em>prisho</em> — or <em>priscio</em> — pronounced ˈprɪʃo. <span>It names a very particular feeling. A mix of happiness and energy in doing what you love. The enthusiasm and the joy together, the excitement of beginning something — or even just of looking forward to it. The butterflies in your stomach that push you to act. The curiosity that sends you exploring, the ground where a passion draws its strength, the energy to throw yourself into something great. This whole site is about my prisho. Everything here only exists because of it.</span></p>
+  </div>
+</section>
+
+<!-- ---- NEWSLETTER ---- -->
+<section class="news block" id="contact">
+  <div class="wrap reveal">
+    <span class="eyebrow">Get in touch</span>
+    <h2>Write to me.</h2>
+    <p>Questions, commissions, or something you noticed in the field.</p>
+    <div class="signup">
+      <a href="mailto:alex@prisho.org" class="btn-mail">alex@prisho.org</a>
+    </div>
+    <p style="margin-top:1.5rem"><a href="#/privacy" style="font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sand-dim)">Privacy Policy · Datenschutz</a></p>
+  </div>
+</section>
+</main>
+
+<!-- ============ PRIVACY POLICY ============ -->
+<section id="privacy" style="display:none;background:var(--ink)">
+  <div class="art-masthead">
+    <div class="wrap" style="max-width:680px">
+      <a class="back" href="#top" onclick="showHome(false)">← Back to Prisho</a>
+      <span class="label"><span class="tick">◦</span>Legal</span>
+      <h1>Privacy Policy · Datenschutzerklärung</h1>
+    </div>
+  </div>
+  <div class="block">
+    <div class="art-body" style="max-width:680px">
+      <p class="lead">This page is available in German (the legally binding version) and English (a courtesy translation for readers of the site).</p>
+      <h2 style="font-family:'Fraunces',serif;font-weight:400;margin-top:3rem">Datenschutzerklärung (Deutsch)</h2>
+      <h3>1. Datenschutz auf einen Blick</h3>
+      <p><strong>Allgemeine Hinweise</strong><br>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können. Ausführliche Informationen zum Thema Datenschutz entnehmen Sie der nachfolgenden Datenschutzerklärung.</p>
+      <p><strong>Datenerfassung auf dieser Website</strong><br><em>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</em><br>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten können Sie dem Abschnitt „Hinweis zur verantwortlichen Stelle" entnehmen.</p>
+      <p><em>Wie erfassen wir Ihre Daten?</em><br>Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Andere Daten werden automatisch beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs). Die Erfassung dieser Daten erfolgt automatisch, sobald Sie diese Website betreten.</p>
+      <p><em>Wofür nutzen wir Ihre Daten?</em><br>Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+      <p><em>Welche Rechte haben Sie bezüglich Ihrer Daten?</em><br>Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten personenbezogenen Daten zu erhalten. Sie haben außerdem ein Recht, die Berichtigung oder Löschung dieser Daten zu verlangen. Wenn Sie eine Einwilligung zur Datenverarbeitung erteilt haben, können Sie diese Einwilligung jederzeit für die Zukunft widerrufen. Außerdem haben Sie das Recht, unter bestimmten Umständen die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten zu verlangen. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu. Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an uns wenden.</p>
+      <h3>2. Hosting</h3>
+      <p>Diese Website wird extern gehostet. Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters gespeichert. Hierbei kann es sich v. a. um IP-Adressen, Meta- und Kommunikationsdaten, Kontaktdaten, Namen und Websitezugriffe handeln.</p>
+      <p>Das externe Hosting erfolgt im Interesse einer sicheren, schnellen und effizienten Bereitstellung unseres Online-Angebots durch einen professionellen Anbieter (Art. 6 Abs. 1 lit. f DSGVO).</p>
+      <p>Wir setzen folgenden Hoster ein:<br>GitHub, Inc. (GitHub Pages)<br>GitHub B.V., Prins Bernhardplein 200, 1097 JB Amsterdam, Netherlands</p>
+      <p><strong>Auftragsverarbeitung</strong><br>Wir haben einen Vertrag über Auftragsverarbeitung (AVV) zur Nutzung des oben genannten Dienstes geschlossen. Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gewährleistet, dass dieser die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.</p>
+      <p><strong>Umami Analytics</strong><br>Diese Website nutzt Umami, einen cookiefreien Webanalysedienst, zur statistischen Auswertung der Besucherzugriffe. Umami verwendet keine Cookies und erhebt keine personenbezogenen Daten. Die erfassten Daten beschränken sich auf aggregierte, anonyme Statistiken (z. B. Seitenaufrufe, Herkunft der Zugriffe, Land, Gerätetyp) und lassen keine Identifizierung einzelner Besucher zu. Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an der Analyse und Verbesserung unseres Webangebots (Art. 6 Abs. 1 lit. f DSGVO). Da keine personenbezogenen Daten verarbeitet und keine Cookies gespeichert werden, ist für den Einsatz dieses Tools keine Einwilligung erforderlich. Anbieter: Umami Software, Inc. Die Datenverarbeitung erfolgt auf Servern innerhalb der EU (Deutschland).</p>
+      <h3>3. Allgemeine Hinweise und Pflichtinformationen</h3>
+      <p><strong>Hinweis zur verantwortlichen Stelle</strong><br>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br>Paolo Alessandro Grieco<br>E-Mail: alex@prisho.org</p>
+      <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet.</p>
+      <p><strong>Speicherdauer</strong><br>Soweit innerhalb dieser Datenschutzerklärung keine speziellere Speicherdauer genannt wurde, verbleiben Ihre personenbezogenen Daten bei uns, bis der Zweck für die Datenverarbeitung entfällt.</p>
+      <p><strong>SSL- bzw. TLS-Verschlüsselung</strong><br>Diese Seite nutzt aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt.</p>
+      <h3>4. Datenerfassung auf dieser Website</h3>
+      <p><strong>Server-Log-Dateien</strong><br>Der Provider der Seiten erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser automatisch übermittelt: Browsertyp und -version, Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage, IP-Adresse. Eine Zusammenführung dieser Daten mit anderen Datenquellen wird nicht vorgenommen. Die Erfassung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
+      <p style="color:var(--sand-dim);font-size:.9rem">Quelle: e-recht24.de</p>
+
+      <h2 style="font-family:'Fraunces',serif;font-weight:400;margin-top:4rem">Privacy Policy (English)</h2>
+      <h3>1. Data protection at a glance</h3>
+      <p><strong>General information</strong><br>The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to identify you personally. Detailed information can be found in the German version above, which is the legally binding text.</p>
+      <p><em>Who is responsible for data collection on this website?</em><br>Data processing on this website is carried out by the website operator, whose contact details are given below.</p>
+      <p><em>How do we collect your data?</em><br>Some data is collected when you provide it to us. Other data is collected automatically by our IT systems when you visit the website — primarily technical data (browser, operating system, time of access).</p>
+      <p><em>What rights do you have regarding your data?</em><br>You have the right, at any time, to obtain free information about your stored personal data, its origin and recipients, and the purpose of processing, and a right to correction or deletion. You may withdraw any consent at any time, and you have the right to lodge a complaint with the competent supervisory authority.</p>
+      <h3>2. Hosting</h3>
+      <p>This website is hosted externally, for the purpose of a secure, fast and efficient provision of our online service (Art. 6(1)(f) GDPR).<br>Host: GitHub, Inc. (GitHub Pages) — GitHub B.V., Prins Bernhardplein 200, 1097 JB Amsterdam, Netherlands. A data processing agreement (DPA) is in place for this service.</p>
+      <p><strong>Umami Analytics</strong><br>This website uses Umami, a cookie-free web analytics service. Umami does not use cookies and does not collect personally identifiable information — only aggregated, anonymous statistics (page views, referral sources, country, device type). Processing is based on our legitimate interest under Art. 6(1)(f) GDPR; no consent is required. Provider: Umami Software, Inc. Data is processed on servers located in the EU (Germany).</p>
+      <h3>3. General information</h3>
+      <p><strong>Notice concerning the responsible party</strong><br>Paolo Alessandro Grieco<br>Email: alex@prisho.org</p>
+      <p><strong>SSL/TLS encryption</strong><br>This site uses SSL/TLS encryption for security. You can recognise this by the address bar changing from "http://" to "https://".</p>
+      <h3>4. Data collection on this website</h3>
+      <p><strong>Server log files</strong><br>The provider automatically collects information in server log files transmitted by your browser: browser type and version, operating system, referrer URL, host name, time of server request, IP address. This data is not combined with other sources, and is collected on the basis of Art. 6(1)(f) GDPR.</p>
+      <p style="color:var(--sand-dim);font-size:.9rem">Source: e-recht24.de</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ARTICLE VIEW (photo essay) ============ -->
+<article id="article">
+  <div class="art-hero">
+    <picture>
+      <source id="artHeroMobileSrc" media="(max-width: 768px)">
+      <img data-ph="art-hero" alt="">
+    </picture>
+  </div>
+  <div class="art-masthead">
+    <div class="wrap" style="max-width:680px">
+      <a class="back" id="backBtn">← All field notes</a>
+      <span class="label" id="artLabel"></span>
+      <h1 id="artTitle"></h1>
+    </div>
+  </div>
+  <div class="block">
+    <div class="art-body" id="artBody"></div>
+    <div class="art-share" id="artShare"></div>
+  </div>
+</article>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+  <img id="lbImg" alt="" class="protect">
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">›</button>
+  <div class="lb-cap label" id="lbCap"></div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="foot-top">
+    <a class="brand" href="#top" aria-label="Prisho — home"><img src="images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark foot-mark"></a>
+    <div class="foot-links">
+      <a href="#stories">Stories</a><a href="#portfolio">Portfolio</a>
+      <a href="#about">About</a><a href="#contact">Contact</a>
+      <a href="https://instagram.com/prisho_wild" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span id="copyright"></span>
+    <span>All photographs © Prisho · do not reproduce without permission</span>
+  </div>
+</footer>
+
 <script>
 (function(){
   function setAppVH(){ document.documentElement.style.setProperty('--app-vh', window.innerHeight + 'px'); }
   setAppVH();
   window.addEventListener('orientationchange', setAppVH);
 })();
+/* ============================================================
+   ▼▼▼  EDIT YOUR CONTENT HERE  ▼▼▼
+   Everything you change lives in this one SITE object.
+   To use a real photo instead of a placeholder, replace
+   {ph:'seed'} with {src:'images/your-photo.jpg'} and put the
+   file in an /images folder next to this index.html.
+   ============================================================ */
+const SITE = {
+  stories: [
+    { id:'hebrides', src:'images/Ebridi/18082016-IMG_9547.jpg',
+      label:'58°N 6°W · Outer Hebrides, Scotland',
+      title:'Freediving with the basking shark',
+      dek:'From the bridge onto Skye to a night crossing off Coll \u2014 standing stones, driving rain, and a basking shark that passed close enough to touch, silent and enormous.' },
+    { id:'pantanal', src:'images/jaguar-roar-pantanal.jpg',
+      label:'17°S 56°W · Pantanal, Brazil',
+      title:'The king of the Americas',
+      dek:'The biggest wetland on earth, and the realm of the jaguar — found at last light in the tall grass along the riverbank, watched from the water.' },
+    { id:'southwest', src:'images/Monument_Valley/24092018-_DSC0799-Prisho-4-3.jpg',
+      label:'36°N 114°W · American Southwest, USA',
+      title:'A ring through the red desert',
+      dek:'Death Valley to the Grand Canyon, by way of sandstone waves, slot canyons and Monument Valley.' },
+    { id:'california', src:'images/29092018-DSC03387.jpg',
+      label:'37°N 119°W · Sierra Nevada & Pacific Coast, USA',
+      title:'The green half of America',
+      dek:'Granite cathedrals, two-thousand-year-old giants, and a coast crowded with otters, seals and a whale — California outside its cities.' },
+    { id:'mamiraua', src:'images/mamiruaua/29072019-DSC04550.jpg',
+      label:'3°S 65°W · Mamirauá, Amazon, Brazil',
+      title:'The flooded forest',
+      dek:'Deep in the Amazon, a flooded forest where the water rises twelve metres each season — and every morning begins with a howler monkey chorus in the dark.' },
+    { id:'lofoten', src:'images/Lofoten/02012017-DSC00913.jpg',
+      label:'68°N 15°E · Lofoten, Norway',
+      title:'Where morning never becomes day',
+      dek:'Killer whales in the winter fjords, the northern lights at Skagsanden, and a quality of arctic light that never quite becomes day.' },
+    { id:'maldive', src:'images/Maldive_Deep_South/13032022-_DSC3256-ARW.jpg',
+      label:'0°S 73°E · Fuvahmulah, Maldives',
+      title:'The night the giant danced',
+      dek:'A night dive in the Maldives deep south — and a whale shark that appeared in the torch beam, enormous and unhurried, dancing with the light.' },
+    { id:'japan', src:'images/DSC01474.JPG',
+      label:'36°N 138°E · Jigokudani, Nagano, Japan',
+      title:'Where the macaques bathe',
+      dek:'In the frozen mountains of Nagano, a troop of snow monkeys soaks in a steaming hot spring — the most human thing I have ever watched an animal do.' },
+    { id:'sardinia', src:'images/Sardinia/_DSC2428.JPG',
+      label:'40°N 8°E · Bosa, Sardinia, Italy',
+      title:'The vultures of Bosa',
+      dek:'On the road to Bosa, a group of griffon vultures cleaning a carcass — a scene I thought belonged to an African plain, not to Italy.' },
+    { id:'mauritius', src:'images/Mauritius/01102022-_DSC6171-ARW_DxO_DeepPRIME.jpg', cardFocus:'50% 20%',
+      label:'20°S 57°E · Mauritius, Indian Ocean',
+      title:'The green jewel',
+      dek:'Beyond the postcard beaches, a small island holds some of the rarest animals on earth — brought back, against every odd, from the edge of extinction.' },
+    { id:'maranhenses', src:'images/Maranenses/01082019-DSC05593.jpg',
+      label:'2°S 43°W · Lençóis Maranhenses, Brazil',
+      title:'Walking inside a painting',
+      dek:'The largest dune field in South America, and a landscape of pure geometry — white sand and turquoise lagoons repeating to the horizon, gone again within months.' },
+  ],
+  galleries: {
+    'Wild Places': [
+      {src:'images/gallery/Places/19062022-DSC02613.jpg',label:'Deadvlei, Sossusvlei · the dead trees against the red dunes'},
+      {src:'images/gallery/Places/19062022-_DSC4307.jpg',label:'Climbing the dunes at Sossusvlei, Namibia'},
+      {src:'images/gallery/Places/19062022-_DSC4329.jpg',label:'Sossusvlei · the ridgeline texture of a dune'},
+      {src:'images/gallery/Places/19062022-_DSC4451.jpg',label:'The dunes of Sossusvlei, catching the light'},
+      {src:'images/mamiruaua/29072019-DSC04550.jpg',label:'Mamirauá, Amazon · the forest doubled in still water'},
+      {src:'images/grand-canyon.jpg',label:'Grand Canyon · Arizona'},
+      {src:'images/Bryce_Canyon/25092018-DSC09806.jpg',label:'The amphitheatre at Bryce Canyon, hoodoos crowded to the horizon'},
+      {src:'images/Lofoten/05012017-DSC03333.jpg',label:'Skagsanden beach · the northern lights, doubled in the still water'},
+    ],
+    'Wild Animals': [
+      {src:'images/gallery/Animals/19062022-DSC02943.jpg',label:'A black-backed jackal, Namibia'},
+      {src:'images/gallery/Animals/22062022-DSC04932.jpg',label:'A seal pup, Namibian coast'},
+      {src:'images/Pantanal/23072019-DSC01891-Migliorato-NR.jpg',label:'A jaguar, walking a fallen log · Pantanal'},
+      {src:'images/gallery/Animals/24072019-DSC02795.jpg',label:'A hyacinth macaw, Pantanal'},
+      {src:'images/gallery/Animals/23072019-DSC02093.jpg',label:'Caimans in a row, Pantanal'},
+      {src:'images/gallery/Animals/25062022-DSC08254.jpg',label:'A desert elephant, Namibia'},
+      {src:'images/gallery/Animals/25062022-DSC08022.jpg',label:'A young desert elephant, Namibia'},
+      {src:'images/gallery/Animals/26062022-DSC08684.jpg',label:'A black rhino, oxpeckers riding along'},
+      {src:'images/gallery/Animals/19062022-_DSC4657.jpg',label:'An oryx, distant on the dunes of Namibia'},
+    ],
+  },
+  /* Full photo-essays, one per story id. openArticle(id) looks these up. */
+  articles: {
+    hebrides: {
+      label:'58\u00b0N 6\u00b0W \u00b7 The Hebrides, Scotland',
+      title:'Freediving with the basking shark',
+      heroSrc:'images/Ebridi/18082016-IMG_9547.jpg',
+      blocks:[
+        {type:'p',lead:true,text:'Scotland surprises, the first time, with its sheer proximity. This is one of the wildest places left in Europe, and it sits closer to the rest of the continent than the wildness suggests it should \u2014 a short flight, sometimes just a train and a ferry, from cities where you would swear this kind of place could no longer exist. Oban deserves a night of its own before you go further: a working harbour town with a distillery rising behind the main street, and restaurants where the menu devotes many more pages to single malts than to food \u2014 not an affectation but a statement of cultural priorities, and a correct one. From Oban the road runs north and west until, finally, it reaches the bridge.'},
+        {type:'p',text:'The Skye Bridge is an ordinary piece of engineering that functions as something else entirely: a threshold. You drive across it and the world on the far side is not the world you left. The weather changes every twenty minutes \u2014 full sun, then immediate cold wind and rain, then sun again, the island cycling through its seasons in a single afternoon as if demonstrating its range. Between weather events, Skye opens into wide, indefinite meadows \u2014 heather and wet grass and, in the right season, an extravagant quantity of wildflowers: marsh orchids, ragged robin, harebells, bog cotton, the deep pink of thrift along the clifftops. The ratio of animals to humans is impossible to ignore. Sheep everywhere \u2014 on the road, off the road, standing in a single-track passing place watching your approach with philosophical calm. And the Highland cattle, broad and shaggy and unhurried, in their palette of black, amber, pale yellow and near-cream \u2014 patchwork coats fading into the moorland as if they had grown from it, which in any meaningful sense they had.'},
+        {type:'figure',src:'images/Ebridi/19082016-DSC07314.jpg',label:'Highland cattle, unhurried on the moorland of Skye'},
+        {type:'figure',src:'images/Ebridi/11082016-DSC01313.jpg',label:'A sheep, unbothered, in a single-track passing place'},
+        {type:'figure',src:'images/old-man-storr.jpg',label:'The Old Man of Storr \u00b7 Isle of Skye'},
+        {type:'p',text:'The roads are single-track with passing places \u2014 narrow strips of tarmac that push into the hills and the clifftop meadows without apology, requiring a cooperative choreography of reversing and waving when two cars meet. Driving them slowly is itself a way of understanding the island. At the north, the Old Man of Storr rises sixty metres above the ridge, a rocky pillar broken from the escarpment. The walk up to it was the surprise: a surreal silence the whole way, broken only by crows and the occasional goat picking across the rock, the kind of quiet that makes you lower your voice without deciding to. And then, at the top, the full force of the elements with no transition at all \u2014 driving wind and horizontal rain arriving from the west, the island\u2019s whole temper concentrated into the summit. On the western coast, where the cliffs drop straight to the sea, white-tailed eagles ride the updrafts \u2014 the largest bird of prey in Britain, effortless and enormous \u2014 and below them fulmars and guillemots work the cliff face. Along the shore, oystercatchers: loud, black-and-white, orange-billed, never silent, the constant nervous soundtrack of the Hebridean coast. Kayaking at the base of the cliffs you share the water with grey seals, who surface alongside and consider you briefly before deciding you are not interesting. In the evenings the villages close early \u2014 a dock, a few small boats, a pub where the food menu is brief and the whisky list is not.'},
+        {type:'p',text:'The Outer Hebrides feel different again. The mountains of Skye give way to open moorland, and the western shores of Lewis and the Uists face the Atlantic directly \u2014 the first solid land between here and Newfoundland. You feel the ocean\u2019s force in the wind and the breaking surf, but also, strangely, its warmth and its light: the Gulf Stream keeps this coast improbably mild, and the afternoon light over the water has a quality of pure openness, the brightness of a horizon with nothing to interrupt it. And nothing prepares you for Luskentyre: a beach you simply do not expect to find here, the sand bleached almost white, the water turquoise and emerald in bands like something out of the tropics \u2014 spectacular enough that the cold, genuinely too much for me, Mediterranean as I am, stopped almost no one else. The air carries the smell of peat \u2014 earthy, smoky, faintly medicinal \u2014 rising from the bogs that have been cut here for fuel for centuries, and that give the island whiskies their particular smoke. Gannets fish in the Hebridean way, climbing high, tilting, then falling vertically into the sea at full speed \u2014 a white spike disappearing in a column of spray. Grey seals haul out on the outer rocks, present rather than abundant. The standing stones at Callanish on Lewis are almost five thousand years old, set in a ring above a sea loch by people who understood something about this place we are still trying to articulate. And the sunsets, at the western edge of Europe, use the full range of the sky \u2014 gold, orange, and then briefly a pink that has no precise name but that you do not forget.'},
+        {type:'figure',wide:true,src:'images/Ebridi/15082016-DSC04191.jpg',label:'Luskentyre, Isle of Harris \u2014 sand bleached white, water turquoise and emerald'},
+        {type:'figure',src:'images/callanish-stones.jpg',wide:true,label:'Callanish Stones \u00b7 a five-thousand-year-old ring on Lewis, at sunset'},
+        {type:'p',text:'We had come for the basking shark, which meant crossing further out, to the Isle of Coll. The basking shark is one of the oldest things still swimming \u2014 unchanged in any significant way for millions of years, a gentle ghost that passes through the temperate seas of the world at its own pace, almost invisible in most of the oceans it haunts. It is the second-largest fish on earth and feeds entirely on plankton, cruising slowly at the surface with its enormous mouth open, filtering thousands of litres of water an hour. Here, in the summer months, in the plankton-rich channels between the islands, it is not a rarity but part of the landscape \u2014 a more visible presence than almost anywhere, moving among the seals and the other marine mammals as though it belonged to the scenery.'},
+        {type:'p',text:'You find it by looking for the fin. A basking shark at the surface raises a large, rounded dorsal fin \u2014 not the sharp triangle of nightmares but something broad and deliberate, moving at a steady walking pace. You slip into the water some distance ahead of its line and wait. The water off Coll is cold and green and opaque \u2014 an emerald darkness, the kind of water that hides things \u2014 and you float in the silence of it, looking down and seeing nothing, looking across and seeing nothing, breathing slowly, aware only that something very large is coming from a direction you cannot read. And then it appears. There is no warning: a darkness in the green that resolves into a shape, and the shape becomes a mouth, and the mouth is open and vast \u2014 as wide as the front of a Fiat 500 \u2014 coming at you steadily, enormous, powerful, alien, with no apparent awareness of you at all. For a moment it is almost too much: a giant bearing down on you in the dark water. And then it is simply sublime, entirely in its element. Behind the open mouth the gill slits work continuously, and behind them the body \u2014 and it is unmistakably a shark in every line: the gills, the dorsal and pectoral fins, the whole powerful silhouette that belongs to nothing else. It does not deviate. It slides past you, powerful and unbothered, and the caudal fin, when it finally arrives, is enormous \u2014 a slow, infinite sweep of a tail \u2014 and then it is gone, fading into the green, the great fin the last thing visible before the ocean takes it back.'},
+        {type:'quote',text:'It swam harmless close to us; I had the feeling that a silent van was driving in front of me.'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'The basking shark is the second-largest fish in the world and entirely harmless \u2014 a plankton filter-feeder that has been moving through temperate seas for millions of years. The Hebrides host one of the most important seasonal aggregations anywhere, and since 2020 a large area of sea off the west coast of Scotland has been designated a Marine Protected Area specifically for them. The more complicated conservation story here is the one happening beneath the surface everywhere you look: salmon farming. Scotland\u2019s farmed salmon is the UK\u2019s single biggest food export, worth over a billion pounds a year, and more than two hundred open-net farms sit in these waters, concentrated off the Outer Hebrides and the west coast. The environmental charge sheet is long \u2014 sea lice and disease spreading to collapsing wild salmon populations, chemical pollution, mass die-offs during marine heatwaves, and tens of thousands of farmed fish escaping through nets torn open by storms. And the seals are the sharpest edge of the conflict: drawn to the easy food, they become entangled in predator nets or are deterred by acoustic devices that disturb seals and cetaceans across miles of sea. It is a quietly brutal economy operating in the same emerald water where the basking shark, indifferent to all of it, still passes through each summer.'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'The shark season runs roughly June to August, when plankton blooms draw them to the surface in the channels between Coll, Tiree and Mull; operators sail from Oban and the inner isles. But the real challenge is the weather, not the wildlife. On my first serious attempt at this kind of photography, the hardest part by far was the sky: light that changes every few minutes, sudden heavy rain arriving from nowhere, and the need to read the gap \u2014 to catch the second burst of sun between two weather fronts and be ready in the water when it came. Bring more weatherproofing than you think you need, for yourself and the camera, and budget more days than the encounter itself requires; the Hebrides give their best light briefly and without warning.'},
+      ],
+    },
+    pantanal: {
+      label:'17\u00b0S 56\u00b0W \u00b7 Pantanal, Brazil',
+      title:'The king of the Americas',
+      heroSrc:'images/jaguar-roar-pantanal.jpg',
+      blocks:[
+        {type:'p',lead:true,text:'As wildlife lovers, we found here our promised land. The biggest wetland on earth \u2014 more than two hundred thousand square kilometres of rivers, lagoons and flooded forest \u2014 and the realm of its majesty: the jaguar, the king of the Americas.'},
+        {type:'p',text:'You enter the Pantanal along the Transpantaneira, a single dirt road that runs straight into the wetland, bridge after wooden bridge, each one a small theatre of its own. But to drive it is to cross into another world \u2014 a place so dense with life it is genuinely difficult to believe, growing wilder with every bridge you cross. Caimans stacked along the banks like driftwood, storks and herons, capybaras grazing in families, and \u2014 if you are lucky \u2014 a tapir crossing ahead of you, or the giant anteaters, which we saw many times, including the small ones I could not stop photographing. And once, at dusk, right at the edge of the fazenda itself, something rarer than anything the river gave us: a maned wolf, slender and elegant, fox-red and furtive, crossing the open ground far off and gone again before we had properly understood what we were looking at. You wake every morning to the parrots; we had two hyacinth macaws, a vast electric blue, crossing the sky in pairs above the fazenda. You spend your days here surrounded constantly by dozens of species at once: walking the land on horseback, sliding in a rowing boat down what passes for a river between the trees, always with animals on every side. And all of it on ground that, for months of the year, lies completely underwater.'},
+        {type:'figure',src:'images/Pantanal/21072019-DSC09666-Migliorato-NR.jpg',label:'Pantanal \u00b7 a giant anteater along the Transpantaneira'},
+        {type:'figure',src:'images/Pantanal/21072019-DSC09755.jpg',label:'A maned wolf, seen once at dusk at the edge of the fazenda'},
+        {type:'figure',src:'images/Pantanal/24072019-DSC02714.jpg',label:'Pantanal \u00b7 a pair of hyacinth macaws, electric blue against the canopy'},
+        {type:'p',text:'Porto Jofre is the frontier. It sits at the very end of the Transpantaneira \u2014 the edge of civilisation and of humanity, made of a few low wooden houses. Beyond it there is no more road, and no more us: only the kingdom of the jaguar.'},
+        {type:'p',text:'You go out onto the water and the river becomes a stage. You drift surrounded by hundreds of caimans lying with their jaws open to the sun, by capybaras, by giant otters \u2014 noisy, restless, endlessly curious. And then the jaguar appears, but never all at once. First the vegetation moves without showing anything, a presence that does not yet declare itself. Then the gaze \u2014 that powerful, level stare from inside the green. And only then the animal itself, emerging in full, with all its force and presence: powerful, elegant, completely sovereign. Over a few days we saw nine of them \u2014 nine \u2014 and every single one stopped something in us. We watched one walk the sand of a riverbank like a stage, slip into the water, and \u2014 curious \u2014 come terribly close to the boats. We were lucky enough to see a courting pair. There is a theatrical royalty to the way a jaguar reveals itself that no photograph fully holds.'},
+        {type:'figure',src:'images/Pantanal/23072019-DSC02113.jpg',label:'Caimans on the riverbank, jaws open to the sun'},
+        {type:'figure',src:'images/Pantanal/23072019-DSC01891-Migliorato-NR.jpg',label:'A jaguar, walking a fallen log like a stage of its own'},
+        {type:'quote',text:'First the vegetation moves without showing anything \u2014 a presence that does not yet declare itself. Then the gaze. And only then the animal, in full: powerful, elegant, completely sovereign.'},
+        {type:'p',text:'What stays with me is not only the jaguars, though nine sightings is a number I still find hard to believe. It is the accumulation \u2014 the caimans, the giant otters, the hyacinth macaws crossing the sky in pairs, the heat, the smell of the river, the sheer abundance of a place that simply has not been emptied out yet, the way so much of the world has been. A richness of life, and a specificity of fauna and flora, that leave this place carved into memory.'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'Pantanal is mainly located in the Brazilian states of Mato Grosso and Mato Grosso do Sul \u2014 among the regions with the highest rates of deforestation and habitat loss in the country, driven largely by agriculture, and devastated by the record wildfires of recent years. The Pantanal Conservation Area is a UNESCO World Heritage Site, but it represents only about 1.3% of Brazil\u2019s Pantanal region. Every tourism dollar spent at the lodges and pousadas along the Transpantaneira directly funds the rangers and the land protection that keep this place \u2014 and the jaguars in it \u2014 alive.'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'Base yourself at Porto Jofre, reached via the Transpantaneira from Poco\u00f1\u00e9 \u2014 a long, slow, unpaved drive across more than a hundred wooden bridges, best done in daylight for the wildlife alone. Jaguar sightings are by boat along the Cuiab\u00e1 and Tr\u00eas Irm\u00e3os rivers; the dry season (roughly July\u2013October) concentrates wildlife along the riverbanks and gives the best odds. Many lodges along the road also offer horseback rides and rowing-boat excursions worth taking for the smaller wildlife. Bring a long lens, sun protection, and patience \u2014 the best encounters came after hours of nothing.'},
+      ],
+    },
+
+    southwest: {
+      label:'36°N 114°W · American Southwest, USA',
+      title:'A ring through the red desert',
+      heroSrc:'images/monument-valley.jpg',
+      heroRatio:'1.878',
+      blocks:[
+        {type:'p',lead:true,text:'We drove it as a ring — out of the Grand Canyon at dawn, down through Monument Valley, into the slot canyons at Page, up onto the cold rim of Bryce, and back down through the fire-coloured dunes of Valley of Fire to the salt and the stars of Death Valley — and the strange thing about a ring is that it has no real beginning. Every place we stopped only confirmed what the place before it had already promised: the silence, the scale, the colour that doesn\'t look real until you are standing inside it.'},
+        {type:'p',text:'Monument Valley is the one everyone already knows, in some way, before they arrive — the two buttes, the Mittens, rising out of the valley floor like something a god left behind and forgot to take back. We got there for the sunrise and stood as the sun came up directly between them, a single white star bursting out of the gap in the rock, and a Navajo guide on horseback crossed the valley floor far below us, small as a thought, the only human-sized thing in a landscape that otherwise refuses any sense of scale at all.'},
+        {type:'figure',src:'images/Monument_Valley/23092018-_DSC0487.jpg',label:'A rider crosses the valley floor below the Mittens, small as a thought'},
+        {type:'figure',wide:true,src:'images/Antelope_Canyon/24092018-DSC09202.jpg',label:'Antelope Canyon · a single beam of light finding the canyon floor'},
+        {type:'p',text:'Antelope Canyon is the opposite kind of wonder — not vast but intimate, a narrow throat of sandstone carved smooth by a thousand flash floods, the rock itself the colour of fire and lavender and old amber depending on where the light happens to touch it. A single beam fell from a crack far above us and landed on the canyon floor like something solid, and as we watched, sand began sifting down through it — light turned, suddenly and impossibly, into a physical thing you could almost reach out and hold. A little further on, at Horseshoe Bend, the canyon opens wide enough to swallow the whole river: the Colorado bending nearly back on its own course a thousand feet below the rim, and a single figure standing right at the edge of it for no reason except, I think, the same reason all of us were standing there — to feel small in front of something old.'},
+        {type:'figure',src:'images/Horseshoe/24092018-_DSC0899.jpg',label:'Horseshoe Bend · the Colorado bending nearly back on its own course'},
+        {type:'quote',text:'At the edge of Horseshoe Bend you don\'t look down so much as feel the drop arrive in your stomach before your eyes have even finished believing it.'},
+        {type:'p',text:'Bryce Canyon is gothic where the rest of the desert is operatic — thousands of hoodoos crowded together like a frozen crowd, pink and orange in the low light, with green pine pushing up between them in the one real patch of colour that isn\'t red or gold anywhere on this whole ring. On the edge of one hoodoo a single bristlecone pine has grown sideways out of almost nothing, roots exposed, gripping bare rock, ancient and stubborn and somehow more alive-looking than anything green has any right to be at that altitude. We came back after dark and watched the moon rise white and enormous over the amphitheatre of stone, and it was cold enough that our breath showed — the first real cold of the whole trip.'},
+        {type:'figure',wide:true,src:'images/Bryce_Canyon/25092018-DSC09806.jpg',label:'The amphitheatre at Bryce Canyon, hoodoos crowded to the horizon'},
+        {type:'figure',src:'images/Bryce_Canyon/25092018-DSC09761.jpg',label:'Bryce Canyon · a bristlecone pine, rooted into bare rock at the edge of a hoodoo'},
+        {type:'figure',src:'images/Bryce_Canyon/25092018-DSC09941.jpg',label:'A single hoodoo, capped by a balanced pillar of harder rock'},
+        {type:'p',text:'We closed the ring through Valley of Fire, the sandstone there folded into waves so smooth and so red they look almost liquid, as if the desert had caught itself mid-motion, and then on into Death Valley, where the road just keeps going down until you are below sea level and the heat presses on you like a hand. We waited there until full dark, out on the salt flats at Badwater, and the Milky Way came up over us thick and close and almost frightening in its size, a single seated figure silhouetted small against it — and that, more than any canyon or any rock formation, is the image I carry from the whole loop: how a desert this punishing, this dry, this hard on everything that tries to live in it, is also the one place on earth where you can see the most stars. Majesty and harshness, it turns out, are very often the same thing wearing two different faces.'},
+        {type:'figure',src:'images/Valley_of_Fire/26092018-DSC00514-2.jpg',label:'Valley of Fire · sandstone folded into waves of red and orange'},
+        {type:'figure',src:'images/Death_Valley/26092018-DSC00860.jpg',label:'Zabriskie Point, the badlands catching the last pink light before the salt flats'},
+        {type:'figure',src:'images/Death_Valley/27092018-DSC01703.jpg',label:'Turkey vultures, drying their wings on a dead tree at dusk'},
+        {type:'figure',wide:true,src:'images/Death_Valley/27092018-DSC01594.jpg',label:'Death Valley · the Milky Way over the Badwater salt flats'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'The American Southwest is one of the most water-stressed regions on the continent — the Colorado River, the same river that carved the Grand Canyon and Horseshoe Bend over millions of years, now barely reaches its own delta most years, drained by the cities and farms that depend on it. Many of the dark places we stood under that night sky are disappearing too: light pollution from the booming desert-edge cities is creeping into national parks that have spent decades fighting to keep their skies dark enough to see the Milky Way at all. And the slot canyons — Antelope Canyon above all — are extraordinarily fragile, carved by flash floods that can arrive with no warning and that have, more than once, taken the lives of visitors and guides; this is sacred Navajo land, not simply a backdrop, and every visit happens only with a Navajo guide, on Navajo terms.'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'Best season: spring (March–May) or fall (September–October) — summer temperatures in Death Valley and Valley of Fire regularly cross 45°C. Antelope Canyon can only be visited with a licensed Navajo guide, booked in advance, and tripods are restricted on most tours — check current rules before you go. Sunrise is the only realistic time to see Monument Valley\'s Mittens without a parking lot of other photographers in your frame. Horseshoe Bend\'s overlook has no railing; the wind out there is real, and so is the drop. Bryce sits above 2,400m — pack a real layer for after dark, even in summer, if you want to wait for the stars.'},
+      ],
+    },
+    california: {
+      label:'37°N 119°W · Sierra Nevada & Pacific Coast, USA',
+      title:'The green half of America',
+      heroSrc:'images/29092018-DSC03387.jpg',
+      heroRatio:'1.500',
+      blocks:[
+        {type:'p',lead:true,text:'Half of America, it turns out, is red — and the other half, the half we drove into after the desert, is the deepest green I have ever stood inside. We came down out of the Sierra Nevada through a tunnel cut straight through granite, and on the other side the valley just opened, all at once, the way a held breath finally lets go: El Capitan rearing up on one side, Half Dome standing improbably square at the far end, a waterfall hanging thin and white in between, and every photograph I had ever seen of this place turned out to be true and somehow still not enough.'},
+        {type:'p',text:'We caught Half Dome again at the end of the day, the granite gone the colour of a struck match, a pair of dead snags framing it on either side like the valley itself had built a window just for this. Below, the Merced River lay flat enough to double the whole scene, gold grass in the foreground, the mountain repeated underwater as if it needed saying twice. A Steller\'s jay sat watching us from a slab of bare rock, electric blue against all that grey stone, the one small loud thing in a place built at a scale that swallows sound.'},
+        {type:'figure',wide:true,src:'images/29092018-DSC03311.jpg',label:'Yosemite · Half Dome at golden hour, the Merced River below'},
+        {type:'p',text:'Sequoia is where the trees stop being scenery and start being individuals. We walked in among trunks wider than rooms, bark the colour of rust against canopy so green it looked lit from inside, and stood for a long time at the base of one that had been hollowed out entirely by fire at some point in the last thousand years — burned black on the inside, alive and green on top, a person standing in the cavity of it for scale, no bigger than a single rib in something that size. They told us afterwards that some sequoias actually need fire to reproduce: the heat is what finally opens their cones. The thing that should have killed it is the same thing that lets it go on. A Douglas squirrel worked at a cone overhead, completely unbothered, doing the same job these trees have always depended on.'},
+        {type:'quote',text:'Burned black on the inside, alive and green on top — the thing that should have killed it is the same thing that lets it go on.'},
+        {type:'figure',src:'images/28092018-DSC02964.jpg',label:'Sequoia National Park · a fire-hollowed trunk, still standing'},
+        {type:'p',text:'The coast, when we finally reached it past Big Sur, turned out to be the wildest stretch of the entire trip — not in scenery, though McWay Falls dropping straight onto a beach of its own private cove is hard to beat, but in how much was simply alive there, all at once, without any effort to find it. Sea otters lay on their backs in calm water like they\'d been doing it for centuries, which, depending how you count, they had. Sea lions piled on the rocks barking at nothing. And further south, an entire colony of elephant seals had hauled themselves onto the sand — two young males rearing up nose to nose like they meant it, an older one with its mouth thrown open mid-roar, sand and salt and noise everywhere, the most unglamorous and most thrilling wildlife I saw on the whole trip.'},
+        {type:'figure',src:'images/07102018-DSC06383.jpg',label:'California coast · an elephant seal, mid-roar'},
+        {type:'p',text:'On the last evening, far out past the breakers, something dark rolled at the surface and went down again, slow, deliberate, a tail lifting clear of the water for just long enough to be unmistakable before it was gone — a whale, close enough to the shore that for one second the whole Pacific felt like something with a heartbeat. We stood there until the light went, the sky doing something orange and ridiculous over water that had just swallowed something the size of a bus without a sound, and I understood, finally, why this half of the country gets called green and the other half red: not the colour of the ground, but the colour of how alive each one turns out to be, once you actually stand in it.'},
+        {type:'figure',wide:true,src:'images/06102018-DSC05515.jpg',label:'California coast · a whale, diving'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'Giant sequoias only grow naturally in about 70 isolated groves on the western slope of the Sierra Nevada, and in recent years wildfires intensified by drought and a century of fire-suppression policy have killed thousands of large, old-growth sequoias — trees that, until very recently, were thought to be almost fire-proof. The irony is sharp: these trees evolved to need fire, in carefully calibrated doses, and the same climate pressure now sending hotter, more frequent fires through the Sierra is starting to overwhelm the very adaptation that kept them alive for two thousand years. Along the coast, sea otters remain a conservation success story still very much in progress — hunted to near-extinction for their fur by the early 1900s, they\'re recovering slowly along central California, and as a keystone species their return is helping kelp forests recover too, since otters keep in check the sea-urchin populations that would otherwise strip the kelp bare.'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'Best season: late spring through early fall for Yosemite Valley (Tioga Pass and the high country close with snow in winter); Sequoia\'s Giant Forest is accessible most of the year but check road conditions first. The elephant seal rookery along the coast is most active — and loudest — during pupping and mating season, roughly December through March; outside that window you\'ll still see seals, just fewer and quieter. McWay Falls itself can only be viewed from the overlook trail — the cove below is closed to visitors. If you want a real shot at seeing a whale from shore, pick a calm day and bring binoculars; migration runs along this coast twice a year, but a sighting is never guaranteed.'},
+      ],
+    },
+    mamiraua: {
+      label:'3°S 65°W · Mamirauá, Amazon, Brazil',
+      title:'The flooded forest',
+      heroSrc:'images/mamiruaua/29072019-DSC04550.jpg',
+      heroRatio:'1.777',
+      blocks:[
+        {type:'p',lead:true,text:'To describe the Amazon fully takes more than one life — the richest ecosystem, the vastest forest, the highest concentration of living species on earth. Visiting it means touching one of the wildest places that still exists, while understanding, almost immediately, that what you will see in a lifetime is only the smallest part of what is there. At the heart of it, enclosed between the Rio Solimões and the Auati-Paraná, there is a place even more special: a flooded forest where the rivers rise twelve metres with each season, submerging the trees to their crowns — the Mamirauá Reserve, a UNESCO heritage site of thirty-five thousand square kilometres, where the water is both the threat and the life of everything inside it.'},
+        {type:'p',text:'We woke before sunrise each day, and before we moved or spoke the forest was already speaking: a boiling of voices, an intense welcome to the new day, dominated by the howler monkeys marking their territories and their harems in the dark. When the light came through, it did something to the water we had not expected. The rivers here are so still, and so clear, and so flat, that the whole canopy above is reflected perfectly below — trees doubled, sky doubled, a bird crossing the gap doubled — and canoeing between them feels like sliding across ice, following the symmetric images of vegetation mirrored underneath you, the forest given back twice.'},
+        {type:'quote',text:'Canoeing on the rivers sounds like sliding on ice — the forest mirrored underneath you, given back twice.'},
+        {type:'figure',src:'images/mamiruaua/26072019-DSC03376.jpg',label:'Mamirauá · canoeing into the flooded forest with a local guide from the Uakari Lodge'},
+        {type:'p',text:'Every morning we left the open river on a traditional wooden canoe with a local guide and pushed deep into the trees. The transition is immediate and total: the light drops, the air thickens, the sounds change. You do not look at the forest from the outside any more — you are inside it, touching trunks that have been standing for centuries from the side of the boat, smelling the rot and the green of it, catching shapes moving through branches far above. The caiman sometimes surfaced alongside us without hurry, barely a ripple, aware of exactly where we were. Ask your guide to make the sound of a baby caiman and the whole river will answer — and you will discover you have been surrounded for some time.'},
+        {type:'figure',src:'images/mamiruaua/26072019-DSC03350.jpg',label:'An enormous tree rising out of the flooded forest, its scale impossible to judge from the water'},
+        {type:'figure',src:'images/mamiruaua/29072019-DSC04937.jpg',label:'Inside the flooded forest, the canoe moving between half-submerged trunks'},
+        {type:'p',text:'The wildlife accumulates until it starts to feel implausible. The white uakari — found nowhere else on earth, with the bare red face that Walter Bates, the great Victorian naturalist, once called "the most grotesque appearance" — is one of the more arresting things I have ever had looking back at me from a branch. Capuchin monkeys, saki, black spider monkeys. And then the river itself: the boto, the pink river dolphin, surfacing with that peculiar washed-out coral colour that makes it look less like a real animal than something dreamed up by someone who had never actually seen the sea.'},
+        {type:'figure',src:'images/mamiruaua/29072019-DSC04860.jpg',label:'A capuchin monkey, watching from a branch'},
+        {type:'figure',src:'images/mamiruaua/29072019-DSC04642.jpg',label:'Mamirauá · a boto, the pink river dolphin, surfacing in the open water'},
+        {type:'p',text:'The Mamirauá lake is where everything opens out. Past the narrow rivers and the cathedral dark of the trees, the lake is wide and bright and the sky above it is enormous. We stayed the whole day and then until the sunset — the sunset in the Amazon exhausting the entire spectrum, red and orange and yellow in sequence, colours too strong to be entirely plausible, mirrored perfectly in the flat water so that the strip of vegetation at the horizon is the only border between the sky above and the sky below. We stood there until the light was gone, not saying much, because anything we might have said would have been smaller than what we were looking at.'},
+        {type:'figure',wide:true,src:'images/mamiruaua/28072019-DSC04468.jpg',label:'Sunset over the Mamirauá lake, the forest a thin line between two skies'},
+        {type:'p',text:'That night, lying in our floating bungalow surrounded by the breath of the forest — constant, alive, full — there was a moment of something I am not entirely able to put into words. In Italian there is a word for it: panismo. The dissolution of the border between the self and the place. The Amazon is too large to hold in the mind as a concept. But you can feel it, at night, from inside it — and that feeling is what this kind of travel is really for.'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'The Mamirauá Reserve exists largely because of one man\'s stubbornness. The primatologist and conservationist José Márcio Corrêa Ayres arrived here in the 1980s and found a biome of extraordinary richness being systematically stripped: commercial fishing boats, hunting, resource extraction. What he understood — and what was not at all obvious at the time — was that the only realistic protection for this forest was the people already living inside it. By founding the Mamirauá Institute for Sustainable Development in 1999, he secured 3.47 million hectares in the heart of the Amazon and built a model in which local communities — descendants of migrants from north-eastern Brazil who over two centuries had learned to live in balance with the flood cycles — become the guardians and the beneficiaries of the place simultaneously. The Uakari Lodge, a small floating eco-lodge run jointly by the Institute and community members, is the most visible expression of that model: ecotourism that funds the reserve and the people who protect it, at the same time.'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'The journey starts at Manaus — the two-million-person capital of Amazonas state, a full city with good restaurants and a humidity that can be genuinely overwhelming. From Manaus, Azul flies one hour to Tefé: almost the entire route is above unbroken forest, rivers threading through it, and it is the most visceral way to begin to grasp the scale of what you are about to enter. From Tefé, a fast boat takes roughly an hour to reach the reserve. Stay at the Uakari Lodge: seven floating bungalows built with local materials, solar-powered, connected by bridges, ten rooms with private bathrooms and a veranda. The restaurant serves some of the best Amazonian cooking we had in Brazil. The staff are from the local communities — the knowledge they carry of the forest and the river is something no guidebook can replicate.'},
+      ],
+    },
+    lofoten: {
+      label:'68°N 15°E · Lofoten, Norway',
+      title:'Where morning never becomes day',
+      heroSrc:'images/Lofoten/02012017-DSC00913.jpg',
+      heroRatio:'1.777',
+      blocks:[
+        {type:'p',lead:true,text:'During the two weeks of the arctic night, at noon, the sun tries in vain to overcome the horizon. Sunrise and sunset — the beginning and the end of the day — merge their colours into a single long golden event, and everything between them is light of a kind you do not find elsewhere on earth. Spiky, snow-covered mountains scatter across a flat, dense, silent sea between the islands; the sky and their reflections compete for the same space. The labyrinthine inlets chase each other through long fjords, and the placid glacial water mirrors and multiplies every shape, every colour, every landscape it receives — as if the beauty of these places was not enough, and the sea decided to say it twice.'},
+        {type:'p',text:'We had come for the orcas. In winter, killer whale pods follow the herring into the fjords off Andøya — the northernmost point of the archipelago, the open door to the north Atlantic — and for a few weeks each year the water here holds the largest concentration of orcas on earth. We went out on a RIB in the open sea, dressed in thick neoprene drysuits, into cold grey water under a sky the colour of pewter. When the guide found the pod — adult females, a few calves, a male with a dorsal fin so tall it looked architectural — he said quietly to enter the water. I remember not thinking about the cold. The orcas were working the herring school below us, moving fast, their breath loud in the silence. Their strength, their curiosity, their beauty — and at one point a large female turned and looked directly at me with an eye as intelligent as any I have ever faced, before going back to her work.'},
+        {type:'quote',text:'Their strength, their breath, their curiosity, their beauty — a pod of killer whales feeding in a grey Arctic sea, and the strange privilege of being, for a moment, in the water with them.'},
+        {type:'figure',src:'images/Lofoten/31122016-IMG_0162.jpg',label:'A killer whale surfaces off Andøya, in the winter fjords'},
+        {type:'p',text:'The rest of Lofoten is Svolvær — the main town, the starting point, the place to orient yourself before the E10 takes you south island by island along the most scenic road I have ever driven. We stayed in a rorbu: the red-and-white wooden fishermen\'s cabins built directly over the water, some centuries old, most now converted into something warm and quietly romantic. You wake up on the wooden floor, open the window, and a fjord is directly outside. There is nothing to prepare you for that. The best day was on the water — the boat into Trollfjord, a narrow rocky throat of a canyon with mountains on both sides so steep and close they seem to be negotiating with each other for the sky, the water below painted blue and pink and red in the colours the sun throws from just below the horizon. Sea eagles work the same channel; they have learned the boats.'},
+        {type:'figure',wide:true,src:'images/Lofoten/02012017-DSC01943-Migliorato-NR.jpg',label:'Approaching Trollfjord by boat, snow-capped peaks on calm water'},
+        {type:'p',text:'The northern lights are different in Lofoten than anywhere else I have seen them because the landscape frames them properly. At Skagsanden beach the sand freezes in winter, and the frozen sand mirrors the sky — so the aurora above you and the aurora below you are the same event, and you are standing in the middle of it. The green aurora is the most common, but in two weeks I watched the pink and white aurora at least twice, the whole bay lit up in colours that have no right to exist at that latitude, doubling in the flat frozen mirror below until the sky and the ground become indistinguishable and the only human-scale thing left is the person standing next to you.'},
+        {type:'figure',wide:true,src:'images/Lofoten/05012017-DSC03333.jpg',label:'Skagsanden beach · the northern lights, doubled in the still water'},
+        {type:'p',text:'What I carried home from Lofoten is not any single image but a quality of light I have not found anywhere since. For the two weeks of the arctic night the sun never clears the horizon — it surfaces in the south around nine in the morning, moves along the edge of the sky with enormous slowness, and slips back below around half past three in the afternoon. The whole day is a perpetual golden hour. Everything it touches — rock, water, snow, a red wooden cabin, the dorsal fin of a killer whale — it touches with the quality of something ending or beginning, and you can never quite tell which. I think that is precisely the point.'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'The killer whale pods that winter in these fjords follow one of the largest herring stocks on earth. Norwegian spring-spawning herring collapsed in the 1960s after decades of industrial overfishing — and the orcas essentially disappeared from the region at the same time. The stock recovered in the 1990s under strict Norwegian quota management, and the pods came back with it, which is why Andøya and the fjords around Tromsø now host the largest winter concentration of orcas in the world. It is one of the more clearly documented cause-and-effect stories in North Atlantic marine conservation: manage the prey, and the predator returns. Norway is also, as of 2025, one of only three countries still permitting commercial whaling — specifically of minke whales — while simultaneously operating one of the world\'s most successful whale tourism industries. The same waters, two industries, and the tension between them is not resolved.'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'Whale-swimming expeditions leave from Andenes and from Skjervøy and Tromsø further south — the orca concentrations shift depending on where the herring school, so confirm the current hotspot when you book. Book well in advance for December–January slots; the season is short and demand is high. Permits for swimming are limited and conditions are weather-dependent — build flexibility into your schedule. Svolvær is the practical base for the archipelago; the E10 road connects the islands south to the village of Å and almost everything essential is visible from it. Book rorbu cabins early, especially at New Year. For aurora viewing, Skagsanden beach is the canonical spot but any dark fjord-side location works on a clear night. Use aurora forecast apps to time it — aurora-service.eu is reliable — and go out even on modest forecasts, as the lights can appear quickly and the forecast updates throughout the night.'},
+      ],
+    },
+    maldive: {
+      label:'0°S 73°E · Fuvahmulah, Maldives',
+      title:'The night the giant danced',
+      heroSrc:'images/Maldive_Deep_South/13032022-_DSC3256-ARW.jpg',
+      blocks:[
+        {type:'p',lead:true,text:'The Maldives deep south is not the Maldives of any brochure. Not the shallow turquoise lagoons and sand bars of the northern atolls. The southern archipelago is something else: remote, dark, washed by open Indian Ocean swells, visited by things that pass through deep water and surface here for reasons that are not entirely understood. We were on a liveaboard, several days out, at latitudes barely north of the equator. Fuvahmulah, the single-island atoll that sits alone between the Maldives and the Laccadives, surrounded by deep water on all sides, rich in currents and — sharks: hundreds of reef sharks moving left and right along the reef edge, riding the current, a colossal tiger shark patrolling around. It is one of the few places on earth where whale sharks come year-round. We had come to find one.'},
+        {type:'p',text:'It appeared at night, in the rich, glittering plankton illuminated by artificial light. One moment, there was only dark water. Then there was something enormous moving through it, a tail that seemed to continue indefinitely, a body the size of something that should not exist in the same element as a human body. But the word that stayed with me was not size: it was gentleness. The whale shark moved with absolute ease, as if the concept of effort did not apply to it, sinuous, unhurried, almost playful. It moved smoothly in the water, approaching with its huge, open mouth, small eyes, and beautiful, spotted hide. It danced with the light and the plankton, and it accepted our presence in the water around it, or perhaps simply ignored us. The distinction, if there is one, did not feel important. We followed it through the dark for as long as we could.'},
+        {type:'quote',text:'It danced with the light and the plankton — enormous, sinuous, almost playful — accepting our presence in the water around it, or perhaps simply ignoring us. The distinction did not feel important.'},
+        {type:'figure',src:'images/Maldive_Deep_South/13032022-_DSC3277-ARW.jpg',label:'Fuvahmulah · the whale shark rising through the torch light, by night'},
+        {type:'figure',wide:true,src:'images/Maldive_Deep_South/13032022-_DSC3280-ARW.jpg',label:'Fuvahmulah · a whale shark and a diver — a scale that is difficult to photograph'},
+        {type:'p',text:'The daytime dives were a different world: the reef, shallower and lit, crowded with smaller life. The clownfish are everywhere, and they have a quality I had not expected: a kind of theatrical personality. At first, each one hides, retreating into the anemone\'s tentacles, peering out to check whether the camera is still there. Then it finds its confidence and begins to move as it normally moves, alternating between drifting with the current and sudden, vivid bursts of energy, quick and precise. Many were in pairs. Dressed extravagantly, energetic, joyful, and almost reckless, the clownfish is exactly the emblem of tropical seas that it looks like, and it performs the role without any apparent self-consciousness.'},
+        {type:'figure',src:'images/Maldive_Deep_South/16032022-_DSC3391.jpg',label:'Fuvahmulah · clownfish on a bleached anemone'},
+        {type:'p',text:'In some of these frames, though, the anemone is white. Not the warm amber of a healthy anemone — completely white, bleached, the coral expelling its symbiotic algae under thermal stress. The clownfish live there regardless, and the vivid orange against the complete white of the bleach makes an image that is very hard to look at once you understand what the white means.'},
+        {type:'figure',wide:true,src:'images/Maldive_Deep_South/13032022-_DSC3266-Modifica.jpg',label:'Fuvahmulah · whale shark in the dark water, Maldives deep south'},
+        {type:'p',text:'That night in the dark water, following the whale shark through the plankton, it was difficult to hold both things at once: the immensity and grace of what was in front of me, and the knowledge of what is happening to the water it swims in. By day, it was unavoidable. Almost every reef we dived was bleached white or simply dead, not in patches, but as the general condition of the place. And above the surface, the construction was everywhere: new artificial islands appearing from the water, new resorts going up, and the great reclaimed city rising out of the lagoon near Malé, Hulhumalé, built on dredged sand to move the population off the atolls and free the islands for tourism. The Maldives is the lowest-lying country on earth, and it is being simultaneously drowned by the sea and rebuilt against it. The whale shark, which has been moving through these oceans for sixty million years, is now listed as Endangered. I followed it through the dark for as long as I could. It did not seem to know any of this.'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'The whale shark is the largest fish on earth and one of its most ancient — essentially unchanged for sixty million years. It is also, since 2016, listed as Endangered on the IUCN Red List, its population estimated to have declined by more than fifty percent over the past seventy-five years. The primary threats are targeted hunting in parts of Asia, bycatch in pelagic fisheries, and boat strikes in high-traffic areas. The Maldives declared itself a whale shark sanctuary in 1995, prohibiting all hunting and trade, and the aggregations at Fuvahmulah and South Ari Atoll are among the most important in the Indian Ocean for research and monitoring. But the deeper existential threat to the Maldives — and to everything that lives in its waters — is thermal. The 2016 bleaching event destroyed an estimated seventy percent of the archipelago\'s shallow-water corals, and on a 2022 trip the reefs of the deep south were overwhelmingly bleached or dead. The government has committed to carbon neutrality by 2030 and manages extensive marine protected areas, but it is also pursuing large-scale land reclamation — most visibly Hulhumalé, an artificial island built on dredged lagoon sand to rehouse much of the population and open the natural atolls to resort development. The tension is stark: a nation literally building new ground to survive rising seas, while the reefs that historically built and defended that ground die underneath it. And sea surface temperatures are driven by global emissions, not local policy.'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'Liveaboard itineraries into the deep south depart from Malé — by boat or via an intermediate domestic flight — and run four to seven nights; the northeast monsoon season (December–April) offers the calmest seas and best visibility. Fuvahmulah is also accessible via a one-hour domestic flight from Malé; the atoll\'s unique oceanography, with deep channels creating upwelling that concentrates plankton, makes whale shark encounters possible year-round without feeding stations or bait, which is rare. Snorkelling is possible but encounters are more consistent and more intimate in the water; basic freediving skills help significantly.'},
+      ],
+    },
+    japan: {
+      label:'36°N 138°E · Jigokudani, Nagano, Japan',
+      title:'Where the macaques bathe',
+      heroSrc:'images/DSC01474.JPG',
+      blocks:[
+        {type:'p',lead:true,text:'After days in Tokyo — a city where it is genuinely difficult to find a single tree or a patch of grass — and three and a half hours on a train so fast the landscape becomes abstract, an unbroken wall of narrow buildings stacked against narrow buildings with no natural corner anywhere in it, you finally reach the mountains. And you breathe. Nagano in March is beautiful in its own right, snow still deep on the peaks, the air thin and clean after the density of the capital. You rise before dawn to reach the monkeys.'},
+        {type:'p',text:'The place is remote, reached by bus or car to a freezing trailhead deep in snow, the temperature brutally low. But there is no point despairing at the cold, because you are not there yet — you still have to walk. The trail climbs for a little over an hour through a forest of conifers, and every so often the wind brings down a small avalanche of snow from the branches overhead, a soft collapse and then silence again. At the top, at the end of the valley, there is a small museum dedicated to the monkeys that doubles as a refuge — a place to literally thaw out — and beyond it a bridge. The view itself is nothing special. But this is where the macaques finally appear: small, ruffled, thick-furred, walking and running through the snow and the freezing air as if the cold simply did not touch them. Sometimes one sits down in the snow and relaxes, and you wonder how it does not freeze. They are active, playful, occasionally quarrelsome. And then you reach the small thermal pool, and the macaques become many.'},
+        {type:'figure',wide:true,src:'images/DSC01615.JPG',label:'Jigokudani · the troop in the thermal pool, grooming in the steam'},
+        {type:'p',text:'The troop holds every age. There are big, dishevelled males with thick, vaporous fur, and a great many wildly energetic infants who play in the water, leaping onto one another, splashing, pushing each other under. But the most absorbing thing is the faces — the enormous range of expression on them. One dozes gently in the warm vapour, perhaps half-attended by another picking through its fur in some social rite; one dives; the males stay apart, holding their place in the hierarchy. And all of them with facial expressions that are captivating, extraordinarily readable, startlingly human — familiar in a way you are not prepared for.'},
+        {type:'p',text:'You stay for hours in the freezing air, watching, never bored, held by the curiosity and the strangeness of this surreal behaviour: so natural, and so close to our own way of relaxing in a spa. The contrast holds you — the freezing air, the steaming thermal pool, the colony so relaxed, almost indulgent, behaving in a way that looks almost urban next to ours. Your hands and feet freeze. You cannot bring yourself to give up the spectacle. Eventually you return to the museum, thaw your hands and feet, drink a free cup of tea, and walk back down through the forest.'},
+        {type:'figure',src:'images/DSC01913.JPG',label:'Jigokudani · a mother holds her infant against the cold'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'The bathing macaques of Jigokudani are not a tourist invention but the surviving end of a genuine conservation story — and a quietly redemptive one. In the 1950s, the post-war expansion of ski resorts and logging in the Shiga Highlands drove the Japanese macaques down out of their mountain habitat and into the farmland below, where they raided crops and were, inevitably, treated as pests and hunted. In 1964 the park was established as a refuge: feeding the troop deliberately to keep it away from the villages, giving the displaced animals a reason to stay in the valley instead of in conflict with people. The famous bathing behaviour came later and entirely by accident — young monkeys were seen climbing into the outdoor baths used by a local inn\u2019s human guests, possibly drawn by the warmth, and the habit spread through the troop and passed down the generations. The Japanese macaque is the most northerly-living non-human primate on earth, and Jigokudani is the only place where they have learned to use a hot spring against the cold. The park is careful with it: the monkeys are wild and free to come and go, fed enough to keep them in the valley but never enough to make them dependent, observed at close range but never fenced. It is a rare example of a human–wildlife conflict that was solved by giving the animals somewhere to be.'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'Jigokudani Yaen-Koen sits at 850 metres in the Joshinetsu Kogen National Park, about three and a half hours from Tokyo: Shinkansen to Nagano, then a bus toward Kanbayashi Onsen, then the final approach on foot. That last stretch cannot be shortened — a 1.6 km trail through cedar and conifer forest, around thirty to forty minutes, slippery in winter, so bring proper boots. Winter (December–March) is when the snow is deep and the monkeys use the pool most, though they roam free and do not visit every single day; check the park\u2019s live updates before committing to the trip. For photography, the conditions are a gift and a challenge at once: diffuse, low-contrast light, constant steam, and a near-monochrome palette of white, grey and sepia, like a postcard from an older Japan. Work the faces and the vapour, dress far more warmly than you think you need to, and stay long — the best expressions come to those who wait in the cold. Combine the visit with a night in the onsen towns of Shibu or Yudanaka, where you can take your own hot-spring bath afterwards.'},
+      ],
+    },
+    sardinia: {
+      label:'40°N 8°E · Bosa, Sardinia, Italy',
+      title:'The vultures of Bosa',
+      heroSrc:'images/Sardegna/09072021-_DSC2428.jpg',
+      heroRatio:'1.334',
+      blocks:[
+        {type:'p',lead:true,text:'Sardinia is not only the most beautiful sea in the world — though it is also that. The interior, the part most people never reach, has a richness and a density of beauty that has no equal: golden hills of dry grass rolling one into the next, rising and falling, showing and hiding the horizon with each curve of the road. We were driving toward Bosa, on the west coast, and I knew this was the right area to see griffon vultures — but the road kept climbing and dropping through those golden hills, and I had not seen a single one, not even high up, or at least had not recognised one. I had given up hope.'},
+        {type:'p',text:'And then, past a curve, the landscape handed me something I thought you could only see on an African plain, not in Italy. Not griffons circling high overhead, but a group of them on the ground, cleaning the carcass of a sheep. They were closer than I had hoped to see them, more numerous than I had hoped, larger than I had believed, more vulture than I had imagined. In a moment, after the frenzy around the dead sheep, there was nothing left but bones — left for other raptors waiting their turn. And when the meal was finished, they flew off one after another, immense, climbing impossibly high.'},
+        {type:'quote',text:'They were closer than I had hoped, more numerous than I had hoped, larger than I had believed — more vulture than I had imagined.'},
+        {type:'figure',wide:true,src:'images/Sardegna/09072021-_DSC2355.jpg',label:'Bosa · griffon vultures at a carcass in the golden interior'},
+        {type:'p',text:'We stayed and talked with a shepherd, the owner of the dead sheep, who told us about living alongside the griffons — their behaviour with the carcasses of the sheep that die, for one reason or another, across his land. There was no resentment in it. The vulture takes the dead animal he would otherwise have to dispose of himself; the arrangement is old, and it works. What struck me, standing there, was the simple fact of where I was: Sardinia, Italy, Europe. We are not so far from Africa and its biodiversity as we like to think. When we give nature the opportunity to come back, it reminds us how rich it can be — even in its largest inhabitants, the ones we had assumed were gone for good.'},
+        {type:'figure',src:'images/Sardegna/09072021-_DSC2493.jpg',label:'Bosa · nothing left but bone, and another raptor waiting its turn'},
+        {type:'figure',wide:true,src:'images/Sardegna/02072021-_DSC9824.jpg',label:'Sardinia · the granite coast near Bosa at the end of the day'},
+        {type:'figure',src:'images/Sardegna/05072021-_DSC0936.jpg',label:'Sardinia · the water along the coast, turquoise over pale granite'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'The fact that you can see this at all is the result of one of Italy\u2019s great conservation recoveries. In the 1930s, Sardinia held eight hundred to twelve hundred griffon vultures; by 2014, after decades of poisoning, persecution and the disappearance of carcasses from the land, the island population had collapsed to around sixty birds, confined to a few cliffs between Bosa and Alghero — the last native colony of the species left in all of Italy. Two EU-funded LIFE projects, \u201cUnder Griffon Wings\u201d and \u201cSafe for Vultures,\u201d led by the University of Sassari, reversed the decline through a combination of measures: reducing poisoning, making power lines safe, and — crucially — establishing a network of carnai, farm feeding stations where shepherds can legally leave the carcasses of dead livestock for the birds. Young griffons, many rehabilitated from wildlife centres in Spain, were released to reinforce the population. The 2025 census counted between 516 and 566 individuals — more than double the number five years earlier — and the colony is now spreading south and east across the island, reclaiming territory it had been absent from for decades. The shepherd and his dead sheep are not a footnote to that recovery. They are the mechanism of it.'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'The reliable area for griffons is the stretch of west coast between Bosa and Alghero, where the road follows the sea cliffs — the Bosa–Alghero coastal road is one of the most beautiful drives in Italy regardless of whether you see a vulture. They are most active around mid-morning, riding the thermals as the land heats up; a carcass on the ground will draw a crowd quickly. Bring a long lens but do not expect to need it as much as you think — they can be remarkably close. Combine the wildlife with the landscape: the granite coast around Bosa and the interior hills are extraordinary, and the light at the end of the day, raking across the dry grass and the granite, is reason enough to be there.'},
+      ],
+    },
+    mauritius: {
+      label:'20°S 57°E · Mauritius, Indian Ocean',
+      title:'The green jewel',
+      heroSrc:'images/Mauritius/01102022-_DSC6171-ARW_DxO_DeepPRIME.jpg',
+      blocks:[
+        {type:'p',lead:true,text:'Mauritius is one of the gems set into that jewel which is the Indian Ocean. If the Maldives are a sapphire — the rarest and deepest blue — then Mauritius is an emerald: green, layered, more complicated the closer you look. The postcard beaches and the impossible colours of the sea would already be reason enough to come. But push past them, beyond the lagoon, and you find an unexpected richness on almost every axis at once: a landscape of hills and small mountains, breathtaking views over the interior and the reef, forests and waterfalls, extravagant gardens, and a fauna that is entirely its own — much of it found nowhere else on earth.'},
+        {type:'figure',wide:true,src:'images/Mauritius/05102022-DSC00774-Migliorato-NR.jpg',label:'Mauritius · the lagoon and the reef, seen from the interior heights'},
+        {type:'p',text:'That fauna carries a particular weight here, because Mauritius is where the word extinct was, in a sense, invented — this is the island of the dodo, the animal that became the global shorthand for a species wiped out by human arrival. But the island also holds one of the most hopeful conservation stories anywhere. On Île aux Aigrettes, a small islet restored to something like its original state, you get a narrow glimpse into an ancient world — perhaps lost, perhaps still preserved and capable of returning, demonstrating all the resilience of nature. The pink pigeon is the emblem of that resilience: reduced to around ten birds in the wild in the 1990s, and brought back, through sheer stubborn conservation work, to several hundred. To see one on a branch, calm and unbothered, is to look at an animal that statistically should not exist.'},
+        {type:'p',text:'The same small island holds two more survivors most visitors never hear of. The Telfair\\u2019s skink — a heavy-bodied, handsome lizard endemic to Mauritius — was wiped out on the mainland entirely by introduced rats and cats, and clung on only on a few offshore islets before conservationists began reintroducing it. And the Aldabra giant tortoises that amble across Île aux Aigrettes today are not native to Mauritius at all; they were brought in from Aldabra in the Seychelles as ecological stand-ins for the giant tortoises Mauritius lost completely, doing the same slow work of seed dispersal and grazing the original tortoises once did. Nothing here is quite what it first appears — a lizard given back its island, a tortoise standing in for one that no longer exists.'},
+        {type:'figure',src:'images/Mauritius/01102022-DSC09882-Migliorato-NR.jpg',label:'Île aux Aigrettes · an Aldabra giant tortoise, standing in for a species long gone'},
+        {type:'figure',src:'images/Mauritius/01102022-DSC09926-Migliorato-NR.jpg',label:'Île aux Aigrettes · a Telfair\\u2019s skink, once wiped from the mainland entirely'},
+        {type:'p',text:'There are endemic day geckos here too, electric green marked with red and turquoise, and the flying foxes are simply part of the everyday landscape — so thoroughly urbanised that you see them hanging in fruit trees at close range, or crossing the evening sky over the towns, enormous and ordinary at once.'},
+        {type:'figure',src:'images/Mauritius/02102022-DSC00217-Migliorato-NR.jpg',label:'An ornate day gecko, endemic to Mauritius, electric green and turquoise'},
+        {type:'figure',src:'images/Mauritius/06102022-DSC01695-Migliorato-NR.jpg',label:'A Mauritius flying fox, hanging in a flowering tree at close range'},
+        {type:'quote',text:'Push past the postcard, beyond the lagoon, and Mauritius reveals itself: an emerald, green and layered and more complicated the closer you look.'},
+        {type:'p',text:'The sea holds its own inventory. Beyond the reef, in the deep blue, live great cetaceans: resident sperm whales year-round off the west coast, and humpback whales that arrive each austral winter, between roughly June and October, to give birth and nurse their calves in the calm warmth of the western lagoon while the males compete and sing. There are resident pods of spinner and bottlenose dolphins. Mauritius, for these animals, is a nursery and a sanctuary — one the island now protects with some of the strictest marine mammal regulations anywhere, after decades of tour boats getting too close for the animals\\u2019 own good.'},
+        {type:'p',text:'And then there is the other thing that makes Mauritius what it is — which is not natural at all, but human. The island\\u2019s history is a difficult one: colonialism, slavery, indenture, deportation and exploitation, with consequences that reach into the present. And yet out of that painful history came an astonishing cultural richness, which — alongside the natural beauty — is the single most striking thing about the place. Cultures live side by side here that elsewhere keep their distance: Indo-Mauritian, the largest group by far, Hindu and Muslim, descended from the indentured labourers brought from India after the abolition of slavery; Creole, descended from enslaved Africans and Malagasy; Sino-Mauritian; Franco-Mauritian. To walk through the streets of a Mauritian village is to take a small trip around the world in a few steps, and to understand how much strong, distinct cultural identity can coexist — without conflict — in one rich and multicoloured kaleidoscope of folklore, belief, art and habit. It is an extraordinary example of living together.'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'Mauritius is the island where extinction became a symbol: the dodo, flightless and unafraid, was gone within a century of humans arriving. That history makes what is happening now unusually significant. The Mauritian Wildlife Foundation and its partners have pulled several endemic species back from the very edge — the pink pigeon (down to around 10 wild birds in 1990, now several hundred), the Mauritius kestrel (down to 4 known individuals in 1974, one of the rarest birds ever recorded, now in the hundreds), the echo parakeet, and the Telfair\\u2019s skink among them — largely through the painstaking restoration of offshore islets like Île aux Aigrettes and Round Island, clearing invasive predators and replanting native forest. The pressures remain real: less than 2% of the island\\u2019s original native forest survives, invasive species are everywhere, and the coral reefs face the same thermal stress affecting the whole Indian Ocean. But Mauritius is, improbably, one of the places that proves species can be brought back — that extinction is not always the only ending.'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'Île aux Aigrettes, off the southeast coast near Mahébourg, is the essential visit for the endemic wildlife — pink pigeons, giant tortoises, Telfair\\u2019s skinks, day geckos — on guided tours run by the Mauritian Wildlife Foundation, whose fees fund the conservation directly. For the interior, Black River Gorges National Park holds the last native forest and the best hiking, with viewpoints over the whole southwest and a real chance of the Mauritius kestrel or echo parakeet. Whale and dolphin watching runs off the west coast (Tamarin, Black River, Le Morne); swimming with whales has been illegal in Mauritius since 2020, and reputable dolphin operators hold a Tourism Authority certificate and keep their distance. Flying foxes are visible almost anywhere at dusk. And leave time for the villages and markets — the cultural life of the island is not a sidebar to the nature, but its equal.'},
+      ],
+    },
+    maranhenses: {
+      label:'2°S 43°W · Lençóis Maranhenses, Brazil',
+      title:'Walking inside a painting',
+      heroSrc:'images/Maranenses/01082019-DSC05593.jpg',
+      heroRatio:'1.777',
+      blocks:[
+        {type:'p',lead:true,text:'There are landscapes you understand better the more you look at them. The Lençóis Maranhenses is the opposite. It is a surreal sight from the first moment — colours so other, so extraterrestrial, so close to a vision of paradise: a pure white, and a turquoise, and the occasional emerald that divides the two along a single thin line. Geometries painted by the caresses of the air, kept light and poetic and delicate precisely because of the gentleness of the hand that arranges them. And then, when you learn how it forms, none of it becomes more comprehensible. If anything, the more you understand, the more impossible the whole thing seems.'},
+        {type:'p',text:'Here is what is happening, and it does not help. The white sand is not from here at all: two rivers carry thousands of tons of sediment out of the interior of the continent toward the Atlantic, and then the equatorial winds blow it back inland, sometimes tens of kilometres, piling it into dunes that look, from above, like white bedsheets hung out to dry — which is exactly what lençóis means. Then, for half the year, the rain comes, and because a layer of impermeable rock sits just beneath the sand, the water cannot drain away. It pools. Thousands upon thousands of crystalline lagoons appear in the valleys between the dunes — a turquoise mosaic laid across the white, present for only a few months before the sun takes them back.'},
+        {type:'figure',wide:true,src:'images/Maranenses/01082019-DSC05503.jpg',label:'Pools within pools, dunes layered toward the horizon'},
+        {type:'p',text:'And then the deepest mystery of all: there are fish in the lagoons. Lagoons that did not exist a few weeks earlier, in the middle of a sand desert, far from any permanent water — and they are full of fish. Part of the answer is migration: at their fullest, the lagoons connect to rivers that cut through the dunes, and fish swim in. But part of it is stranger. Some species, like the wolf fish, survive the dry season buried in the damp mud beneath the vanished water, dormant, waiting — and others lay their eggs in the dry sand, so that when the rains return, the eggs hatch and a whole population simply begins again, out of what looked like nothing.'},
+        {type:'figure',src:'images/Maranenses/01082019-DSC05679.jpg',label:'Where sand meets water, a colour without a name'},
+        {type:'p',text:'You walk into this the way you walk into a painting. You climb a white dune and the next valley holds a lagoon the colour of a stone you do not have a name for, and the one after that holds another, and another, to the horizon. There is no fauna to wait for here, no animal to appear from the vegetation — there is no vegetation. There is only the landscape itself, in its most delicate register: the quiet, poetic, almost unbearable softness of natural beauty with nothing else competing for your attention. It is the gentlest place I have ever stood inside.'},
+        {type:'quote',text:'Colours so other, so close to paradise — you do not look at this landscape so much as walk inside a painting.'},
+        {type:'figure',wide:true,src:'images/Maranenses/03082019-DSC06263.jpg',label:'A lagoon carved into an emerald curve, sand on both sides'},
+        {type:'box',kind:'conservation',heading:'Why it matters',text:'The Lençóis Maranhenses became a UNESCO World Heritage Site in 2024 — recognition of one of the rarest landscape systems on earth: the largest dune field in South America, where flowing white sand and thousands of seasonal freshwater lagoons coexist in a way found nowhere else. The system is also fragile in a specific way. It depends on a precise, seasonal balance of wind, rainfall and groundwater, which makes it unusually exposed to climate disruption — shifts in rainfall timing or volume change the lagoons directly. The same steady coastal winds that build the dunes have also drawn heavy investment in wind energy: a cluster of wind farms now operates in the region between Barreirinhas and Paulino Neves, hundreds of turbines turning within sight of the park, and the socio-environmental impact of that development on the Maranhão coast is now the subject of academic study in its own right. Tourism, meanwhile, has grown past sixty thousand visitors a year — bringing both the income that gives the park its economic value and the pressure that comes with foot traffic across a living, moving system of sand.'},
+        {type:'figure',src:'images/Maranenses/02082019-DSC06085.jpg',label:'Wind turbines rise along the dune field, part of a major wind-energy complex sited inside the region'},
+        {type:'box',kind:'fieldnotes',heading:'Field notes',text:'The lagoons are seasonal, and timing is everything: they fill from the rains between January and June, and are at their fullest and most photogenic from roughly July to September, before the dry season slowly empties them again. The main gateway is Barreirinhas, reached from São Luís, with 4x4 vehicles making the approach across the sand to the most accessible lagoon circuits (Lagoa Azul, Lagoa Bonita). For the deeper, emptier landscapes, the village of Atins and the remote oases of Queimada dos Britos and Baixa Grande — settlements that exist inside the dunes — are worth the extra effort. Photographically, the surface is the subject: shoot the geometry at low sun, when the dunes throw long shadows and the lagoons catch the colour of the sky, and look for the thin emerald lines where white sand meets turquoise water.'},
+      ],
+    },
+  },
+  /* Optional: put a short looping video in /images and put its path here to use
+     it as the home hero instead of the static photo above. Leave empty string
+     to keep using the photo. Keep the clip short, muted, no dialogue needed —
+     it loops silently. Example: 'images/hero-loop.mp4' */
+  heroVideo: ''
+};
+/* ▲▲▲  END OF EDITABLE CONTENT  ▲▲▲ */
+
+
+/* ============================================================
+   Below this line: the machinery. You shouldn't need to touch it.
+   ============================================================ */
+
+/* --- elegant placeholder generator (warm duotone + ridgelines) --- */
+function seedNum(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))&0xffff;return h;}
+function placeholder(seed,w,h){
+  const n=seedNum(seed), rnd=(k)=>((seedNum(seed+k)%1000)/1000);
+  const pairs=[['#1A130D','#4E3F2C'],['#1A130D','#83634B'],['#1A130D','#BD9874'],
+               ['#1A130D','#D3793D'],['#16201F','#415E5E']];
+  const [c1,c2]=pairs[n%pairs.length];
+  let ridges='';
+  for(let i=0;i<5;i++){
+    const base=h*(0.45+i*0.12), amp=h*0.05*(1+rnd(i));
+    const y0=base+Math.sin(rnd('a'+i)*6.28)*amp;
+    const y1=base+Math.sin(rnd('b'+i)*6.28)*amp;
+    const y2=base+Math.sin(rnd('c'+i)*6.28)*amp;
+    ridges+=`<path d="M0 ${y0} C ${w*0.33} ${y1}, ${w*0.66} ${y2}, ${w} ${y0} L ${w} ${h} L 0 ${h} Z" fill="${c2}" opacity="${0.5+i*0.1}"/>`;
+  }
+  const disc = seed.startsWith('hero')||seed.startsWith('art1')
+    ? `<circle cx="${w*0.72}" cy="${h*0.34}" r="${h*0.13}" fill="#D3793D" opacity="0.22"/>` : '';
+  const svg=`<svg xmlns='http://www.w3.org/2000/svg' width='${w}' height='${h}' viewBox='0 0 ${w} ${h}'>
+    <defs><linearGradient id='g' x1='0' y1='0' x2='0' y2='1'>
+      <stop offset='0' stop-color='${c1}'/><stop offset='1' stop-color='${c2}'/></linearGradient></defs>
+    <rect width='${w}' height='${h}' fill='url(#g)'/>${disc}${ridges}
+    <rect width='${w}' height='${h}' fill='none' stroke='#D3793D' stroke-opacity='0.08'/></svg>`;
+  return 'data:image/svg+xml,'+encodeURIComponent(svg);
+}
+function imgSrc(item,w,h){return item.src ? item.src : placeholder(item.ph||item,w,h);}
+
+/* --- scroll reveal (defined early so dynamic renders below can use it) --- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:0.12});
+
+/* --- hero: video if provided, otherwise the static photo stays --- */
+if(SITE.heroVideo){
+  const v=document.getElementById('heroVideo'),img=document.getElementById('heroImg');
+  v.src=SITE.heroVideo;v.style.display='block';img.style.display='none';
+}
+
+/* --- fill placeholder background elements --- */
+document.querySelectorAll('[data-ph]').forEach(el=>{
+  const key=el.getAttribute('data-ph');
+  const ratio=key==='portrait'?[800,1000]:[1600,1000];
+  if(el.tagName==='IMG'){el.src=placeholder(key,...ratio);}
+  else{el.innerHTML=`<img src="${placeholder(key,...ratio)}" alt="" class="protect">`;el.style.cssText+=';overflow:hidden';}
+});
+
+/* --- render stories --- */
+const storyList=document.getElementById('storyList');
+SITE.stories.forEach((s,i)=>{
+  const d=document.createElement('a');d.className='story reveal';d.dataset.id=s.id;
+  d.href='/stories/'+s.id+'/';
+  d.style.transitionDelay=(i*70)+'ms';
+  d.innerHTML=`<div class="story-media"><img src="${imgSrc(s,1200,900)}" alt="${s.title} — ${s.label}" class="protect" loading="lazy" style="--card-pos:${s.cardFocus||'50% 50%'}"></div>
+    <div class="story-body">
+      <span class="label"><span class="tick">◦</span>${s.label}</span>
+      <h3>${s.title}</h3><p>${s.dek}</p>
+      <span class="story-more">Read the essay <span class="arr">→</span></span>
+    </div>`;
+  storyList.appendChild(d);
+  io.observe(d);
+});
+
+/* --- render portfolio with tabs --- */
+const tabsEl=document.getElementById('tabs'),gridEl=document.getElementById('grid');
+const cats=Object.keys(SITE.galleries);let flat=[];
+cats.forEach((c,i)=>{
+  const b=document.createElement('button');b.className='tab'+(i===0?' active':'');
+  b.textContent=c;b.onclick=()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    b.classList.add('active');renderGrid(c);};
+  tabsEl.appendChild(b);
+});
+function renderGrid(cat){
+  gridEl.innerHTML='';flat=SITE.galleries[cat];
+  flat.forEach((g,idx)=>{
+    const f=document.createElement('figure');f.classList.add('reveal');
+    f.style.transitionDelay=((idx%3)*90)+'ms';
+    f.innerHTML=`<img src="${imgSrc(g,900,Math.round(700+(seedNum(g.ph||g.src||'x')%400)))}" alt="${g.label||''}" class="protect" loading="lazy">
+      <figcaption class="label"><span class="tick">◦</span>${g.label}</figcaption>`;
+    f.onclick=()=>openLb(idx,cat);
+    gridEl.appendChild(f);
+    io.observe(f);
+  });
+}
+renderGrid(cats[0]);
+
+/* --- lightbox --- */
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),
+      lbCap=document.getElementById('lbCap');let lbList=[],lbI=0;
+function openLb(i,cat){lbList=SITE.galleries[cat];lbI=i;showLb();lb.classList.add('open');
+  document.body.style.overflow='hidden';}
+function showLb(){const g=lbList[lbI];lbImg.src=imgSrc(g,1600,1200);lbImg.alt=g.label||'';
+  lbCap.innerHTML=`<span class="tick">◦</span>${g.label}`;}
+function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+document.getElementById('lbClose').onclick=closeLb;
+document.getElementById('lbNext').onclick=()=>{lbI=(lbI+1)%lbList.length;showLb();};
+document.getElementById('lbPrev').onclick=()=>{lbI=(lbI-1+lbList.length)%lbList.length;showLb();};
+lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLb();if(e.key==='ArrowRight')document.getElementById('lbNext').click();
+  if(e.key==='ArrowLeft')document.getElementById('lbPrev').click();});
+
+/* --- article view + hash routing --- */
+const articleEl=document.getElementById('article'),homeEl=document.getElementById('home');
+const DEFAULT_TITLE = document.title;
+const DEFAULT_DESC = (document.querySelector('meta[name="description"]')||{}).content || '';
+
+function renderArticle(id){
+  const a = SITE.articles && SITE.articles[id];
+  if(!a) return false;
+  document.getElementById('artLabel').innerHTML=`<span class="tick">◦</span>${a.label}`;
+  document.getElementById('artTitle').textContent=a.title;
+  const storyMeta = SITE.stories.find(s=>s.id===id);
+  document.title = a.title + ' — Prisho';
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if(metaDesc) metaDesc.setAttribute('content', (storyMeta && storyMeta.dek) ? storyMeta.dek : a.title + ' — ' + a.label);
+  const heroFull = a.heroSrc ? a.heroSrc : imgSrc({ph:a.heroPh},1800,1100);
+  const heroImg = document.querySelector('.art-hero img');
+  const heroBox = document.querySelector('.art-hero');
+  heroImg.src = heroFull; heroImg.alt = a.title + ' \u2014 ' + a.label;
+  heroImg.style.setProperty('--hero-pos', a.heroFocus || '50% 50%');
+  heroBox.style.setProperty('--hero-ratio', a.heroRatio || 'auto');
+  heroBox.style.setProperty('--hero-min', a.heroRatio ? '0px' : 'calc(var(--app-vh) * 0.7)');
+  const artHeroMobile = document.getElementById('artHeroMobileSrc');
+  if(a.heroSrcMobile){ artHeroMobile.srcset = a.heroSrcMobile; }
+  else { artHeroMobile.removeAttribute('srcset'); }
+  const body=document.getElementById('artBody');body.innerHTML='';
+  a.blocks.forEach(bk=>{
+    if(bk.type==='p'){const p=document.createElement('p');if(bk.lead)p.className='lead';p.textContent=bk.text;body.appendChild(p);}
+    if(bk.type==='quote'){const q=document.createElement('p');q.className='pullquote';q.textContent=bk.text;body.appendChild(q);}
+    if(bk.type==='figure'){const f=document.createElement('figure');f.className='art-figure'+(bk.wide?' wide':'');
+      f.innerHTML=`<img src="${imgSrc(bk,1400,1000)}" alt="${bk.label||''}" class="protect" loading="lazy">
+        <figcaption class="label"><span class="tick">◦</span>${bk.label}</figcaption>`;body.appendChild(f);}
+    if(bk.type==='box'){const d=document.createElement('aside');d.className='art-box'+(bk.kind?' '+bk.kind:'');
+      d.innerHTML=`<span class="label"><span class="tick">◦</span>${bk.heading}</span><p>${bk.text}</p>`;body.appendChild(d);}
+  });
+  const shareUrl = encodeURIComponent(location.href);
+  const shareText = encodeURIComponent(a.title + ' — Prisho');
+  const shareBox = document.getElementById('artShare');
+  shareBox.innerHTML = `<span class="share-label">Share this essay</span>
+    <a href="https://wa.me/?text=${shareText}%20${shareUrl}" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}" target="_blank" rel="noopener">X</a>
+    <a href="mailto:?subject=${shareText}&body=${shareUrl}">Email</a>
+    <button type="button" id="copyLinkBtn">Copy link</button>`;
+  document.getElementById('copyLinkBtn').onclick = function(){
+    navigator.clipboard.writeText(location.href).then(()=>{
+      this.textContent = 'Copied!';
+      setTimeout(()=>{ this.textContent = 'Copy link'; }, 2000);
+    });
+  };
+  homeEl.style.display='none';articleEl.classList.add('show');
+  window.scrollTo(0,0);protectImages();
+  return true;
+}
+
+function showHome(scrollToStories){
+  articleEl.classList.remove('show');homeEl.style.display='';
+  const priv=document.getElementById('privacy'); if(priv) priv.style.display='none';
+  document.title = DEFAULT_TITLE;
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if(metaDesc) metaDesc.setAttribute('content', DEFAULT_DESC);
+  if(scrollToStories){const st=document.getElementById('stories');if(st)st.scrollIntoView();}
+}
+
+function showPrivacy(){
+  homeEl.style.display='none';articleEl.classList.remove('show');
+  document.getElementById('privacy').style.display='block';
+  document.title = 'Privacy Policy — Prisho';
+  window.scrollTo(0,0);
+}
+
+function route(){
+  if(location.hash === '#/privacy'){ showPrivacy(); return; }
+  document.getElementById('privacy').style.display='none';
+  const m = location.hash.match(/^#\/story\/([a-z0-9-]+)$/i);
+  if(m && renderArticle(m[1])) return;
+  showHome(false);
+}
+window.addEventListener('hashchange',route);
+
+function openArticle(id){
+  if(location.hash === '#/story/'+id){ route(); }
+  else { location.hash = '#/story/'+id; }
+}
+
+document.getElementById('backBtn').onclick=()=>{
+  history.pushState(null,'',location.pathname+location.search);
+  showHome(true);
+};
+document.querySelectorAll('.brand').forEach(b=>{
+  b.addEventListener('click',()=>{
+    if(articleEl.classList.contains('show')){
+      history.pushState(null,'',location.pathname+location.search);
+      showHome(false);
+    }
+  });
+});
+document.querySelectorAll('#navLinks a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',()=>{
+    if(articleEl.classList.contains('show')){ showHome(false); }
+  });
+});
+
+route();
+
+/* --- contact link is a plain mailto --- */
+
+/* --- nav: solid on scroll + mobile toggle --- */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{
+  nav.classList.toggle('solid',scrollY>40);
+  document.querySelector('.hero').classList.toggle('scrolled-past', scrollY > window.innerHeight);
+});
+const navLinks=document.getElementById('navLinks'),navToggle=document.getElementById('navToggle');
+navToggle.onclick=()=>{const o=navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded',o);navToggle.textContent=o?'Close':'Menu';
+  nav.classList.toggle('menu-open',o);};
+navLinks.querySelectorAll('a').forEach(a=>a.onclick=()=>{navLinks.classList.remove('open');
+  navToggle.textContent='Menu';navToggle.setAttribute('aria-expanded','false');});
+
+/* --- scroll reveal: static markup elements get observed here; dynamic
+     ones (stories, portfolio grid) were already observed when created --- */
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* --- light image protection (a deterrent, not a lock — see notes) --- */
+function protectImages(){document.querySelectorAll('img.protect, .protect img').forEach(i=>{i.draggable=false;});}
+protectImages();
+
+/* Image protection: right-click + drag disabled on protected images only.
+   Text, links and quotes remain freely selectable/shareable. */
 (function(){
   let toastTimer;
   function showProtectToast(){
@@ -340,7 +1082,6 @@ a{color:inherit;text-decoration:none}
   function isProtectedImg(el){
     return el && el.tagName === 'IMG' && (el.classList.contains('protect') || el.closest('.protect'));
   }
-  document.querySelectorAll('img.protect').forEach(i=>{ i.draggable=false; });
   document.addEventListener('contextmenu', (e)=>{
     if(isProtectedImg(e.target)){ e.preventDefault(); showProtectToast(); }
   });
@@ -348,72 +1089,10 @@ a{color:inherit;text-decoration:none}
     if(isProtectedImg(e.target)){ e.preventDefault(); }
   });
 })();
+
+
+/* --- footer year --- */
+document.getElementById('copyright').textContent='© '+new Date().getFullYear()+' Prisho · prisho.org';
 </script>
-<nav class="nav" id="nav">
-  <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark"></a>
-  <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
-  <div class="nav-links" id="navLinks">
-    <a href="/#stories">Stories</a>
-    <a href="/#portfolio">Portfolio</a>
-    <a href="/#about">About</a>
-    <a href="/#prisho">Prisho</a>
-    <a href="/#contact">Contact</a>
-  </div>
-</nav>
-
-<article id="article" class="show" style="display:block">
-  <div class="art-hero">
-    <picture>
-      
-      <img src="/images/Ebridi/18082016-IMG_9547.jpg" alt="Freediving with the basking shark — 58°N 6°W · The Hebrides, Scotland" class="protect" style="--hero-pos:50% 50%">
-    </picture>
-  </div>
-  <div class="art-masthead">
-    <div class="wrap" style="max-width:680px">
-      <a class="back" href="/#stories">← All field notes</a>
-      <span class="label"><span class="tick">◦</span>58°N 6°W · The Hebrides, Scotland</span>
-      <h1>Freediving with the basking shark</h1>
-    </div>
-  </div>
-  <div class="block">
-    <div class="art-body" style="max-width:680px">
-      <p class="lead">Scotland surprises, the first time, with its sheer proximity. This is one of the wildest places left in Europe, and it sits closer to the rest of the continent than the wildness suggests it should — a short flight, sometimes just a train and a ferry, from cities where you would swear this kind of place could no longer exist. Oban deserves a night of its own before you go further: a working harbour town with a distillery rising behind the main street, and restaurants where the menu devotes many more pages to single malts than to food — not an affectation but a statement of cultural priorities, and a correct one. From Oban the road runs north and west until, finally, it reaches the bridge.</p>
-      <p>The Skye Bridge is an ordinary piece of engineering that functions as something else entirely: a threshold. You drive across it and the world on the far side is not the world you left. The weather changes every twenty minutes — full sun, then immediate cold wind and rain, then sun again, the island cycling through its seasons in a single afternoon as if demonstrating its range. Between weather events, Skye opens into wide, indefinite meadows — heather and wet grass and, in the right season, an extravagant quantity of wildflowers: marsh orchids, ragged robin, harebells, bog cotton, the deep pink of thrift along the clifftops. The ratio of animals to humans is impossible to ignore. Sheep everywhere — on the road, off the road, standing in a single-track passing place watching your approach with philosophical calm. And the Highland cattle, broad and shaggy and unhurried, in their palette of black, amber, pale yellow and near-cream — patchwork coats fading into the moorland as if they had grown from it, which in any meaningful sense they had.</p>
-      <figure class="art-figure"><img src="/images/Ebridi/19082016-DSC07314.jpg" alt="Highland cattle, unhurried on the moorland of Skye" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Highland cattle, unhurried on the moorland of Skye</figcaption></figure>
-      <figure class="art-figure"><img src="/images/Ebridi/11082016-DSC01313.jpg" alt="A sheep, unbothered, in a single-track passing place" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>A sheep, unbothered, in a single-track passing place</figcaption></figure>
-      <figure class="art-figure"><img src="/images/old-man-storr.jpg" alt="The Old Man of Storr · Isle of Skye" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>The Old Man of Storr · Isle of Skye</figcaption></figure>
-      <p>The roads are single-track with passing places — narrow strips of tarmac that push into the hills and the clifftop meadows without apology, requiring a cooperative choreography of reversing and waving when two cars meet. Driving them slowly is itself a way of understanding the island. At the north, the Old Man of Storr rises sixty metres above the ridge, a rocky pillar broken from the escarpment. The walk up to it was the surprise: a surreal silence the whole way, broken only by crows and the occasional goat picking across the rock, the kind of quiet that makes you lower your voice without deciding to. And then, at the top, the full force of the elements with no transition at all — driving wind and horizontal rain arriving from the west, the island’s whole temper concentrated into the summit. On the western coast, where the cliffs drop straight to the sea, white-tailed eagles ride the updrafts — the largest bird of prey in Britain, effortless and enormous — and below them fulmars and guillemots work the cliff face. Along the shore, oystercatchers: loud, black-and-white, orange-billed, never silent, the constant nervous soundtrack of the Hebridean coast. Kayaking at the base of the cliffs you share the water with grey seals, who surface alongside and consider you briefly before deciding you are not interesting. In the evenings the villages close early — a dock, a few small boats, a pub where the food menu is brief and the whisky list is not.</p>
-      <p>The Outer Hebrides feel different again. The mountains of Skye give way to open moorland, and the western shores of Lewis and the Uists face the Atlantic directly — the first solid land between here and Newfoundland. You feel the ocean’s force in the wind and the breaking surf, but also, strangely, its warmth and its light: the Gulf Stream keeps this coast improbably mild, and the afternoon light over the water has a quality of pure openness, the brightness of a horizon with nothing to interrupt it. And nothing prepares you for Luskentyre: a beach you simply do not expect to find here, the sand bleached almost white, the water turquoise and emerald in bands like something out of the tropics — spectacular enough that the cold, genuinely too much for me, Mediterranean as I am, stopped almost no one else. The air carries the smell of peat — earthy, smoky, faintly medicinal — rising from the bogs that have been cut here for fuel for centuries, and that give the island whiskies their particular smoke. Gannets fish in the Hebridean way, climbing high, tilting, then falling vertically into the sea at full speed — a white spike disappearing in a column of spray. Grey seals haul out on the outer rocks, present rather than abundant. The standing stones at Callanish on Lewis are almost five thousand years old, set in a ring above a sea loch by people who understood something about this place we are still trying to articulate. And the sunsets, at the western edge of Europe, use the full range of the sky — gold, orange, and then briefly a pink that has no precise name but that you do not forget.</p>
-      <figure class="art-figure wide"><img src="/images/Ebridi/15082016-DSC04191.jpg" alt="Luskentyre, Isle of Harris — sand bleached white, water turquoise and emerald" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Luskentyre, Isle of Harris — sand bleached white, water turquoise and emerald</figcaption></figure>
-      <figure class="art-figure wide"><img src="/images/callanish-stones.jpg" alt="Callanish Stones · a five-thousand-year-old ring on Lewis, at sunset" class="protect" loading="lazy"><figcaption class="label"><span class="tick">◦</span>Callanish Stones · a five-thousand-year-old ring on Lewis, at sunset</figcaption></figure>
-      <p>We had come for the basking shark, which meant crossing further out, to the Isle of Coll. The basking shark is one of the oldest things still swimming — unchanged in any significant way for millions of years, a gentle ghost that passes through the temperate seas of the world at its own pace, almost invisible in most of the oceans it haunts. It is the second-largest fish on earth and feeds entirely on plankton, cruising slowly at the surface with its enormous mouth open, filtering thousands of litres of water an hour. Here, in the summer months, in the plankton-rich channels between the islands, it is not a rarity but part of the landscape — a more visible presence than almost anywhere, moving among the seals and the other marine mammals as though it belonged to the scenery.</p>
-      <p>You find it by looking for the fin. A basking shark at the surface raises a large, rounded dorsal fin — not the sharp triangle of nightmares but something broad and deliberate, moving at a steady walking pace. You slip into the water some distance ahead of its line and wait. The water off Coll is cold and green and opaque — an emerald darkness, the kind of water that hides things — and you float in the silence of it, looking down and seeing nothing, looking across and seeing nothing, breathing slowly, aware only that something very large is coming from a direction you cannot read. And then it appears. There is no warning: a darkness in the green that resolves into a shape, and the shape becomes a mouth, and the mouth is open and vast — as wide as the front of a Fiat 500 — coming at you steadily, enormous, powerful, alien, with no apparent awareness of you at all. For a moment it is almost too much: a giant bearing down on you in the dark water. And then it is simply sublime, entirely in its element. Behind the open mouth the gill slits work continuously, and behind them the body — and it is unmistakably a shark in every line: the gills, the dorsal and pectoral fins, the whole powerful silhouette that belongs to nothing else. It does not deviate. It slides past you, powerful and unbothered, and the caudal fin, when it finally arrives, is enormous — a slow, infinite sweep of a tail — and then it is gone, fading into the green, the great fin the last thing visible before the ocean takes it back.</p>
-      <p class="pullquote">It swam harmless close to us; I had the feeling that a silent van was driving in front of me.</p>
-      <aside class="art-box conservation"><span class="label"><span class="tick">◦</span>Why it matters</span><p>The basking shark is the second-largest fish in the world and entirely harmless — a plankton filter-feeder that has been moving through temperate seas for millions of years. The Hebrides host one of the most important seasonal aggregations anywhere, and since 2020 a large area of sea off the west coast of Scotland has been designated a Marine Protected Area specifically for them. The more complicated conservation story here is the one happening beneath the surface everywhere you look: salmon farming. Scotland’s farmed salmon is the UK’s single biggest food export, worth over a billion pounds a year, and more than two hundred open-net farms sit in these waters, concentrated off the Outer Hebrides and the west coast. The environmental charge sheet is long — sea lice and disease spreading to collapsing wild salmon populations, chemical pollution, mass die-offs during marine heatwaves, and tens of thousands of farmed fish escaping through nets torn open by storms. And the seals are the sharpest edge of the conflict: drawn to the easy food, they become entangled in predator nets or are deterred by acoustic devices that disturb seals and cetaceans across miles of sea. It is a quietly brutal economy operating in the same emerald water where the basking shark, indifferent to all of it, still passes through each summer.</p></aside>
-      <aside class="art-box fieldnotes"><span class="label"><span class="tick">◦</span>Field notes</span><p>The shark season runs roughly June to August, when plankton blooms draw them to the surface in the channels between Coll, Tiree and Mull; operators sail from Oban and the inner isles. But the real challenge is the weather, not the wildlife. On my first serious attempt at this kind of photography, the hardest part by far was the sky: light that changes every few minutes, sudden heavy rain arriving from nowhere, and the need to read the gap — to catch the second burst of sun between two weather fronts and be ready in the water when it came. Bring more weatherproofing than you think you need, for yourself and the camera, and budget more days than the encounter itself requires; the Hebrides give their best light briefly and without warning.</p></aside>
-    </div>
-    <div class="art-share" style="max-width:680px;margin-inline:auto;padding-inline:var(--gut);margin-top:3rem;padding-top:2rem;border-top:1px solid var(--ink-3);display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap">
-      <span class="share-label" style="font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sand-dim)">Share this essay</span>
-      <a href="https://wa.me/?text=Freediving with the basking shark%20https://prisho.org/stories/hebrides/" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ochre)">WhatsApp</a>
-      <a href="https://twitter.com/intent/tweet?text=Freediving with the basking shark&url=https://prisho.org/stories/hebrides/" target="_blank" rel="noopener" style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ochre)">X</a>
-      <a href="mailto:?subject=Freediving with the basking shark&body=https://prisho.org/stories/hebrides/" style="font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--ochre)">Email</a>
-    </div>
-  </div>
-</article>
-
-<footer class="foot">
-  <div class="foot-top">
-    <a class="brand" href="/" aria-label="Prisho — home"><img src="/images/prisho-wordmark-bone.png" alt="Prisho" class="brand-mark foot-mark"></a>
-    <div class="foot-links">
-      <a href="/#stories">Stories</a><a href="/#portfolio">Portfolio</a>
-      <a href="/#about">About</a><a href="/#contact">Contact</a>
-      <a href="https://instagram.com/prisho_wild" target="_blank" rel="noopener">Instagram</a>
-    </div>
-  </div>
-  <div class="foot-base">
-    <span id="copyright"></span>
-    <span>All photographs © Prisho · do not reproduce without permission</span>
-  </div>
-</footer>
 </body>
 </html>
